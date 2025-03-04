@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prom Network Beauty</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #121212;
+            color: #ffffff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .photo {
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+
+        .book-now {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 15px;
+            background: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .book-now:hover {
+            background: #e64a19;
+        }
+
+       
+        .camera-sticker {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 140px;
+            animation: moveCamera 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes moveCamera {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-20px);
+            }
+        }
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            text-align: center;
+            color: white;
+            margin-top: 5px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Prom Network Beauty</h1>
+    <p>Look Good</p>
+    <img src="logo.png" alt="Camera Sticker" class="camera-sticker">
+    <section class="gallery">
+        <div class="photo">
+            <img src="makeup1.jpg" alt="Photo 1">
+            <button class="book-now">Book Now</button>
+        </div>
+        <div class="photo">
+            <img src="makeup2.jpg" alt="Photo 2">
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>
+        <div class="photo">
+            <img src="makeup4.jpg" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>
+        <div class="photo">
+            <img src="makeupa.jpg" alt="Photo 4">
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>
+      
+        <div class="photo">
+            <img src="makeup5.jpg" alt="Photo 7">
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>
+
+
+        <div class="photo">
+            <img src="makeup7.jpg" alt="Photo 10">
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>
+    </section>
+    <div class="footer">
+        <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS tech</p>
+    </div>
+
+    <img src="logo.png" alt="Camera Sticker" class="camera-sticker">
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prom Network Fashion</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        h1{
+            font-size: xx-large;
+            padding: 20px;
+            font-weight: bolder;
+            color: #fffdfd;
+        }
+        h2{
+            font-weight: lighter;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: rgb(255, 255, 255);
+            padding: 10px;
+        }
+        h3{
+            font-weight: lighter;
+        }
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            text-align: center;
+            color: white;
+            margin-top: 5px;
+        }
+        body {
+            background: linear-gradient(to right, rgb(31, 8, 49), rgb(67, 2, 59));
+            color: #ffffff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .gallery {
+            margin-top: 70px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .photo {
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .camera-sticker {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 140px;
+            animation: moveCamera 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes moveCamera {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-20px);
+            }
+        }
+        .photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 5px;
+        }
+        .book-now {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 15px;
+            background: #ff5722;
+            color: white;
+            text-decoration:none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+           
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>PROM NETWORK FASHION</h1>
+  
+    <h2>Drip like a king with our outfits</h2>
+    <h3>Choose what your intrested in.</h3>
+
+    <section class="gallery">
+        <div class="photo">
+            <img src="suitexx.jpg" alt="Photo 1">
+            <p>Gental Clothes</p>
+            <button class="book-now"><a href="Gental.html">Tap for
+                More Gentals</a></button>
+            </div>
+            <div class="photo">
+                <img src="ladyx.jpg" alt="Photo 1">
+                <p>Ladies Clothes</p>
+                <button class="book-now"><a href="Ladies.html">Tap for Ladies clothes</a></button>
+                </div>
+             
+        </div>
+        <div class="photo">
+            <img src="shoes.jpg" alt="Photo 2">
+            <p>Shoes</p>
+            <button class="book-now"><a href="shoes.html">Tap for
+                More Men's Shoes</a></button>
+        </div>
+        <div class="photo">
+            <img src="shoes222.jpg" alt="Photo 3">
+            <p>Men Swag clothes</p>
+            <button class="book-now">
+                <a href="swag outfits.html">Tap for More swag clothes</a></button>
+        </div>
+        <div class="photo">
+            <img src="shirt18.jpg" alt="Photo 4">
+            <p>Calture Outfits</p>
+            <button class="book-now"><a href="suits.html">Tap for
+                More Calture Clothes</a></button>
+        </div>
+        <div class="photo">
+            <img src="makeup7.jpg" alt="Photo 5">
+            <p>Accesories</p>
+            <button class="book-now"><a href="suits.html">Tap for
+                More Accesories</a></button>
+        </div>
+                <div class="photo">
+                    <img src="perfume1.jpg" alt="Photo 5">
+                    <p>Perfumes</p>
+                    <button class="book-now"><a href="">Tap for
+                        More Accesories</a></button>
+        </div>
+    </section>
+    <img src="logo.png" alt="Camera Sticker" class="camera-sticker">
+    <div class="footer">
+        <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS tech</p>
+    </div>
+
+  
+</body>
+</html>

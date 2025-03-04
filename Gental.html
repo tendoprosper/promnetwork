@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prom Network Gentals </title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, rgb(28, 1, 1), rgb(1, 8, 71));
+            color: #ffffff;
+        }
+        h3{
+           
+            font-weight: lighter;
+            font-size: xx-small;
+        }
+        
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #222;
+            color: white;
+        }
+
+        .navbar-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('fashion-banner.jpg') no-repeat center center/cover;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        /* Product Grid */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .product {
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            text-align: center;
+            color: white;
+            margin-top: 5px;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product:hover img {
+            transform: scale(1.);
+        }
+        
+        .camera-sticker {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 140px;
+            animation: moveCamera 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes moveCamera {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-20px);
+            }
+        }
+        .Rent {
+            display: block;
+            margin: 10px auto;
+            padding: 5px 5px;
+            background: #ff5722;
+            color: white;
+            text-decoration:none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            
+            
+        }
+
+
+        .Rent:hover {
+            background: #d20505;
+        }
+        a{
+            text-decoration: none;
+            font-weight: bolder;
+        }
+        .Buy{
+
+            display: block;
+            margin: 10px auto;
+            padding: 5px 5px;
+            background: #97eb06;
+            color: white;
+            
+            text-decoration:none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+
+        
+    }
+        .Buy:hover {
+            background: #d20505;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #333;
+            }
+
+            .nav-links a {
+                padding: 12px;
+                display: block;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <header class="hero">Prom Network Gentals</header>
+
+    <section class="products">
+        <div class="product">
+            <img src="suita.jpg" alt="Trendy Dress">
+            <h3>Gray Single Breast</h3>
+            <a href="messaging.html"><button class="Rent">Rent at UGX160,000</button></a> 
+            <a href="messaging.html"><button class="Buy">Buy at UGX400,000</button></a> 
+        </div>
+        <div class="product">
+            <img src="suitx.jpg" alt="Elegant Suit">
+            <h3>Black Single Breast</h3>
+            <a href="messaging.html"><button class="Rent">Rent at UGX160,000</button></a> 
+            <a href="messaging.html"><button class="Buy">Buy at UGX450,000</button></a> 
+        </div>
+        <div class="product">
+            <img src="s2.jpg" alt="Casual Wear">
+            <h3>Blue Single Breast</h3>
+            <a href="messaging.html"><button class="Rent">Rent at UGX150,000</button></a> 
+            <a href="messaging.html"><button class="Buy">Buy at UGX300,000</button></a> 
+        </div>
+       
+        </div>
+        <div class="product">
+            <img src="s4.jpg" alt="Classic Jeans">
+            <h3>Navy Double Breast</h3>
+            <a href="messaging.html"><button class="Rent">Rent at UGX18,000</button></a> 
+            <a href="messaging.html"><button class="Buy">Buy at UGX450,000</button></a> 
+        </div>
+        <div class="product">
+            <img src="s6.jpg" alt="Cool T-Shirt">
+            <h3>Green Double Breast</h3>
+            <a href="messaging.html"><button class="Rent">Rent at UGX180,000</button></a> 
+            <a href="messaging.html"><button class="Buy">Buy at UGX500,000</button></a> 
+        </div>
+        <div class="product">
+            <img src="s7.jpg" alt="Fashionable Shoes">
+            <h3>Pink Single Breast</h3>
+            <a href="messaging.html"><button class="Rent">Rent at UGX150,000</button></a> 
+            <a href="messaging.html"><button class="Buy">Buy at UGX300,000</button></a> 
+        </div>
+        <div class="product">
+            <img src="s8.jpg" alt="Comfy Hoodie">
+            <h3>gray single Button</h3>
+            <a href="messaging.html"><button class="Rent">Rent at UGX150,000</button></a> 
+            <a href="messaging.html"><button class="Buy">Buy at UGX300,000</button></a> 
+        </div>
+        <div class="product">
+            <img src="s9.jpg" alt="Stylish Hat">
+            <h3>White Single Button</h3>
+            <a href="messaging.html"><button class="Rent">Rent at UGX150,000</button></a> 
+            <a href="messaging.html"><button class="Buy">Buy at UGX300,000</button></a> 
+        </div>
+        <div class="product">
+            <img src="suitc.jpg" alt="Elegant Scarf">
+            <h3>Lime Single Button</h3>
+            <a href="messaging.html"><button class="Rent">Rent at UGX155,000</button></a> 
+            <a href="messaging.html"><button class="Buy">Buy at UGX300,000</button></a> 
+        </div>
+        <div class="product">
+            <img src="p1.jpg" alt="Elegant Scarf">
+            <h3>Black Gental pant</h3>
+            <a href="messaging.html"><button class="Buy">Buy at UGX60,500</button></a> 
+        </div>
+        <div class="product">
+            <img src="p2.jpg" alt="Elegant Scarf">
+            <h3> White Gental pant</h3>
+            <a href="messaging.html"><button class="Buy">Buy at UGX60,500</button></a> 
+        </div>
+        <div class="product">
+            <img src="p3.jpg" alt="Elegant Scarf">
+            <h3>Maroon Gental pant</h3>
+            <a href="messaging.html"><button class="Buy">Buy at UGX60,500</button></a> 
+        </div>
+        <div class="product">
+            <img src="p4.jpg" alt="Elegant Scarf">
+            <h3>Black Gental pant</h3> 
+            <a href="messaging.html"><button class="Buy">Buy at UGX60,500</button></a> 
+        </div>
+        <div class="product">
+            <img src="p5.jpg" alt="Elegant Scarf">
+            <h3>Any color you want </h3>
+            <a href="messaging.html"><button class="Buy">Buy at UGX50,000</button></a> 
+        </div>
+        <div class="product">
+            <img src="suitd.jpg" alt="Elegant Scarf">
+            <h3>Classic Suit </h3>
+            <a href="messaging.html"><button class="Buy">Buy at UGX700,000</button></a> 
+        </div>
+        <div class="product">
+            <img src="suity.jpg" alt="Elegant Scarf">
+            <h3>Double button burggy Suit </h3>
+            <a href="messaging.html"><button class="Buy">Buy at UGX55,000</button></a> 
+        </div>
+        <div class="product">
+            <img src="suitz.jpg" alt="Elegant Scarf">
+            <h3>Pink double button Suit </h3>
+            <a href="messaging.html"><button class="Buy">Buy at UGX500,000</button></a> 
+        </div>
+     
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleButton = document.querySelector(".navbar-toggle");
+            const navLinks = document.querySelector(".nav-links");
+
+            toggleButton.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        });
+    </script>
+    <img src="logo.png" alt="Camera Sticker" class="camera-sticker">
+       <div class="footer">
+        <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS tech</p>
+    </div>
+</body>
+</html>

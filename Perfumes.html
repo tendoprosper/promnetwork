@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prom Network Makeup</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #121212;
+            color: #ffffff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .photo {
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            font-weight: bolder;
+        }
+
+        .Buy {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 15px;
+            background: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .Buy:hover {
+            background: #e64a19;
+        }
+
+       
+        .camera-sticker {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 140px;
+            animation: moveCamera 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes moveCamera {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-20px);
+            }
+        }
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            text-align: center;
+            color: white;
+            margin-top: 5px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Prom Network Perfumes</h1>
+    <p>Pick the best for your ceremony</p>
+
+    <section class="gallery">
+        <div class="photo">
+            
+                <img src="images/perfume2.jpg" alt="Perfume">
+                <h3>Body Spray</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume3.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume4.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume5.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume6.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume7.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume8.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume9.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume10.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume11.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume12.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume13.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume14.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume15.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume16.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume17.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+            <div class="photo">
+                <img src="images/perfume18.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+ 
+            <div class="photo">
+                <img src="images/perfume19.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+                <a href="messaging.html"><button class="Buy">Buy</button></a> 
+            </div>
+        
+   
+        </div>
+    </section>
+    <div class="footer">
+        <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS tech</p>
+    </div>
+
+    <img src="logo.png" alt="Camera Sticker" class="camera-sticker">
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prom Network Ladies Clothes </title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, rgb(28, 1, 1), rgb(164, 15, 145));
+            color: #ffffff;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #ed21e7;
+            color: white;
+        }
+
+        .navbar-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: palevioletred;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        p {
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: rgba(245, 136, 136, 0.584);
+            font-size: 2em;
+            font-weight: light;
+
+        }
+
+        /* Product Grid */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .product {
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product:hover img {
+            transform: scale(1.);
+        }
+        
+        .camera-sticker {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 140px;
+            animation: moveCamera 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes moveCamera {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-20px);
+            }
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            text-align: center;
+            color: white;
+            margin-top: 5px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .Rent {
+            
+            display: block;
+            margin: 10px auto;
+            padding: 5px 5px;
+            background: #3f06eb;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            font-weight: bolder;
+        }
+
+        .Rent:hover {
+            background: #d20505;
+        }
+
+        .Buy {
+            font-weight: bolder;
+            display: block;
+            margin: 10px auto;
+            padding: 5px 5px;
+            background: #97eb06;
+            color: rgb(0, 0, 0);
+
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+
+
+        }
+        .sticker-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            animation: moveSticker 3s infinite alternate ease-in-out;
+        }
+        .sticker-container img {
+            width: 80px;
+            height: auto;
+        }
+        .sticker-text {
+            font-size: 20px;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            margin-left: 10px;
+            animation: moveText 3s infinite alternate ease-in-out;
+        }
+        @keyframes moveSticker {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(10px); }
+        }
+        @keyframes moveText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(8px); }
+        }
+
+        .Buy:hover {
+            background: #d20505;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #333;
+            }
+
+            .nav-links a {
+                padding: 12px;
+                display: block;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">Prom Network Ladies Clothes </header>
+    <p>Make a choice</p>
+
+    <section class="products">
+        <div class="product">
+            <img src="clts.jpg" alt="Trendy Dress">
+            <h2>UGX8,5000</h2>
+            <a href="messaging.html"><button class="Buy">Buy</button></a>
+        </div>
+        <div class="product">
+            <img src="clts2.jpg" alt="Trendy Dress">
+            <h2>UGX90,000</h2>
+            <a href="messaging.html"><button class="Buy">Buy</button></a>
+        </div>
+        <div class="product">
+            <img src="clts3.jpg" alt="Trendy Dress">
+            <H2>UGX65000</H2>
+            <a href="messaging.html"><button class="Buy">Buy</button></a>
+        </div>
+        
+
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleButton = document.querySelector(".navbar-toggle");
+            const navLinks = document.querySelector(".nav-links");
+
+            toggleButton.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        });
+    </script>
+    <img src="logo.png" alt="Camera Sticker"class="camera-sticker">
+    <div class="footer">
+        <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS tech</p>
+    </div>
+    <div class="sticker-container">
+        <img src="chair2.png" alt="Sticker" id="sticker">
+        <span class="sticker-text">Vote Lubega Soul LC3</span>
+    </div>
+</body>
+
+</html>

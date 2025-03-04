@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #ffffff;
+        }
+        .container {
+            background: rgb(209, 28, 28);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 5px;
+        }
+        .sticker {
+            position: sticky;
+            bottom: 70px;
+            right: 30px;
+            width: 100px;
+            height: 100px;
+            margin-left: 40px;
+        }
+        .sticker img {
+            width: 100%;
+            height: 100%;
+            animation: bounce 1.2s infinite;
+        }
+        .text {
+            position: fixed;
+            bottom: 110px;
+            right: 20px;
+            font-size: 18px;
+            color: #333;
+            opacity: 0;
+            animation: fadeIn 3s forwards 5s;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 10; }
+            100% { opacity: 10; }
+        }
+
+        input, select {
+            width: 100%;
+            padding: 6px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            background: #05eb3b;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background: #f21e02;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="logo.png" alt="Logo" class="logo">
+    <h3>Order Now</h3>
+    <form action="https://formsubmit.co/tendoprosper28@gmail.com" method="POST">
+        <input type="text" name="product" placeholder="Product Name" required>
+        <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required>
+        <select name="buy_rent" required>
+            <option value="" disabled selected>Buy or Rent?</option>
+            <option value="buy">Buy</option>
+            <option value="rent">Rent</option>
+        </select>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="location" placeholder="Location" required>
+        <input type="text" name="date" placeholder="When do u want it" required>
+        <button type="submit">Submit</button>
+        
+        <input type="hidden" name="_subject" value="New Order Received!">
+        <input type="hidden" name="_captcha" value="false">
+    </form>
+</div>
+
+<div class="sticker">
+    <img src="chair2.png" alt="Sticker">
+    <span class="sticker-text">Vote Lubega Soul LC3</span>
+</div>
+
+</body>
+</html>

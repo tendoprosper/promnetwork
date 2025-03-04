@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prom Network Photography</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #121212;
+            color: #ffffff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .photo {
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            text-align: center;
+            color: white;
+            margin-top: 5px;
+        }
+
+        .book-now {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 15px;
+            background: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .book-now:hover {
+            background: #e64a19;
+        }
+
+        .camera-sticker {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 100px;
+            animation: moveCamera 3s infinite alternate ease-in-out;
+        }
+
+        @keyframes moveCamera {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Prom Network Photography</h1>
+    <p>Capture your best moments with us!</p>
+
+    <section class="gallery">
+        <div class="photo">
+            <img src="ph.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>
+        <div class="photo">
+            <img src="ph1.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>
+        <div class="photo">
+            <img src="ph2.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>
+        <div class="photo">
+            <img src="im1.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>
+        <div class="photo">
+            <img src="im2.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>
+        <div class="photo">
+            <img src="im3.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>
+        <div class="photo">
+            <img src="ph3.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>  <div class="photo">
+            <img src="ph4.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>
+        <div class="photo">
+            <img src="ph5.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>
+        <div class="photo">
+            <img src="ph6.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>  <div class="photo">
+            <img src="ph7.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>  <div class="photo">
+            <img src="ph8.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>  <div class="photo">
+            <img src="ph9.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>  <div class="photo">
+            <img src="ph10.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>  <div class="photo">
+            <img src="ph11.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>  <div class="photo">
+            <img src="ph12.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+        </div>  <div class="photo">
+            <img src="ph13.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+       </div>
+       </div>  <div class="photo">
+            <img src="graph.jpg" alt="Photo 1">
+            <p>PROM NETWORK</p>
+            <a href="messaging.html"><button class="Buy">Book now</button></a> 
+       </div>
+
+
+
+    </section>
+    <img src="logo.png" alt="Camera Sticker" class="camera-sticker">
+        <div class="footer">
+            <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS tech</p>
+        </div>
+    
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prom Network Ladies Accesories </title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, rgb(28, 1, 1), rgb(164, 15, 145));
+            color: #ffffff;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #ed21e7;
+            color: white;
+        }
+
+        .navbar-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: palevioletred;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        p {
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: rgba(245, 136, 136, 0.584);
+            font-size: 2em;
+            font-weight: light;
+
+        }
+
+        /* Product Grid */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .product {
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product:hover img {
+            transform: scale(1.);
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            text-align: center;
+            color: white;
+            margin-top: 5px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        
+        .camera-sticker {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 140px;
+            animation: moveCamera 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes moveCamera {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-20px);
+            }
+        }
+
+        .Rent {
+
+            display: block;
+            margin: 10px auto;
+            padding: 5px 5px;
+            background: #3f06eb;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            font-weight: bolder;
+        }
+
+        .Rent:hover {
+            background: #d20505;
+        }
+
+        .Buy {
+            font-weight: bolder;
+            display: block;
+            margin: 10px auto;
+            padding: 5px 5px;
+            background: #97eb06;
+            color: rgb(0, 0, 0);
+
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+
+
+        }
+
+        .Buy:hover {
+            background: #d20505;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #333;
+            }
+
+            .nav-links a {
+                padding: 12px;
+                display: block;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header class="hero">Prom Network Ladies Accesories</header>
+    <p>Make a choice</p>
+
+    <section class="products">
+        <div class="product">
+            <img src="r4.jpg" alt="Trendy Dress">
+            <h3>RING</h3>
+            <a href="messaging.html"><button class="Buy">Buy</button></a>
+        </div>
+        <div class="product">
+            <img src="r5.jpg" alt="Trendy Dress">
+            <h3>RING</h3>
+            <a href="messaging.html"><button class="Buy">Buy</button></a>
+        </div>
+        <div class="product">
+            <img src="r6.jpg" alt="Trendy Dress">
+            <a href="messaging.html"><button class="Buy">Buy</button></a>
+        </div>
+        <div class="product">
+            <img src="r11].jpg" alt="Trendy Dress">
+            <a href="messaging.html"><button class="Buy">Buy</button></a>
+        </div>
+        <div class="product">
+            <img src="r12.jpg" alt="Trendy Dress">
+            <a href="messaging.html"><button class="Buy">Buy</button></a>
+        </div>
+        <div class="product">
+            <img src="r28.jpg" alt="Trendy Dress">
+            <a href="messaging.html"><button class="Buy">Buy</button></a>
+        </div>
+        <div class="product">
+            <img src="r39.jpg" alt="Trendy Dress">
+            <a href="messaging.html"><button class="Buy">Buy</button></a>
+        </div>
+        <div class="product">
+            <img src="belt1.jpg" alt="Trendy Dress">
+            <a href="messaging.html"><button class="Buy">Buy</button></a>
+        </div>
+        <div class="product">
+            <img src="belt2.jpg" alt="Trendy Dress">
+            <a href="messaging.html"><button class="Buy">Buy</button></a>
+        </div>
+        <div class="product">
+            <img src="belt3.jpg" alt="Trendy Dress">
+            <a href="messaging.html"><button class="Buy">Buy</button></a>
+        </div>
+        <div class="product">
+            <img src="belt4.jpg" alt="Trendy Dress">
+            <a href="messaging.html"><button class="Buy">Buy</button></a>
+
+        </div>
+
+
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleButton = document.querySelector(".navbar-toggle");
+            const navLinks = document.querySelector(".nav-links");
+
+            toggleButton.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        });
+    </script>
+    <img src="logo.png" alt="Camera Sticker" class="camera-sticker">
+    <div class="footer">
+        <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS tech</p>
+    </div>
+</body>
+
+</html>

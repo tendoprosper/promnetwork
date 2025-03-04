@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prom Network Sports</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            text-align: center;
+            color: white;
+            margin-top: 5px;
+        }
+
+        body {
+          background: linear-gradient(to right, rgb(28, 1, 1), rgb(74, 9, 72));
+            color: #ffffff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 0px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        .photo {
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+           
+        }
+
+        .photo:hover {
+            
+        }
+
+        .Buy {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 15px;
+            background: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .Buy:hover {
+            background: #27d604;
+            transform: scale(1.05);
+        }
+
+        .camera-sticker {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 140px;
+            animation: moveCamera 2s infinite alternate ease-in-out;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        @keyframes moveCamera {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-30px);
+            }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        @media screen and (max-width: 480px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Prom Network Sports</h1>
+    <p>Capture your best moments with us!</p>
+
+    <section class="gallery">
+        <div class="photo">
+            <img src="liverpool1.webp" alt="Photo 1">
+            <a href="messaging.html"><button class="Buy">Buy at UGX25000</button></a>
+        </div>
+     
+        <div class="photo">
+            <img src="liverpool2.jpg" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Buy at UGX25000</button></a>
+        </div>
+        <div class="photo">
+            <img src="arsenal 1.jpg" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Buy at UGX25000</button></a>
+        </div>
+        <div class="photo">
+            <img src="arsenal2.webp" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Buy at UGX25000</button></a>
+        </div>
+        <div class="photo">
+            <img src="manu.webp" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Buy at UGX25000</button></a>
+        </div>
+        <div class="photo">
+            <img src="manu2.jpg" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Buy at UGX25000</button></a>
+        </div>
+        <div class="photo">
+            <img src="city1.jpg" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Buy at UGX25000</button></a>
+        </div>
+        <div class="photo">
+            <img src="el.jpg" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Buy at UGX25000</button></a>
+        </div>
+        <div class="photo">
+            <img src="ug.jpg" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Buy at UGX25000</button></a>
+        </div>
+        <div class="photo">
+            <img src="ug2.jpg" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Buy at UGX25000</button></a>
+        </div>
+        <div class="photo">
+            <img src="bb.jpg" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Buy at UGX45000</button></a>
+        </div>
+        <div class="photo">
+            <img src="hk.jpg" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Buy at UGX45000</button></a>
+        </div>
+        <div class="photo">
+            <img src="hk2.jpg" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Buy at UGX45000</button></a>
+        </div>
+        <div class="photo">
+            <img src="hk3.jpg" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Buy at UGX35000</button></a>
+        </div>
+        <div class="photo">
+            <img src="fbs.jpg" alt="Photo 3">
+            <a href="messaging.html"><button class="Buy">Buy at UGX110000</button></a>
+        </div>
+        
+ 
+    </section>
+    
+    <a href="https://shotz.yalla-shoot-tv.live/home18/"><button class="Buy">TAP TO WATCH LIVE FOOTBALL</button></a>
+    <img src="logo.png" alt="Camera Sticker" class="camera-sticker">
+    <div class="footer">
+        <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS tech</p>
+    </div>
+</body>
+</html>
