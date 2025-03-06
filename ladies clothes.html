@@ -324,6 +324,15 @@
                 navLinks.classList.toggle("active");
             });
         });
+        document.addEventListener("scroll", function() {
+    let elements = document.querySelectorAll(".hidden");
+    elements.forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+            el.classList.add("show");
+        }
+    });
+});
+
     </script>
     <img src="logo.png" alt="Camera Sticker"class="camera-sticker">
 
