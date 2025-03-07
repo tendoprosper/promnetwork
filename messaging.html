@@ -110,6 +110,28 @@
     <img src="chair2.png" alt="Sticker">
     <span class="sticker-text">Vote Lubega Saulo Yombo LC3 Kiringente</span>
 </div>
+  <script>
+        document.getElementById("orderForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            var formData = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                order: document.getElementById("Product").value
+                order: document.getElementById("Product Number").value
+            order: document.getElementById("Location").value
+            order: document.getElementById("When do you want it").value
+            
+            };
 
+            fetch("https://tendoprosper.github.io/promnetwork/", {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            }).then(() => alert("Order submitted successfully!"));
+        });
+    </script>
 </body>
 </html>
+
