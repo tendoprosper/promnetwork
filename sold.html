@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Sold Out - Check Back Soon!</title>
+    <img src="logo.png" alt="Logo" class="logo">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Intro Section -->
+        <header class="intro">
+            <h1>We're sorry!</h1>
+            <p>It looks like the product you were looking for is currently sold out.</p>
+        </header>
+
+        <!-- Main Message Section -->
+        <div class="message-box">
+            <h2>Product Sold Out</h2>
+            <p>Don't worry, though! We're always updating our stock with new and exciting products. Check back later for something similar, or even better!</p>
+            <div class="cta-container">
+                <button onclick="location.reload()">Refresh the page</button>
+                <button onclick="window.location.href='index.html'">Go to Homepage</button>
+                
+            </div>
+        </div>
+
+        <!-- Conclusion Section -->
+        <footer class="conclusion">
+            <p>Thank you for your patience. We can't wait to bring you something new!</p>
+        </footer>
+    </div>
+    <style>
+        /* General Body Styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #060607, #ffffff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.page-container {
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    animation: fadeIn 1s ease-out;
+}
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+}
+
+/* Intro Section */
+.intro {
+    margin-bottom: 30px;
+}
+
+.intro h1 {
+    font-size: 36px;
+    color: #dc3545; /* Red for attention */
+    font-weight: bold;
+}
+
+.intro p {
+    font-size: 18px;
+    color: #495057;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Message Box Styling */
+.message-box {
+    padding: 25px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.message-box h2 {
+    font-size: 28px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.message-box p {
+    font-size: 18px;
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.cta-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Conclusion Section */
+.conclusion {
+    font-size: 16px;
+    color: #495057;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Animation for fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 15px;
+    }
+
+    .intro h1 {
+        font-size: 28px;
+    }
+
+    .message-box h2 {
+        font-size: 24px;
+    }
+
+    .message-box p {
+        font-size: 16px;
+    }
+
+    .cta-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro h1 {
+        font-size: 24px;
+    }
+
+    .message-box h2 {
+        font-size: 22px;
+    }
+
+    .message-box p {
+        font-size: 14px;
+    }
+
+    .cta-container button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+    </style>
+
+    <script src="script.js"></script>
+</body>
+</html>
