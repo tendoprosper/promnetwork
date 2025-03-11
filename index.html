@@ -66,6 +66,40 @@
         a{
           text-decoration: none;
         }
+        /* Apply a stylish background */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), 
+                url('your-background-image.jpg') no-repeat center center/cover;
+    color: #fff; /* Adjust text color for readability */
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Adding a subtle animated glow effect */
+@keyframes backgroundGlow {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.2); }
+    100% { filter: brightness(1); }
+}
+
+body {
+    animation: backgroundGlow 10s infinite alternate;
+}
+
+/* Optional: Add a frosted glass effect to content boxes */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
       
     </style>
 </head>
