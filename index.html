@@ -67,6 +67,7 @@
           text-decoration: none;
         }
         /* Apply a stylish background */
+/* Apply a stylish background */
 body {
     margin: 0;
     padding: 0;
@@ -74,10 +75,12 @@ body {
                 url('your-background-image.jpg') no-repeat center center/cover;
     color: #fff; /* Adjust text color for readability */
     font-family: 'Poppins', sans-serif;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    transition: background 0.5s ease-in-out;
 }
 
 /* Adding a subtle animated glow effect */
@@ -98,7 +101,35 @@ body {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    width: 400px;
 }
+
+/* Responsive design for tablets and smaller devices */
+@media (max-width: 768px) {
+    body {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), 
+                    url('your-background-image-mobile.jpg') no-repeat center center/cover;
+    }
+    
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+}
+
 
       
     </style>
