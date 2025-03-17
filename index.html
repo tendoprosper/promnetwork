@@ -12,11 +12,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: linear-gradient(135deg, #1e3c72, #cb6d26);
             color: white;
         }
+
         header {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(255, 255, 255, 0.3);
             color: white;
             padding: 20px;
             text-align: center;
@@ -24,9 +25,16 @@
             align-items: center;
             justify-content: space-between;
         }
+        a{
+            color: black;
+            text-decoration: none;
+            font-size: large;
+            
+        }
         .logo {
-            width: 60px;
-            height: 60px;
+            
+            width: 150px;
+            height: 100px;
         }
         nav ul {
             list-style: none;
@@ -53,6 +61,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .service-card {
+            
             display: inline-block;
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
@@ -95,7 +104,7 @@
                 text-align: center;
             }
             nav ul li {
-                margin: 10px 0;
+                margin: 2px 1px;
             }
             .service-card {
                 display: block;
@@ -103,6 +112,10 @@
                 margin: 10px auto;
             }
         }
+        h2,p{
+            text-align: center;
+        }
+      
     </style>
 </head>
 <body>
@@ -126,31 +139,24 @@
     <section id="services">
         <h2>Our Services</h2>
         <a href="fashiiii.html" target="_blank" class="service-card scale-up">Fashion</a>
-        <a href="photography.html" target="_blank" class="service-card scale-up">Photography</a>
-        <a href="catering services.html" target="_blank" class="service-card scale-up">Catering</a>
-        <a href="Makeup.html" target="_blank" class="service-card scale-up">Beauty</a>
-        <a href="transportation.html" target="_blank" class="service-card scale-up">Transportation</a>
-        <a href="music.html" target="_blank" class="service-card scale-up">Sound System</a>
-        <a href="Sports.html" target="_blank" class="service-card scale-up">Sports</a>
-        <a href="video.html" target="_blank" class="service-card scale-up">Video Gallery</a>
+        <a href="photography.html" target="_blank" class="service-card scale-up">Tap for Photography</a>
+        <a href="catering services.html" target="_blank" class="service-card scale-up">Tap for Catering</a>
+        <a href="Makeup.html" target="_blank" class="service-card scale-up">Tap for Beauty</a>
+        <a href="transportation.html" target="_blank" class="service-card scale-up">Tap for Transportation</a>
+        <a href="music.html" target="_blank" class="service-card scale-up">Tap for Sound System</a>
+        <a href="Sports.html" target="_blank" class="service-card scale-up">Tap for Sports</a>
+        <a href="video.html" target="_blank" class="service-card scale-up">Tap for Video Gallery</a>
 
     </section>
     
     <section id="contact">
         <h2>Contact Us</h2>
         <form id="contactForm">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
+            <p>+256 702 640109<p>
+            <p>+256 701 424396<p>
+<p>tendoprosper28@gmil.com<p>
         </form>
     </section>
     
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Message sent!');
-        });
-    </script>
 </body>
 </html>
