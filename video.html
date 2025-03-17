@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Gallery</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px;
+      background-color: #333;
+      animation: fadeIn 2s ease-out;
+    }
+
+    header .logo img {
+      width: 150px;
+      animation: logoAnim 3s infinite alternate;
+    }
+
+    .video-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .video-card {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .video-card:hover {
+      transform: scale(1.05);
+    }
+
+    .video-card video {
+      width: 100%;
+      height: auto;
+      border: none;
+    }
+
+    .video-card p {
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes logoAnim {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Responsive for smaller devices */
+    @media (max-width: 768px) {
+      header .logo img {
+        width: 120px;
+      }
+    }
+
+    .load-more-btn {
+      text-align: center;
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .load-more-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Your Logo">
+    </div>
+  </header>
+  
+  <section class="video-gallery" id="videoGallery">
+    <div class="video-card">
+      <video controls>
+        <source src="vid1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>Decoration</p>
+    </div>
+    <div class="video-card">
+      <video controls>
+        <source src="vid2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>Decoration</p>
+    </div>
+     <div class="video-card">
+      <video controls>
+        <source src="vid6.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>Videgraphy</p>
+    </div>
+    <div class="video-card">
+        <video controls>
+          <source src="vid5.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p>Decoration</p>
+      </div>
+      <div class="video-card">
+        <video controls>
+          <source src="vid8.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p>Lighting</p>
+      </div>
+        <div class="video-card">
+            <video controls>
+              <source src="vid7.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p>Videography</p>
+          </div>
+          <div class="video-card">
+            <video controls>
+              <source src="wine2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p>Wine</p>
+          </div>
+          <div class="video-card">
+            <video controls>
+              <source src="vid10.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p>Catering</p>
+          </div>
+          <div class="video-card">
+            <video controls>
+              <source src="vid11.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p>Catering</p>
+          </div>
+          <div class="video-card">
+            <video controls>
+              <source src="vid13.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p>Decoration</p>
+          </div>
+          <div class="video-card">
+            <video controls>
+              <source src="vid14.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p>Videography</p>
+          </div>
+          <div class="video-card">
+            <video controls>
+              <source src="vid15.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p>Videography</p>
+          </div>
+      </div>
+    <!-- Add more video cards dynamically via JavaScript -->
+  </section>
+
+  <footer>
+    <p>&copy; Prom Network</p>
+  </footer>
+
+  <script>
+    // JavaScript for Load More functionality
+    let videoCount = 1;
+
+    document.getElementById('loadMoreBtn').addEventListener('click', function() {
+      videoCount = 1;
+      loadVideos();
+    });
+
+    function loadVideos() {
+  
+    }
+
+    // Initial load of videos
+    loadVideos();
+  </script>
+
+  <!-- Python integration (Flask) -->
+  <!-- This is just a simple Flask example to render HTML dynamically -->
+  <script type="text/python">
+    # Flask Server in Python (example)
+    from flask import Flask, render_template
+
+    app = Flask(__name__)
+
+    @app.route('/')
+    def index():
+        return render_template('index.html')
+
+    if __name__ == '__main__':
+        app.run(debug=True)
+  </script>
+
+</body>
+</html>
