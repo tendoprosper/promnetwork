@@ -30,7 +30,7 @@
 
     .video-gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
       padding: 20px;
     }
@@ -96,7 +96,8 @@
 
     .load-more-btn {
       text-align: center;
-      margin-top: 30px;
+      display: block;
+      margin: 30px auto;
       padding: 15px;
       background-color: #28a745;
       color: white;
@@ -118,117 +119,122 @@
   </header>
   
   <section class="video-gallery" id="videoGallery">
-    
-    
-     <div class="video-card">
+    <div class="video-card">
       <video controls>
         <source src="vid6.mp4" type="video/mp4">
-        Your browser does not support the video tag.
       </video>
-      <p>Videgraphy</p>
+      <p>Videography</p>
     </div>
     <div class="video-card">
-        <video controls>
-          <source src="vid5.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p>Decoration</p>
-      </div>
-      <div class="video-card">
-        <video controls>
-          <source src="vid8.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p>Lighting</p>
-      </div>
-        <div class="video-card">
-            <video controls>
-              <source src="vid7.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p>Videography</p>
-          </div>
-          <div class="video-card">
-            <video controls>
-              <source src="wine2.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p>Wine</p>
-          </div>
-          <div class="video-card">
-            <video controls>
-              <source src="vid10.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p>Catering</p>
-          </div>
-          <div class="video-card">
-            <video controls>
-              <source src="vid11.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p>Catering</p>
-          </div>
-          <div class="video-card">
-            <video controls>
-              <source src="vid13.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p>Decoration</p>
-          </div>
-          <div class="video-card">
-            <video controls>
-              <source src="vid14.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p>Videography</p>
-          </div>
-          <div class="video-card">
-            <video controls>
-              <source src="vid15.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p>Videography</p>
-          </div>
-      </div>
-    <!-- Add more video cards dynamically via JavaScript -->
+      <video controls>
+        <source src="vid5.mp4" type="video/mp4">
+      </video>
+      <p>Decoration</p>
+    </div>
+    <div class="video-card">
+      <video controls>
+        <source src="vid8.mp4" type="video/mp4">
+      </video>
+      <p>Lighting</p>
+    </div>
+    <div class="video-card">
+      <video controls>
+        <source src="vid7.mp4" type="video/mp4">
+      </video>
+      <p>Videography</p>
+    </div>
+    <div class="video-card">
+      <video controls>
+        <source src="wine2.mp4" type="video/mp4">
+      </video>
+      <p>Wine</p>
+    </div>
+    <div class="video-card">
+      <video controls>
+        <source src="vid10.mp4" type="video/mp4">
+      </video>
+      <p>Catering</p>
+    </div>
+    <div class="video-card">
+      <video controls>
+        <source src="vid11.mp4" type="video/mp4">
+      </video>
+      <p>Catering</p>
+    </div>
+    <div class="video-card">
+      <video controls>
+        <source src="vid13.mp4" type="video/mp4">
+      </video>
+      <p>Decoration</p>
+    </div>
+    <div class="video-card">
+      <video controls>
+        <source src="vid14.mp4" type="video/mp4">
+      </video>
+      <p>Videography</p>
+    </div>
+    <div class="video-card">
+      <video controls>
+        <source src="vid15.mp4" type="video/mp4">
+      </video>
+      <p>Videography</p>
+    </div>
   </section>
+
+  <button id="loadMoreBtn" class="load-more-btn">Load More Videos</button>
 
   <footer>
     <p>&copy; Prom Network (LIHOCIAN)</p>
   </footer>
 
   <script>
-    // JavaScript for Load More functionality
-    let videoCount = 1;
+    // Ensure only one video plays at a time
+    const videos = document.querySelectorAll("video");
 
-    document.getElementById('loadMoreBtn').addEventListener('click', function() {
-      videoCount = 1;
-      loadVideos();
+    videos.forEach(video => {
+      video.addEventListener("play", function () {
+        videos.forEach(otherVideo => {
+          if (otherVideo !== video) {
+            otherVideo.pause();
+          }
+        });
+      });
     });
 
-    function loadVideos() {
-  
-    }
+    // JavaScript for Load More functionality
+    let videoGallery = document.getElementById("videoGallery");
+    let loadMoreBtn = document.getElementById("loadMoreBtn");
 
-    // Initial load of videos
-    loadVideos();
-  </script>
+    // Example additional videos (replace with real sources)
+    const extraVideos = [
+      { src: "vid16.mp4", title: "New Video 1" },
+      { src: "vid17.mp4", title: "New Video 2" },
+      { src: "vid18.mp4", title: "New Video 3" }
+    ];
 
-  <!-- Python integration (Flask) -->
-  <!-- This is just a simple Flask example to render HTML dynamically -->
-  <script type="text/python">
-    # Flask Server in Python (example)
-    from flask import Flask, render_template
+    loadMoreBtn.addEventListener("click", function () {
+      extraVideos.forEach(videoData => {
+        let videoCard = document.createElement("div");
+        videoCard.classList.add("video-card");
 
-    app = Flask(__name__)
+        let video = document.createElement("video");
+        video.setAttribute("controls", "");
+        let source = document.createElement("source");
+        source.setAttribute("src", videoData.src);
+        source.setAttribute("type", "video/mp4");
+        video.appendChild(source);
 
-    @app.route('/')
-    def index():
-        return render_template('index.html')
+        let caption = document.createElement("p");
+        caption.textContent = videoData.title;
 
-    if __name__ == '__main__':
-        app.run(debug=True)
+        videoCard.appendChild(video);
+        videoCard.appendChild(caption);
+        videoGallery.appendChild(videoCard);
+      });
+
+      // Hide the button after loading more videos
+      loadMoreBtn.style.display = "none";
+    });
   </script>
 
 </body>
