@@ -7,60 +7,81 @@
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #1e3c72, #cb6d26);
             color: white;
+            text-align: center;
         }
 
         header {
             background: rgba(255, 255, 255, 0.3);
             color: white;
-            padding: 20px;
-            text-align: center;
+            padding: 15px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        a{
+
+        a {
             color: black;
             text-decoration: none;
             font-size: large;
-            
         }
+
         .logo {
-            
-            width: 150px;
-            height: 100px;
+            width: 100px;
+            height: auto;
         }
-  
- 
-       
+
         .fade-in {
             animation: fadeIn 2s ease-in-out;
         }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .service-card {
-            
-             display: inline-block;
-             background: rgba(255, 255, 255, 0.3);
+
+        /* Full-width Services Section */
+        #services {
+            width: 100vw;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
             padding: 20px;
-            margin: 15px;
-            border-radius: 10px;
-            transition: transform 0.3s, background 0.3s;
-            font-weight:bolder;
-            color: black;
+            background: rgba(255, 255, 255, 0.1);
         }
-        .service-card:hover {
-            transform: scale(1.1);
+
+        .service-card {
+            flex: 1 1 200px;
+            max-width: 250px;
             background: rgba(255, 255, 255, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bolder;
+            color: black;
+            transition: transform 0.3s, background 0.3s;
+            text-align: center;
         }
+
+        .service-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 20px;
+        }
+
         form {
             display: flex;
             flex-direction: column;
@@ -70,22 +91,30 @@
             padding: 20px;
             border-radius: 10px;
         }
-        form input, form textarea, form button {
-            margin: 10px 0;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
+
+        form p {
+            margin: 5px 0;
         }
-       
-        
+
         @media (max-width: 768px) {
-       
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            #services {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service-card {
+                width: 90%;
+            }
         }
-        h2,p{
-            text-align: center;
-            
-        }
-      
     </style>
 </head>
 <body>
@@ -100,26 +129,23 @@
     </section>
     
     <section id="services">
-        <h2>Our Services</h2>
-        <a href="fashiiii.html" target="_blank" class="service-card scale-up">Tap for Fashion</a>
-        <a href="photography.html" target="_blank" class="service-card scale-up">Tap for Photography</a>
-        <a href="catering services.html" target="_blank" class="service-card scale-up">Tap for Catering</a>
-        <a href="Makeup.html" target="_blank" class="service-card scale-up">Tap for Beauty</a>
-        <a href="transportation.html" target="_blank" class="service-card scale-up">Tap for Transportation</a>
-        <a href="music.html" target="_blank" class="service-card scale-up">Tap for Sound System</a>
-        <a href="Sports.html" target="_blank" class="service-card scale-up">Tap for Sports</a>
-        <a href="video.html" target="_blank" class="service-card scale-up">Tap for Video Gallery</a>
-
+        <a href="fashiiii.html" target="_blank" class="service-card">Tap for Fashion</a>
+        <a href="photography.html" target="_blank" class="service-card">Tap for Photography</a>
+        <a href="catering services.html" target="_blank" class="service-card">Tap for Catering</a>
+        <a href="Makeup.html" target="_blank" class="service-card">Tap for Beauty</a>
+        <a href="transportation.html" target="_blank" class="service-card">Tap for Transportation</a>
+        <a href="music.html" target="_blank" class="service-card">Tap for Sound System</a>
+        <a href="Sports.html" target="_blank" class="service-card">Tap for Sports</a>
+        <a href="video.html" target="_blank" class="service-card">Tap for Video Gallery</a>
     </section>
     
     <section id="contact">
         <h2>Contact Us</h2>
         <form id="contactForm">
-            <p>+256 702 640109<p>
-            <p>+256 701 424396<p>
-<p>tendoprosper28@gmil.com<p>
+            <p>+256 702 640109</p>
+            <p>+256 701 424396</p>
+            <p>tendoprosper28@gmail.com</p>
         </form>
     </section>
-    
 </body>
 </html>
