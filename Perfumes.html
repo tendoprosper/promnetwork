@@ -8,7 +8,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
         body { background: #121212; color: #ffffff; text-align: center; overflow-x: hidden; }
         .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 20px; }
-        .photo { background: #1e1e1e; padding: 10px; border-radius: 8px; box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); transition: transform 0.3s ease-in-out; }
+        .photo { background: #1e1e1e; padding: 10px; border-radius: 8px; box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); transition: transform 0.3s ease-in-out; position: relative; }
         .photo img { width: 100%; height: auto; border-radius: 8px; }
         .photo:hover { transform: scale(1.05); }
         .Buy { display: block; margin: 10px auto; padding: 10px 15px; background: #ff5722; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s ease-in-out; }
@@ -19,18 +19,21 @@
         input { background: #333; color: white; }
         button { background: #ffcc00; color: black; cursor: pointer; font-weight: bold; }
         button:hover { background: #e6b800; }
+        .code-number { position: absolute; top: 10px; left: 10px; background: #ffcc00; color: black; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
+        .price-tag { position: absolute; top: 10px; right: 10px; background: #ff5722; color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
         @media screen and (max-width: 768px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
 <body>
     <h1>Prom Network Perfumes</h1>
-    <p>Pick the best</p>
+    <p>Pick the best for your ceremony</p>
     <section class="gallery" id="gallery"></section>
     
     <div class="form-container">
         <h2 style="color:#ffcc00;">Add New Perfume</h2>
         <input type="text" id="imgUrl" placeholder="Image URL (e.g., images/perfume20.jpg)">
         <input type="text" id="name" placeholder="Perfume Name">
+        <input type="text" id="price" placeholder="Price (e.g., UGX50,000)">
         <button onclick="addProduct()">Add to Gallery</button>
     </div>
     
@@ -40,18 +43,21 @@
 
     <script>
         let products = [
-            { img: 'images/perfume2.jpg', name: 'Body Spray' },
-            { img: 'images/perfume3.jpg', name: 'Perfume' },
-            { img: 'images/perfume4.jpg', name: 'Perfume' },
-            { img: 'images/perfume5.jpg', name: 'Perfume' }
+            { img: 'images/perfume2.jpg', name: 'Body Spray', price: 'UGX50,000' },
+            { img: 'images/perfume3.jpg', name: 'Perfume', price: 'UGX75,000' },
+            { img: 'images/perfume4.jpg', name: 'Perfume', price: 'UGX60,000' },
+            { img: 'images/perfume5.jpg', name: 'Perfume', price: 'UGX90,000' }
         ];
 
         function displayGallery() {
             let gallery = document.getElementById('gallery');
             gallery.innerHTML = "";
             products.slice().reverse().forEach((product, index) => {
+                let codeNumber = `P${String(products.length - index).padStart(3, '0')}`;
                 let card = `
                     <div class="photo">
+                        <span class="code-number">${codeNumber}</span>
+                        <span class="price-tag">${product.price}</span>
                         <img src="${product.img}" alt="${product.name}">
                         <h3>${product.name}</h3>
                         <a href="messaging.html"><button class="Buy">Buy</button></a>
@@ -64,12 +70,14 @@
         function addProduct() {
             let img = document.getElementById('imgUrl').value;
             let name = document.getElementById('name').value;
+            let price = document.getElementById('price').value;
 
-            if (img && name) {
-                products.push({ img, name });
+            if (img && name && price) {
+                products.push({ img, name, price });
                 displayGallery();
                 document.getElementById('imgUrl').value = "";
                 document.getElementById('name').value = "";
+                document.getElementById('price').value = "";
             } else {
                 alert('Please fill all fields!');
             }
