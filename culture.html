@@ -9,11 +9,14 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #140303; /* Inspired by Uganda flag colors */
-            color: #000;
+            color: #fff;
         }
         .logo {
             margin: 20px auto;
             width: 150px;
+        }
+        h1 {
+            color: #ffcc00; /* Yellow */
         }
         .gallery {
             display: grid;
@@ -26,7 +29,7 @@
             color: #fff; /* White text */
             padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             position: relative;
         }
         .card img {
@@ -55,6 +58,31 @@
             padding: 5px 10px;
             border-radius: 50%;
         }
+        .form-container {
+            margin: 20px auto;
+            padding: 20px;
+            background: #222;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        input {
+            background: #333;
+            color: white;
+        }
+        button {
+            background: #ffcc00;
+            color: black;
+            cursor: pointer;
+            font-weight: bold;
+        }
         @media (max-width: 600px) {
             .gallery {
                 grid-template-columns: 1fr; /* Single column on small screens */
@@ -63,27 +91,40 @@
     </style>
 </head>
 <body>
+
     <img src="logo.png" alt="Business Logo" class="logo">
-    <div class="gallery">
-        <script>
-            const products = [
-            {img: 'c13.jpeg', price: 'UGX150,000', detail: 'Indian boy's wear'},
-                {img: '.c12jpg', price: 'UGX150,000', detail: 'Indian boy's wear'},
-                {img: 'c2.jpg', price: 'UGX50,000', detail: 'Kitengi jump suit '},
-                {img: 'c3.jpg', price: 'UGX50,000', detail: 'Jameica wear'},
-                {img: 'c4.jpg', price: 'UGX100,000', detail: 'India wear'},
-                {img: 'c9.webp', price: 'UGX170,000', detail: 'Classic Scottish Wear'},
-                {img: 'c6.jpg', price: 'UGX100,000', detail: 'India wear'},
-                {img: 'c7.webp', price: 'UGX100,000', detail: 'India wear'},
-                {img: 'c8.jpg', price: 'UGX100,000', detail: 'Rwanda wear'},
-                {img: 'c10.jpg', price: 'UGX100,000', detail: 'Rwanda wear'},
-                {img: 'c14.jpg', price: 'UGX100,000', detail: 'Elegant Kitengu wear '}
-                
-            ];
-            
+    <h1>Prom Network Cultural outfits</h1>
+
+    <!-- Form to Add Images -->
+    <div class="form-container">
+        <h2 style="color:#ffcc00;">Add New Fashion Item</h2>
+        <input type="text" id="imgUrl" placeholder="Image URL (e.g., c15.jpg)">
+        <input type="text" id="price" placeholder="Price (e.g., UGX100,000)">
+        <input type="text" id="detail" placeholder="Description (e.g., African Dress)">
+        <button onclick="addProduct()">Add to Gallery</button>
+    </div>
+
+    <div class="gallery"></div>
+
+    <script>
+        let products = [
+            { img: 'c13.jpeg', price: 'UGX150,000', detail: "Indian boy's wear" },
+            { img: 'c12.jpg', price: 'UGX150,000', detail: "Indian boy's wear" },
+            { img: 'c2.jpg', price: 'UGX50,000', detail: 'Kitengi jumpsuit' },
+            { img: 'c3.jpg', price: 'UGX50,000', detail: 'Jamaican wear' },
+            { img: 'c4.jpg', price: 'UGX100,000', detail: 'Indian wear' },
+            { img: 'c9.webp', price: 'UGX170,000', detail: 'Classic Scottish Wear' },
+            { img: 'c6.jpg', price: 'UGX100,000', detail: 'Indian wear' },
+            { img: 'c7.webp', price: 'UGX100,000', detail: 'Indian wear' },
+            { img: 'c8.jpg', price: 'UGX100,000', detail: 'Rwandan wear' },
+            { img: 'c10.jpg', price: 'UGX100,000', detail: 'Rwandan wear' },
+            { img: 'c14.jpg', price: 'UGX100,000', detail: 'Elegant Kitengi wear' }
+        ];
+
+        function displayGallery() {
             let gallery = document.querySelector('.gallery');
-            
-            products.reverse().forEach((product, index) => {
+            gallery.innerHTML = "";
+            products.slice().reverse().forEach((product, index) => {
                 let card = `
                     <div class="card">
                         <span class="price">${product.price}</span>
@@ -94,7 +135,29 @@
                 `;
                 gallery.innerHTML += card;
             });
-        </script>
-    </div>
+        }
+
+        function addProduct() {
+            let img = document.getElementById('imgUrl').value;
+            let price = document.getElementById('price').value;
+            let detail = document.getElementById('detail').value;
+
+            if (img && price && detail) {
+                products.push({ img, price, detail });
+                displayGallery();
+
+                // Clear input fields
+                document.getElementById('imgUrl').value = "";
+                document.getElementById('price').value = "";
+                document.getElementById('detail').value = "";
+            } else {
+                alert('Please fill all fields!');
+            }
+        }
+
+        // Initial display of gallery
+        displayGallery();
+    </script>
+
 </body>
 </html>
