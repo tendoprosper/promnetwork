@@ -5,85 +5,187 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prom Network Perfumes</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background: #121212; color: #ffffff; text-align: center; overflow-x: hidden; }
-        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 20px; }
-        .photo { background: #1e1e1e; padding: 10px; border-radius: 8px; box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); transition: transform 0.3s ease-in-out; position: relative; }
-        .photo img { width: 100%; height: auto; border-radius: 8px; }
-        .photo:hover { transform: scale(1.05); }
-        .Buy { display: block; margin: 10px auto; padding: 10px 15px; background: #ff5722; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s ease-in-out; }
-        .Buy:hover { background: #e64a19; }
-        .footer { background: rgba(0, 0, 0, 0.7); padding: 5px; text-align: center; color: white; margin-top: 5px; }
-        .form-container { margin: 20px auto; padding: 20px; background: #222; border-radius: 10px; width: 80%; max-width: 400px; }
-        input, button { width: 100%; padding: 10px; margin: 5px 0; border: none; border-radius: 5px; }
-        input { background: #333; color: white; }
-        button { background: #ffcc00; color: black; cursor: pointer; font-weight: bold; }
-        button:hover { background: #e6b800; }
-        .code-number { position: absolute; top: 10px; left: 10px; background: #ffcc00; color: black; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
-        .price-tag { position: absolute; top: 10px; right: 10px; background: #ff5722; color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
-        @media screen and (max-width: 768px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1c1c1c, #292929);
+            color: #ffffff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #ff5722;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('images/banner.jpg') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero button {
+            background: #ff5722;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        .hero button:hover {
+            background: #e64a19;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .photo {
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .Buy {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 15px;
+            background: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .Buy:hover {
+            background: #e64a19;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            text-align: center;
+            color: white;
+            margin-top: 10px;
+        }
+
+        /* Floating Contact Button */
+        .contact-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #ff5722;
+            padding: 10px 15px;
+            border-radius: 50px;
+            color: white;
+            font-size: 14px;
+            text-decoration: none;
+            box-shadow: 0px 0px 10px rgba(255, 87, 34, 0.5);
+        }
+
+        .contact-btn:hover {
+            background: #e64a19;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .photo {
+            animation: fadeIn 1s ease-in-out;
+        }
     </style>
 </head>
 <body>
-    <h1>Prom Network Perfumes</h1>
-    <p>Pick the best for your ceremony</p>
-    <section class="gallery" id="gallery"></section>
-    
-    <div class="form-container">
-        <h2 style="color:#ffcc00;">Add New Perfume</h2>
-        <input type="text" id="imgUrl" placeholder="Image URL (e.g., images/perfume20.jpg)">
-        <input type="text" id="name" placeholder="Perfume Name">
-        <input type="text" id="price" placeholder="Price (e.g., UGX50,000)">
-        <button onclick="addProduct()">Add to Gallery</button>
-    </div>
-    
-    <div class="footer">
-        <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS tech</p>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
     </div>
 
-    <script>
-        let products = [
-            { img: 'images/perfume2.jpg', name: 'Body Spray', price: 'UGX50,000' },
-            { img: 'images/perfume3.jpg', name: 'Perfume', price: 'UGX75,000' },
-            { img: 'images/perfume4.jpg', name: 'Perfume', price: 'UGX60,000' },
-            { img: 'images/perfume5.jpg', name: 'Perfume', price: 'UGX90,000' }
-        ];
+    <div class="hero">
+        <h1>Discover Luxury Scents</h1>
+        <p>Pick the best for your ceremony</p>
+        <button>Explore Now</button>
+    </div>
 
-        function displayGallery() {
-            let gallery = document.getElementById('gallery');
-            gallery.innerHTML = "";
-            products.slice().reverse().forEach((product, index) => {
-                let codeNumber = `P${String(products.length - index).padStart(3, '0')}`;
-                let card = `
-                    <div class="photo">
-                        <span class="code-number">${codeNumber}</span>
-                        <span class="price-tag">${product.price}</span>
-                        <img src="${product.img}" alt="${product.name}">
-                        <h3>${product.name}</h3>
-                        <a href="messaging.html"><button class="Buy">Buy</button></a>
-                    </div>
-                `;
-                gallery.innerHTML += card;
-            });
-        }
+    <section class="gallery" id="gallery">
+        <div class="photo">
+            <img src="perfume3.jpg" alt="Perfume">
+            <h3>Body Spray</h3>
+            <a href="messaging.html"><button class="Buy">Buy at UGX400,000</button></a> 
+        </div>
+        <div class="photo">
+            <img src="perfume2.jpg" alt="Perfume">
+            <h3>Perfume</h3>
+            <a href="messaging.html"><button class="Buy">Buy at UGX400,000</button></a> 
+        </div>
+        <!-- Add more products here -->
+    </section>
 
-        function addProduct() {
-            let img = document.getElementById('imgUrl').value;
-            let name = document.getElementById('name').value;
-            let price = document.getElementById('price').value;
+    <div class="footer" id="contact">
+        <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS Tech</p>
+    </div>
 
-            if (img && name && price) {
-                products.push({ img, name, price });
-                displayGallery();
-                document.getElementById('imgUrl').value = "";
-                document.getElementById('name').value = "";
-                document.getElementById('price').value = "";
-            } else {
-                alert('Please fill all fields!');
-            }
-        }
-
-        displayGallery();
-    </script>
+    <a href="feedback.html" class="contact-btn">Contact Us</a>
 </body>
 </html>
