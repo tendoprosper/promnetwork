@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TendoSTech Electronics</title>
+  
+  <style>
+    :root {
+      background: linear-gradient(145deg, #000000, #121212);
+      --text-color: #e5e5e5;
+      --highlight-color: #62ff00;
+      --accent-color: #d400ff;
+      --button-color: #30ab0b;
+    }
+
+    body.light-mode {
+      background: linear-gradient(145deg, #000000, #121212);
+      --text-color: #d309fb;
+      --highlight-color: #000064;
+      --accent-color: #6a0dad;
+      --button-color: #f00b0b;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(145deg, #000000, #121212);
+      color: var(--text-color);
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, #000000, #121212);
+      padding: 50px 20px;
+      text-align: center;
+      backdrop-filter: blur 1.5px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      background: linear-gradient(145deg, #000000, #121212);
+      z-index: 999;
+    }
+
+    .logo {
+      color: var(--accent-color);
+      font-size: 1.8em;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links li a {
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
+    .hero-content h2 {
+      font-size: 2.5em;
+      color: var(--highlight-color);
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    .hero-content p {
+      font-size: 1.2em;
+      margin: 10px 0;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero-content button {
+      padding: 10px 20px;
+      background-color: var(--button-color);
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .toggle-mode {
+      background: none;
+      border: 1px solid var(--highlight-color);
+      padding: 5px 10px;
+      color: var(--highlight-color);
+      cursor: pointer;
+      margin-left: 15px;
+    }
+
+    .products {
+      padding: 40px 20px;
+      background: linear-gradient(145deg, #000000, #121212);
+      text-align: center;
+    }
+
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .product {
+      background: linear-gradient(0deg, #000000, #0bff03);
+      padding: 20px;
+      border-radius: 10px;
+      width: 200px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 15px 30px rgb(247, 4, 4);
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgb(65, 247, 4);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .product h3 {
+      color: black;
+      font-size: 1.1em;
+    }
+
+    .product p {
+      margin: 10px 0;
+    }
+
+    .product button {
+      background-color: black;
+      border: none;
+      padding: 8px 15px;
+      cursor: pointer;
+      color: #0bff03;
+      border-radius: 50px;
+    }
+
+    .features, .testimonial {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .features ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .features li {
+      margin: 10px 0;
+    }
+
+    blockquote {
+      font-style: italic;
+      color: #ccc;
+    }
+
+    cite {
+      display: block;
+      margin-top: 10px;
+      color: #2200ff;
+    }
+
+    footer {
+      background-color: #00ff00;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .filter-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .filter-container select, .filter-container input {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: 1px solid var(--highlight-color);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      .product-list {
+        flex-direction: column;
+      }
+    }
+    a{text-decoration: none;
+    color: #6a0dad;
+  font-size: large;}
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="home">
+    <nav class="navbar">
+      <h1 class="logo">TendoSTech</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="toggle-mode" onclick="toggleMode()">Toggle Mode</button>
+    </nav>
+    <div class="hero-content">
+      <h2>TendoSTech</h2>
+      <p>Prom Network</p>
+      <a href="mycart.html" class="view-cart">View Cart</a>
+    <p> <button onclick="scrollToProducts()">Search Products</button></p>
+     
+    </div>
+  </header>
+
+  <section id="products" class="products">
+    <h2>TendoSTech</h2>
+
+    <!-- Filter Container -->
+    <div class="filter-container">
+      <input type="text" id="searchInput" placeholder="Search Products..." oninput="filterProducts()" />
+      <select id="categoryFilter" onchange="filterProducts()">
+        <option value="">All Categories</option>
+        <option value="laptops">Laptops</option>
+        <option value="smartphones">Smartphones</option>
+        <option value="headphones">Headphones</option>
+        <option value="headphones">Speakers</option>
+      </select>
+    </div>
+
+    <div class="product" data-category="laptops">
+      <img src="j4.jpg" />
+      <h3>Speaker</h3>
+      <p>UGX 1,200,000</p>
+      <button onclick="addToCart('Gaming Laptop', 1200000); window.location.href='mycart.html';">Add to Cart</button>
+    </div>
+    <div class="product" data-category="laptops">
+      <img src="julio.jpg" />
+      <h3>Phone</h3>
+      <p>UGX 1,200,000</p>
+      <button onclick="addToCart('Gaming Laptop', 1200000); window.location.href='mycart.html';">Add to Cart</button>
+    </div>
+      <!-- Inside Product List -->
+      <div class="product" data-category="laptops">
+        <img src="l2.jpg" />
+        <h3>Super Laptop</h3>
+        <p>UGX 1,200,000</p>
+        <button onclick="addToCart('Gaming Laptop', 1200000); window.location.href='mycart.html';">Add to Cart</button>
+      </div>
+      <!-- Add more products as needed -->
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>Why Shop at TendoSTech?</h2>
+    <ul>
+      <li>Free Express Shipping</li>
+      <li>Trusted Global Brands</li>
+      <li>30-Day Money-Back Guarantee</li>
+      <li>Secure & Easy Checkout</li>
+    </ul>
+  </section>
+
+  <section class="testimonial">
+    <h2>What Our Customers Say</h2>
+    <blockquote>
+      "The XPhone changed the way I work and live. Amazing quality and support from TendoTech!"
+      <cite>- Jordan M.</cite>
+    </blockquote>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TendoSTech Electronics | All rights reserved.</p>
+  </footer>
+
+  <script>
+    function scrollToProducts() {
+      document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+    }
+
+    function filterProducts() {
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const categoryFilter = document.getElementById('categoryFilter').value;
+      const products = document.querySelectorAll('.product');
+
+      products.forEach(product => {
+        const productName = product.querySelector('h3').textContent.toLowerCase();
+        const productCategory = product.getAttribute('data-category');
+
+        const matchesSearch = productName.includes(searchInput);
+        const matchesCategory = categoryFilter ? productCategory === categoryFilter : true;
+
+        if (matchesSearch && matchesCategory) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+    
+  // Function to add products to the cart
+  function addToCart(productName, productPrice) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let product = {
+      name: productName,
+      price: productPrice,
+      quantity: 1
+    };
+
+    // Check if the product is already in the cart
+    const existingProduct = cart.find(item => item.name === productName);
+    if (existingProduct) {
+      existingProduct.quantity += 1; // Increase the quantity if it's already in the cart
+    } else {
+      cart.push(product); // Otherwise, add it to the cart
+    }
+
+    // Save the cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${productName} has been added to your cart.`);
+  }
+</script>
+
+  </script>
+</body>
+</html>

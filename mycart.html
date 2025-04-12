@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart</title>
+  <style>
+    /* Add some basic styling here */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f0f0;
+      color: #333;
+      padding: 20px;
+    }
+    .cart-item {
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+    }
+    .cart-item h3 {
+      margin: 0;
+    }
+    .cart-item p {
+      margin: 5px 0;
+    }
+    .cart-item button {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .total {
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Cart</h1>
+  <div id="cart-items"></div>
+  <div class="total">
+    <p>Total: UGX <span id="total-price">0</span></p>
+  </div>
+  <button onclick="checkout()">Proceed to Checkout</button>
+
+  <script>
+    // Load the cart from localStorage
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartContainer = document.getElementById('cart-items');
+      const totalPriceElement = document.getElementById('total-price');
+
+      // Clear the cart container
+      cartContainer.innerHTML = '';
+
+      // Calculate the total price
+      let totalPrice = 0;
+
+      // Display the items in the cart
+      cart.forEach(item => {
+        const cartItemDiv = document.createElement('div');
+        cartItemDiv.classList.add('cart-item');
+
+        cartItemDiv.innerHTML = `
+          <h3>${item.name}</h3>
+          <p>Price: UGX ${item.price}</p>
+          <p>Quantity: ${item.quantity}</p>
+          <button onclick="removeFromCart('${item.name}')">Remove</button>
+        `;
+        
+        cartContainer.appendChild(cartItemDiv);
+
+        // Calculate total price
+        totalPrice += item.price * item.quantity;
+      });
+
+      // Update the total price
+      totalPriceElement.textContent = totalPrice;
+    }
+
+    // Function to remove an item from the cart
+    function removeFromCart(productName) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart = cart.filter(item => item.name !== productName);
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      // Reload the cart
+      loadCart();
+    }
+
+    // Placeholder checkout function
+    function checkout() {
+      alert("Proceeding to payment...");
+      // Redirect to payment page or integrate a payment gateway here
+    }
+
+    // Load the cart when the page loads
+    window.onload = loadCart;
+  </script>
+</body>
+</html>
