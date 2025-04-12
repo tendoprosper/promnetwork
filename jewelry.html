@@ -4,37 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TendoSTech Electronics</title>
-  
   <style>
     :root {
-      background: linear-gradient(145deg, #000000, #121212);
       --text-color: #e5e5e5;
       --highlight-color: #62ff00;
       --accent-color: #d400ff;
       --button-color: #30ab0b;
+      --bg-color: linear-gradient(145deg, #000000, #121212);
     }
 
     body.light-mode {
-      background: linear-gradient(145deg, #000000, #121212);
       --text-color: #d309fb;
       --highlight-color: #000064;
       --accent-color: #6a0dad;
       --button-color: #f00b0b;
+      --bg-color: linear-gradient(145deg, #ffffff, #e0e0e0);
     }
 
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(145deg, #000000, #121212);
+      background: var(--bg-color);
       color: var(--text-color);
       transition: background-color 0.4s ease, color 0.4s ease;
-    }
-
-    .hero {
-      background: linear-gradient(145deg, #000000, #121212);
-      padding: 50px 20px;
-      text-align: center;
-      backdrop-filter: blur 1.5px;
     }
 
     .navbar {
@@ -42,9 +34,9 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px;
+      background: var(--bg-color);
       position: sticky;
       top: 0;
-      background: linear-gradient(145deg, #000000, #121212);
       z-index: 999;
     }
 
@@ -54,34 +46,14 @@
     }
 
     .nav-links {
-      list-style: none;
       display: flex;
+      list-style: none;
       gap: 15px;
     }
 
-    .nav-links li a {
+    .nav-links a {
       color: var(--text-color);
       text-decoration: none;
-    }
-
-    .hero-content h2 {
-      font-size: 2.5em;
-      color: var(--highlight-color);
-      animation: fadeInDown 1s ease-in-out;
-    }
-
-    .hero-content p {
-      font-size: 1.2em;
-      margin: 10px 0;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    .hero-content button {
-      padding: 10px 20px;
-      background-color: var(--button-color);
-      border: none;
-      font-size: 1em;
-      cursor: pointer;
     }
 
     .toggle-mode {
@@ -90,28 +62,29 @@
       padding: 5px 10px;
       color: var(--highlight-color);
       cursor: pointer;
-      margin-left: 15px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
     }
 
     .products {
       padding: 40px 20px;
-      background: linear-gradient(145deg, #000000, #121212);
       text-align: center;
     }
 
     .product-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 30px;
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     .product {
       background: linear-gradient(0deg, #000000, #0bff03);
       padding: 20px;
       border-radius: 10px;
-      width: 200px;
       transition: transform 0.3s ease;
       box-shadow: 0 15px 30px rgb(247, 4, 4);
     }
@@ -135,6 +108,14 @@
       margin: 10px 0;
     }
 
+    .product input[type="number"] {
+      width: 60px;
+      padding: 5px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #000;
+    }
+
     .product button {
       background-color: black;
       border: none;
@@ -144,159 +125,108 @@
       border-radius: 50px;
     }
 
-    .features, .testimonial {
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .features ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .features li {
-      margin: 10px 0;
-    }
-
-    blockquote {
-      font-style: italic;
-      color: #ccc;
-    }
-
-    cite {
-      display: block;
-      margin-top: 10px;
-      color: #2200ff;
-    }
-
     footer {
       background-color: #00ff00;
       padding: 20px;
       text-align: center;
     }
-
-    .filter-container {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
+    h4 {color:#00ff00;
     }
 
-    .filter-container select, .filter-container input {
-      padding: 5px 10px;
-      border-radius: 5px;
-      border: 1px solid var(--highlight-color);
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        flex-direction: row;
-        align-items: flex-start;
-      }
-
-      .product-list {
-        flex-direction: column;
-      }
-    }
-    a{text-decoration: none;
-    color: #6a0dad;
-  font-size: large;}
-
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
   </style>
 </head>
 <body>
-  <header class="hero" id="home">
-    <nav class="navbar">
-      <h1 class="logo">TendoSTech</h1>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="toggle-mode" onclick="toggleMode()">Toggle Mode</button>
-    </nav>
-    <div class="hero-content">
-      <h2>TendoSTech</h2>
-      <p>Prom Network</p>
-      <a href="mycart.html" class="view-cart">View Cart</a>
-    <p> <button onclick="scrollToProducts()">Search Products</button></p>
-     
-    </div>
-  </header>
+
+  <nav class="navbar">
+    <h1 class="logo">TendoSTech</h1>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <h4><li><a href="mycart.html">Cart</a></li></h4>
+    </ul>
+    <button class="toggle-mode" onclick="toggleMode()">Toggle Mode</button>
+  </nav>
+
+  <section class="hero">
+    <h2>TendoSTech Electronics</h2>
+    <p>Welcome to your futuristic gadget store!</p>
+  </section>
 
   <section id="products" class="products">
-    <h2>TendoSTech</h2>
+    <h2>Our Products</h2>
+    <div class="product-list">
+      <div class="product" data-category="speakers">
+        <img src=".jpg" alt="Speaker" />
+        <h3>Speaker</h3>
+        <p>UGX 1,200,000</p>
+        <input type="number" min="1" value="1" />
+        <button onclick="addToCart('Speaker', 1200000, this)">Add to Cart</button>
+      </div>
 
-    <!-- Filter Container -->
-    <div class="filter-container">
-      <input type="text" id="searchInput" placeholder="Search Products..." oninput="filterProducts()" />
-      <select id="categoryFilter" onchange="filterProducts()">
-        <option value="">All Categories</option>
-        <option value="laptops">Laptops</option>
-        <option value="smartphones">Smartphones</option>
-        <option value="headphones">Headphones</option>
-        <option value="headphones">Speakers</option>
-      </select>
-    </div>
+      <div class="product" data-category="phones">
+        <img src=".jpg" alt="Phone" />
+        <h3>Phone</h3>
+        <p>UGX 1,200,000</p>
+        <input type="number" min="1" value="1" />
+        <button onclick="addToCart('Phone', 1200000, this)">Add to Cart</button>
+      </div>
 
-    <div class="product" data-category="laptops">
-      <img src="j4.jpg" />
-      <h3>Speaker</h3>
-      <p>UGX 1,200,000</p>
-      <button onclick="addToCart('Gaming Laptop', 1200000); window.location.href='mycart.html';">Add to Cart</button>
-    </div>
-    <div class="product" data-category="laptops">
-      <img src="julio.jpg" />
-      <h3>Phone</h3>
-      <p>UGX 1,200,000</p>
-      <button onclick="addToCart('Gaming Laptop', 1200000); window.location.href='mycart.html';">Add to Cart</button>
-    </div>
-      <!-- Inside Product List -->
       <div class="product" data-category="laptops">
-        <img src="l2.jpg" />
+        <img src=".jpg" alt="Laptop" />
         <h3>Super Laptop</h3>
         <p>UGX 1,200,000</p>
-        <button onclick="addToCart('Gaming Laptop', 1200000); window.location.href='mycart.html';">Add to Cart</button>
+        <input type="number" min="1" value="1" />
+        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
       </div>
-      <!-- Add more products as needed -->
+      <div class="product" data-category="laptops">
+        <img src=".jpg" alt="Laptop" />
+        <h3>Super Laptop</h3>
+        <p>UGX 1,200,000</p>
+        <input type="number" min="1" value="1" />
+        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
+      </div>
+      <div class="product" data-category="laptops">
+        <img src=".jpg" alt="Laptop" />
+        <h3>Super Laptop</h3>
+        <p>UGX 1,200,000</p>
+        <input type="number" min="1" value="1" />
+        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
+      </div>
+      <div class="product" data-category="laptops">
+        <img src=".jpg" alt="Laptop" />
+        <h3>Super Laptop</h3>
+        <p>UGX 1,200,000</p>
+        <input type="number" min="1" value="1" />
+        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
+      </div>
+      <div class="product" data-category="laptops">
+        <img src=".jpg" alt="Laptop" />
+        <h3>Super Laptop</h3>
+        <p>UGX 1,200,000</p>
+        <input type="number" min="1" value="1" />
+        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
+      </div>
+      <div class="product" data-category="laptops">
+        <img src=".jpg" alt="Laptop" />
+        <h3>Super Laptop</h3>
+        <p>UGX 1,200,000</p>
+        <input type="number" min="1" value="1" />
+        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
+      </div>
+      <div class="product" data-category="laptops">
+        <img src=".jpg" alt="Laptop" />
+        <h3>Super Laptop</h3>
+        <p>UGX 1,200,000</p>
+        <input type="number" min="1" value="1" />
+        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
+      </div>
+      <div class="product" data-category="laptops">
+        <img src=".jpg" alt="Laptop" />
+        <h3>Super Laptop</h3>
+        <p>UGX 1,200,000</p>
+        <input type="number" min="1" value="1" />
+        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
+      </div>
     </div>
-  </section>
-
-  <section class="features">
-    <h2>Why Shop at TendoSTech?</h2>
-    <ul>
-      <li>Free Express Shipping</li>
-      <li>Trusted Global Brands</li>
-      <li>30-Day Money-Back Guarantee</li>
-      <li>Secure & Easy Checkout</li>
-    </ul>
-  </section>
-
-  <section class="testimonial">
-    <h2>What Our Customers Say</h2>
-    <blockquote>
-      "The XPhone changed the way I work and live. Amazing quality and support from TendoTech!"
-      <cite>- Jordan M.</cite>
-    </blockquote>
   </section>
 
   <footer>
@@ -304,57 +234,31 @@
   </footer>
 
   <script>
-    function scrollToProducts() {
-      document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-    }
-
     function toggleMode() {
-      document.body.classList.toggle('light-mode');
+      document.body.classList.toggle("light-mode");
     }
 
-    function filterProducts() {
-      const searchInput = document.getElementById('searchInput').value.toLowerCase();
-      const categoryFilter = document.getElementById('categoryFilter').value;
-      const products = document.querySelectorAll('.product');
+    function addToCart(name, price, button) {
+      const quantityInput = button.previousElementSibling;
+      const quantity = parseInt(quantityInput.value);
 
-      products.forEach(product => {
-        const productName = product.querySelector('h3').textContent.toLowerCase();
-        const productCategory = product.getAttribute('data-category');
+      if (quantity < 1) {
+        alert("Please enter a valid quantity.");
+        return;
+      }
 
-        const matchesSearch = productName.includes(searchInput);
-        const matchesCategory = categoryFilter ? productCategory === categoryFilter : true;
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let existing = cart.find(item => item.name === name);
 
-        if (matchesSearch && matchesCategory) {
-          product.style.display = 'block';
-        } else {
-          product.style.display = 'none';
-        }
-      });
+      if (existing) {
+        existing.quantity += quantity;
+      } else {
+        cart.push({ name, price, quantity });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to cart.`);
     }
-    
-  // Function to add products to the cart
-  function addToCart(productName, productPrice) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let product = {
-      name: productName,
-      price: productPrice,
-      quantity: 1
-    };
-
-    // Check if the product is already in the cart
-    const existingProduct = cart.find(item => item.name === productName);
-    if (existingProduct) {
-      existingProduct.quantity += 1; // Increase the quantity if it's already in the cart
-    } else {
-      cart.push(product); // Otherwise, add it to the cart
-    }
-
-    // Save the cart back to localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${productName} has been added to your cart.`);
-  }
-</script>
-
   </script>
 </body>
 </html>
