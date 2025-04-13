@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TendoSTech Electronics</title>
+  <title>The Eagle Brand by Richie 256</title>
   <style>
     :root {
       --text-color: #e5e5e5;
@@ -13,20 +13,11 @@
       --bg-color: linear-gradient(145deg, #000000, #121212);
     }
 
-    body.light-mode {
-      --text-color: #d309fb;
-      --highlight-color: #000064;
-      --accent-color: #6a0dad;
-      --button-color: #f00b0b;
-      --bg-color: linear-gradient(145deg, #ffffff, #e0e0e0);
-    }
-
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: var(--bg-color);
       color: var(--text-color);
-      transition: background-color 0.4s ease, color 0.4s ease;
     }
 
     .navbar {
@@ -34,7 +25,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px;
-      background: var(--bg-color);
+      background: #000;
       position: sticky;
       top: 0;
       z-index: 999;
@@ -47,26 +38,52 @@
 
     .nav-links {
       display: flex;
-      list-style: none;
+      align-items: center;
       gap: 15px;
     }
 
     .nav-links a {
       color: var(--text-color);
       text-decoration: none;
+      font-weight: bold;
     }
 
-    .toggle-mode {
-      background: none;
-      border: 1px solid var(--highlight-color);
-      padding: 5px 10px;
-      color: var(--highlight-color);
+    .cart-btn {
+      background-color: #0bff03;
+      color: black;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 25px;
       cursor: pointer;
+      font-weight: bold;
     }
 
     .hero {
       text-align: center;
-      padding: 50px 20px;
+      padding: 60px 20px;
+      background: url('https://images.unsplash.com/photo-1535385793342-27c1415e6e9f') no-repeat center center/cover;
+      color: white;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      animation: slideIn 1.5s ease-in-out;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .products {
@@ -74,37 +91,35 @@
       text-align: center;
     }
 
+    .products h2 {
+      margin-bottom: 20px;
+    }
+
     .product-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
+      gap: 20px;
     }
 
     .product {
-      background: linear-gradient(0deg, #000000, #0bff03);
+      background: #0bff03;
       padding: 20px;
       border-radius: 10px;
+      color: black;
       transition: transform 0.3s ease;
-      box-shadow: 0 15px 30px rgb(247, 4, 4);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
     }
 
     .product:hover {
       transform: scale(1.05);
-      box-shadow: 0 15px 30px rgb(65, 247, 4);
     }
 
     .product img {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 10px;
     }
 
     .product h3 {
-      color: black;
-      font-size: 1.1em;
-    }
-
-    .product p {
       margin: 10px 0;
     }
 
@@ -112,138 +127,186 @@
       width: 60px;
       padding: 5px;
       margin-bottom: 10px;
-      border-radius: 5px;
-      border: 1px solid #000;
     }
 
     .product button {
-      background-color: black;
-      border: none;
-      padding: 8px 15px;
-      cursor: pointer;
+      background: black;
       color: #0bff03;
+      border: none;
+      padding: 10px 20px;
       border-radius: 50px;
+      cursor: pointer;
+    }
+
+    .about {
+      padding: 50px 20px;
+      text-align: center;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      color: white;
+    }
+
+    .about img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #0bff03;
+      margin-bottom: 20px;
+    }
+
+    .testimonials {
+      background: #111;
+      padding: 40px 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .testimonial {
+      max-width: 500px;
+      margin: 20px auto;
+      background: rgba(0,255,0,0.05);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .testimonial img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 10px;
     }
 
     footer {
-      background-color: #00ff00;
+      background: #0bff03;
       padding: 20px;
       text-align: center;
-    }
-    h4 {color:#00ff00;
+      color: black;
+      font-weight: bold;
     }
 
+    @media screen and (max-width: 500px) {
+      .hero h1 { font-size: 2em; }
+      .hero p { font-size: 1em; }
+    }
   </style>
 </head>
 <body>
 
   <nav class="navbar">
-    <h1 class="logo">TendoSTech</h1>
-    <ul class="nav-links">
-      <li><a href="#products">Products</a></li>
-      <h4><li><a href="mycart.html">Cart</a></li></h4>
-    </ul>
-    <button class="toggle-mode" onclick="toggleMode()">Toggle Mode</button>
+    <div class="logo">Richie 256</div>
+    <div class="nav-links">
+      <a href="#products">Products</a>
+      <button class="cart-btn" onclick="location.href='mycart.html'">Cart</button>
+    </div>
   </nav>
 
   <section class="hero">
-    <h2>TendoSTech Electronics</h2>
-    <p>Welcome to your futuristic gadget store!</p>
+    <h1>Welcome to The Eagle</h1>
+    <p>Elevate your fashion game with premium styles</p>
   </section>
 
   <section id="products" class="products">
-    <h2>Our Products</h2>
+    <h2>Our Collections</h2>
     <div class="product-list">
-      <div class="product" data-category="speakers">
-        <img src=".jpg" alt="Speaker" />
-        <h3>Speaker</h3>
-        <p>UGX 1,200,000</p>
-        <input type="number" min="1" value="1" />
-        <button onclick="addToCart('Speaker', 1200000, this)">Add to Cart</button>
+      <div class="product">
+        <img src="ri6.jpg" alt="Shirt" />
+        <h3>Yellow Shirt</h3>
+        <p>UGX 35,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Stylish Shirt', 35000, this)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="ri3.jpg" alt="Shirt" />
+        <h3>Black Shirt</h3>
+        <p>UGX 35,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Stylish Shirt', 35000, this)">Add to Cart</button>
       </div>
 
-      <div class="product" data-category="phones">
-        <img src=".jpg" alt="Phone" />
-        <h3>Phone</h3>
-        <p>UGX 1,200,000</p>
-        <input type="number" min="1" value="1" />
-        <button onclick="addToCart('Phone', 1200000, this)">Add to Cart</button>
+      <div class="product">
+        <img src="ri1.jpg" alt="Cape" />
+        <h3>Royal Cape</h3>
+        <p>UGX 25,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Royal Cape', 25000, this)">Add to Cart</button>
       </div>
 
-      <div class="product" data-category="laptops">
-        <img src=".jpg" alt="Laptop" />
-        <h3>Super Laptop</h3>
-        <p>UGX 1,200,000</p>
-        <input type="number" min="1" value="1" />
-        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
+      <div class="product">
+        <img src="ri8.jpg" alt="Hat" />
+        <h3>Classic black Hat</h3>
+        <p>UGX 30,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Classic Hat', 30000, this)">Add to Cart</button>
       </div>
-      <div class="product" data-category="laptops">
-        <img src=".jpg" alt="Laptop" />
-        <h3>Super Laptop</h3>
-        <p>UGX 1,200,000</p>
-        <input type="number" min="1" value="1" />
-        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
+      <div class="product">
+        <img src="ri9.jpg" alt="Hat" />
+        <h3>Classic White Hat</h3>
+        <p>UGX 30,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Classic Hat', 30000, this)">Add to Cart</button>
       </div>
-      <div class="product" data-category="laptops">
-        <img src=".jpg" alt="Laptop" />
-        <h3>Super Laptop</h3>
-        <p>UGX 1,200,000</p>
-        <input type="number" min="1" value="1" />
-        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
+      <div class="product">
+        <img src="ri4.jpg" alt="Hat" />
+        <h3>Classic Orange Hat</h3>
+        <p>UGX 30,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Classic Hat', 30000, this)">Add to Cart</button>
       </div>
-      <div class="product" data-category="laptops">
-        <img src=".jpg" alt="Laptop" />
-        <h3>Super Laptop</h3>
-        <p>UGX 1,200,000</p>
-        <input type="number" min="1" value="1" />
-        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
+
+      <div class="product">
+        <img src="ri2.jpg" alt="Hoodie" />
+        <h3>Comfy Green Hoodie</h3>
+        <p>UGX 50,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Comfy Hoodie', 50000, this)">Add to Cart</button>
       </div>
-      <div class="product" data-category="laptops">
-        <img src=".jpg" alt="Laptop" />
-        <h3>Super Laptop</h3>
-        <p>UGX 1,200,000</p>
-        <input type="number" min="1" value="1" />
-        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
+
+      <div class="product">
+        <img src="ri10.jpg" alt="2piece" />
+        <h3>Red Two piece</h3>
+        <p>UGX 60,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Elegant Dress', 60000, this)">Add to Cart</button>
       </div>
-      <div class="product" data-category="laptops">
-        <img src=".jpg" alt="Laptop" />
-        <h3>Super Laptop</h3>
-        <p>UGX 1,200,000</p>
-        <input type="number" min="1" value="1" />
-        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
-      </div>
-      <div class="product" data-category="laptops">
-        <img src=".jpg" alt="Laptop" />
-        <h3>Super Laptop</h3>
-        <p>UGX 1,200,000</p>
-        <input type="number" min="1" value="1" />
-        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
-      </div>
-      <div class="product" data-category="laptops">
-        <img src=".jpg" alt="Laptop" />
-        <h3>Super Laptop</h3>
-        <p>UGX 1,200,000</p>
-        <input type="number" min="1" value="1" />
-        <button onclick="addToCart('Super Laptop', 1200000, this)">Add to Cart</button>
+      <div class="product">
+        <img src="ri11.jpg" alt="2piece" />
+        <h3>pink Two piece</h3>
+        <p>UGX 60,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Elegant Dress', 60000, this)">Add to Cart</button>
       </div>
     </div>
   </section>
 
+  <section class="about">
+    <img src="ri20.jpg" alt="Brand Logo">
+    <h2>About The Eagle</h2>
+    <p>The Eagle by Richie 256 is a Ugandan fashion brand delivering bold, elegant, and trendsetting styles for all occasions. Fly high in fashion.</p>
+  </section>
+
+  <section class="testimonials">
+    <h2>What People Say</h2>
+    <div class="testimonial">
+      <img src="swab.jpg" alt="Client">
+      <p>"The Eagle products are top-notch. I feel confident and stylish every time I wear their outfits!"</p>
+    </div>
+    <div class="testimonial">
+      <img src="hope.jpg" alt="Client">
+      <p>"The quality is unmatched. Great customer service and fast delivery!"</p>
+    </div>
+  </section>
+
   <footer>
-    <p>&copy; 2025 TendoSTech Electronics | All rights reserved.</p>
+    &copy; 2025 The Eagle by Richie 256. All rights reserved.
   </footer>
 
   <script>
-    function toggleMode() {
-      document.body.classList.toggle("light-mode");
-    }
-
     function addToCart(name, price, button) {
-      const quantityInput = button.previousElementSibling;
-      const quantity = parseInt(quantityInput.value);
+      const qty = button.previousElementSibling;
+      const quantity = parseInt(qty.value);
 
       if (quantity < 1) {
-        alert("Please enter a valid quantity.");
+        alert("Please select at least one.");
         return;
       }
 
