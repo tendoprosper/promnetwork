@@ -102,7 +102,7 @@
     }
 
     .product {
-      background: #0bff03;
+      background: #e4ece4b5;
       padding: 20px;
       border-radius: 10px;
       color: black;
@@ -162,9 +162,12 @@
     }
 
     .testimonial {
+      background-image: url('egl.jpg');
+  background-size: cover;
+  background-position: center;
+
       max-width: 500px;
       margin: 20px auto;
-      background: rgba(0,255,0,0.05);
       padding: 20px;
       border-radius: 10px;
     }
@@ -188,9 +191,94 @@
       .hero h1 { font-size: 2em; }
       .hero p { font-size: 1em; }
     }
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-in-out;
+  }
+
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+  @media screen and (max-width: 600px) {
+    .product-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .product {
+    background: #e4ece4b5;
+    padding: 20px;
+    border-radius: 15px;
+    color: black;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px rgba(98, 255, 0, 0.3);
+    position: relative;
+    opacity: 0;
+  transform: translateY(-80px);
+  transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .product::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: -19px;
+    width: 60px;
+    height: 40px;
+    background: radial-gradient(circle at center, #010102 20%, transparent 50%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #62ff00;
+  }
+
+  .animated-text {
+    background: linear-gradient(90deg, #62ff00, #d400ff, #62ff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+    font-weight: bold;
+  }
+
+  @keyframes shine {
+    from { background-position: 0%; }
+    to { background-position: 200%; }
+  }
+  @keyframes fallIn {
+  0% {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+.product.animate {
+  animation: fallIn 1.0s ease-out forwards;
+}
+
   </style>
 </head>
 <body>
+
+
+
 
   <nav class="navbar">
     <div class="logo">Richie 256</div>
@@ -201,21 +289,21 @@
   </nav>
 
   <section class="hero">
-    <h1>Welcome to The Eagle</h1>
+    <h1>Welcome to The Eagle Fashion</h1>
     <p>Elevate your fashion game with premium styles</p>
   </section>
 
   <section id="products" class="products">
-    <h2>Our Collections</h2>
+    <h2 class="animated-text">Our Collections</h2>
     <div class="product-list">
-      <div class="product">
+      <div class="product fade-in">
         <img src="ri6.jpg" alt="Shirt" />
         <h3>Yellow Shirt</h3>
         <p>UGX 35,000</p>
         <input type="number" value="1" min="1">
         <button onclick="addToCart('Stylish Shirt', 35000, this)">Add to Cart</button>
       </div>
-      <div class="product">
+      <div class="product fade-in">
         <img src="ri3.jpg" alt="Shirt" />
         <h3>Black Shirt</h3>
         <p>UGX 35,000</p>
@@ -223,7 +311,7 @@
         <button onclick="addToCart('Stylish Shirt', 35000, this)">Add to Cart</button>
       </div>
 
-      <div class="product">
+      <div class="product fade-in">
         <img src="ri1.jpg" alt="Cape" />
         <h3>Royal Cape</h3>
         <p>UGX 25,000</p>
@@ -231,21 +319,21 @@
         <button onclick="addToCart('Royal Cape', 25000, this)">Add to Cart</button>
       </div>
 
-      <div class="product">
+      <div class="product fade-in">
         <img src="ri8.jpg" alt="Hat" />
         <h3>Classic black Hat</h3>
         <p>UGX 30,000</p>
         <input type="number" value="1" min="1">
         <button onclick="addToCart('Classic Hat', 30000, this)">Add to Cart</button>
       </div>
-      <div class="product">
+      <div class="product fade-in">
         <img src="ri9.jpg" alt="Hat" />
         <h3>Classic White Hat</h3>
         <p>UGX 30,000</p>
         <input type="number" value="1" min="1">
         <button onclick="addToCart('Classic Hat', 30000, this)">Add to Cart</button>
       </div>
-      <div class="product">
+      <div class="product fade-in">
         <img src="ri4.jpg" alt="Hat" />
         <h3>Classic Orange Hat</h3>
         <p>UGX 30,000</p>
@@ -253,7 +341,7 @@
         <button onclick="addToCart('Classic Hat', 30000, this)">Add to Cart</button>
       </div>
 
-      <div class="product">
+      <div class="product fade-in">
         <img src="ri2.jpg" alt="Hoodie" />
         <h3>Comfy Green Hoodie</h3>
         <p>UGX 50,000</p>
@@ -261,14 +349,14 @@
         <button onclick="addToCart('Comfy Hoodie', 50000, this)">Add to Cart</button>
       </div>
 
-      <div class="product">
+      <div class="product fade-in">
         <img src="ri10.jpg" alt="2piece" />
         <h3>Red Two piece</h3>
         <p>UGX 60,000</p>
         <input type="number" value="1" min="1">
         <button onclick="addToCart('2piece', 60000, this)">Add to Cart</button>
       </div>
-      <div class="product">
+      <div class="product fade-in">
         <img src="ri11.jpg" alt="2piece" />
         <h3>pink Two piece</h3>
         <p>UGX 60,000</p>
@@ -322,6 +410,19 @@
       localStorage.setItem('cart', JSON.stringify(cart));
       alert(`${name} added to cart.`);
     }
+     // Fade-in scroll animation
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, {
+    threshold: 0.8
+  });
+
+  faders.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
