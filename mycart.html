@@ -3,27 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Cart</title>
+  <title>The Eagle by Richie 256 - Cart</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #121212;
       color: #f0f0f0;
-      padding: 30px;
       margin: 0;
+      padding: 0;
     }
 
-    h1 {
-      text-align: center;
+    .intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px 40px;
+      animation: fadeSlideIn 2s ease-in-out forwards;
+      background: linear-gradient(145deg, #1f1f1f, #0c0c0c);
+      border-bottom: 2px solid #62ff00;
+    }
+
+    .intro h1 {
+      font-size: 2.8em;
       color: #62ff00;
-      margin-bottom: 30px;
+      margin: 0;
+      animation: slideUp 1s ease-out;
+    }
+
+    .intro p {
+      margin-top: 15px;
+      font-size: 1.1em;
+      color: #d400ff;
+      animation: slideUp 1.5s ease-out;
+    }
+
+    @keyframes fadeSlideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .cart-item {
       background: #1f1f1f;
       padding: 15px;
       border-radius: 10px;
-      margin-bottom: 20px;
+      margin: 20px;
       box-shadow: 0 0 10px #000;
     }
 
@@ -37,7 +78,7 @@
     }
 
     .cart-item input[type="number"] {
-      width: 50px;
+      width: 60px;
       padding: 5px;
       border-radius: 5px;
       border: none;
@@ -53,16 +94,38 @@
       margin-top: 10px;
     }
 
+    .form-section {
+      background: #1f1f1f;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 30px 20px;
+      box-shadow: 0 0 10px #000;
+    }
+
+    .form-section input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: none;
+      background: #2b2b2b;
+      color: #ffffff;
+    }
+
+    .form-section input::placeholder {
+      color: #bbb;
+    }
+
     .total {
       font-size: 1.5em;
-      margin-top: 30px;
+      margin: 20px;
       text-align: right;
       color: #0bff03;
     }
 
     .checkout-btn {
       display: block;
-      margin: 30px auto;
+      margin: 20px auto;
       padding: 12px 30px;
       background-color: #0bff03;
       color: #000;
@@ -84,19 +147,30 @@
   </style>
 </head>
 <body>
-  <h1>Your Cart</h1>
+
+  <!-- 🔥 Intro Animation Section -->
+  <div class="intro">
+    <h1>The Eagle</h1>
+    <p>Cart & Checkout • Where Fashion Takes Flight</p>
+  </div>
+
+  <!-- 🛒 Cart Items -->
   <div id="cart-items"></div>
 
+  <!-- 💰 Total -->
   <div class="total">
     Total: UGX <span id="total-price">0</span>
   </div>
 
-  <!-- Hidden form to submit to Formspree -->
-  <form id="cart-form" action="https://formspree.io/f/xqapnljg" method="POST" class="hidden">
-    <input type="hidden" name="cartData" id="cartData" />
-  </form>
-s
-  <button class="checkout-btn" onclick="submitCart()">Proceed to Checkout</button>
+  <!-- 📝 Customer Form -->
+  <div class="form-section">
+    <form id="cart-form" action="https://formspree.io/f/xqapnljg" method="POST">
+      <input type="text" name="Customer Name" placeholder="Enter your name" required />
+      <input type="tel" name="Phone Number" placeholder="Enter your phone number" required />
+      <input type="hidden" name="Cart Summary" id="cartData" />
+      <button class="checkout-btn" type="submit" onclick="prepareSubmission(event)">Proceed to Checkout</button>
+    </form>
+  </div>
 
   <script>
     function formatPrice(value) {
@@ -147,10 +221,11 @@ s
       loadCart();
     }
 
-    function submitCart() {
+    function prepareSubmission(event) {
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
       if (cart.length === 0) {
         alert("Your cart is empty!");
+        event.preventDefault();
         return;
       }
 
@@ -163,15 +238,13 @@ s
         cartText += `Product: ${item.name}\nPrice: UGX ${formatPrice(item.price)}\nQuantity: ${item.quantity}\nItem Total: UGX ${formatPrice(itemTotal)}\n\n`;
       });
 
-      cartText += `TOTAL: UGX ${formatPrice(total)}\n\nThank you for choosing TendoSTech!`;
+      cartText += `TOTAL: UGX ${formatPrice(total)}\n\nThank you for shopping with The Eagle by Richie 256!`;
 
       document.getElementById("cartData").value = cartText;
-
-      // Submit the form
-      document.getElementById("cart-form").submit();
     }
 
     window.onload = loadCart;
   </script>
+
 </body>
 </html>
