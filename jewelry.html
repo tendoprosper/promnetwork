@@ -291,6 +291,7 @@
   <section class="hero">
     <h1>Welcome to The Eagle Fashion</h1>
     <p>Elevate your fashion game with premium styles</p>
+     <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()" />
   </section>
 
   <section id="products" class="products">
@@ -389,6 +390,14 @@
   </footer>
 
   <script>
+    function filterProducts() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  document.querySelectorAll(".product").forEach(p => {
+    const name = p.querySelector("h3").textContent.toLowerCase();
+    p.style.display = name.includes(input) ? "block" : "none";
+  });
+}
+
     function addToCart(name, price, button) {
       const qty = button.previousElementSibling;
       const quantity = parseInt(qty.value);
