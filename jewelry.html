@@ -2,249 +2,674 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Eagle Fasion Richie 256 - Cart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Eagle Brand by Richie 256</title>
   <style>
+    :root {
+      --text-color: #e5e5e5;
+      --highlight-color: #62ff00;
+      --accent-color: #d400ff;
+      --button-color: #30ab0b;
+      --bg-color: linear-gradient(145deg, #000000, #121212);
+    }
+
     body {
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #121212;
-      color: #f0f0f0;
-      margin: 0;
-      padding: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
     }
 
-    .intro {
+    .navbar {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      padding: 60px 20px 40px;
-      animation: fadeSlideIn 2s ease-in-out forwards;
-      background: linear-gradient(145deg, #1f1f1f, #0c0c0c);
-      border-bottom: 2px solid #62ff00;
+      padding: 20px;
+      background: #000;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
 
-    .intro h1 {
-      font-size: 2.8em;
-      color: #62ff00;
-      margin: 0;
-      animation: slideUp 1s ease-out;
+    .logo {
+      color: var(--accent-color);
+      font-size: 1.8em;
     }
 
-    .intro p {
-      margin-top: 15px;
-      font-size: 1.1em;
-      color: #d400ff;
-      animation: slideUp 1.5s ease-out;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 15px;
     }
 
-    @keyframes fadeSlideIn {
-      0% {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .nav-links a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    @keyframes slideUp {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .cart-item {
-      background: #1f1f1f;
-      padding: 15px;
-      border-radius: 10px;
-      margin: 20px;
-      box-shadow: 0 0 10px #000;
-    }
-
-    .cart-item h3 {
-      margin: 0 0 10px;
-      color: #d400ff;
-    }
-
-    .cart-item p {
-      margin: 5px 0;
-    }
-
-    .cart-item input[type="number"] {
-      width: 60px;
-      padding: 5px;
-      border-radius: 5px;
+    .cart-btn {
+      background-color: #0bff03;
+      color: black;
       border: none;
-    }
-
-    .cart-item button {
-      background-color: crimson;
-      color: white;
-      border: none;
-      padding: 6px 12px;
+      padding: 10px 15px;
+      border-radius: 25px;
       cursor: pointer;
-      border-radius: 5px;
-      margin-top: 10px;
+      font-weight: bold;
     }
 
-    .form-section {
-      background: #1f1f1f;
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: url('https://images.unsplash.com/photo-1535385793342-27c1415e6e9f') no-repeat center center/cover;
+      color: white;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      animation: slideIn 1.5s ease-in-out;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 0.2; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .products {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .products h2 {
+      margin-bottom: 20px;
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background: #e4ece4b5;
       padding: 20px;
       border-radius: 10px;
-      margin: 30px 20px;
-      box-shadow: 0 0 10px #000;
+      color: black;
+      transition: transform 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
     }
 
-    .form-section input {
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product img {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: none;
-      background: #2b2b2b;
-      color: #ffffff;
-    }
-
-    .form-section input::placeholder {
-      color: #bbb;
-    }
-
-    .total {
-      font-size: 1.5em;
-      margin: 20px;
-      text-align: right;
-      color: #0bff03;
-    }
-
-    .checkout-btn {
-      display: block;
-      margin: 20px auto;
-      padding: 12px 30px;
-      background-color: #0bff03;
-      color: #000;
-      font-size: 1.2em;
-      font-weight: bold;
-      border: none;
       border-radius: 10px;
+    }
+
+    .product h3 {
+      margin: 10px 0;
+    }
+
+    .product input[type="number"] {
+      width: 60px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    .product button {
+      background: black;
+      color: #0bff03;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 50px;
       cursor: pointer;
-      transition: background 0.3s ease;
     }
 
-    .checkout-btn:hover {
-      background-color: #62ff00;
+    .about {
+      padding: 50px 20px;
+      text-align: center;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      color: white;
     }
 
-    .hidden {
-      display: none;
+    .about img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #0bff03;
+      margin-bottom: 20px;
     }
+
+    .testimonials {
+      background: #111;
+      padding: 40px 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .testimonial {
+      background-image: url('egl.jpg');
+  background-size: cover;
+  background-position: center;
+
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .testimonial img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #0bff03;
+      padding: 20px;
+      text-align: center;
+      color: black;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 500px) {
+      .hero h1 { font-size: 2em; }
+      .hero p { font-size: 1em; }
+    }
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-in-out;
+  }
+
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+  @media screen and (max-width: 600px) {
+    .product-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .product {
+    background: #e4ece4b5;
+    padding: 20px;
+    border-radius: 15px;
+    color: black;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px rgba(98, 255, 0, 0.3);
+    position: relative;
+    opacity: 0;
+  transform: translateY(-80px);
+  transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .product::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: -19px;
+    width: 60px;
+    height: 40px;
+    background: radial-gradient(circle at center, #010102 20%, transparent 50%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  .ribbon {
+  position: absolute;
+  background: #ff0000;
+  color: white;
+  padding: 5px 10px;
+  top: 10px;
+  right: 10px;
+  font-size: 0.75em;
+  border-radius: 5px;
+}
+
+
+  .product:hover {
+    transform: scale(1.05);
+    
+     box-shadow: 0 0 15px #ff0000, 0 0 30px #000000;
+  }
+
+  .animated-text {
+    background: linear-gradient(90deg, #62ff00, #d400ff, #62ff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+    font-weight: bold;
+  }
+  .modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  color: white;
+  box-shadow: 0 0 20px var(--accent-color);
+  animation: slideUp 0.5s ease;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  font-size: 1em;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--button-color);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+}
+.floating-category-carousel {
+  margin-top: 20px;
+  position: sticky;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  width: 100%;
+  max-width: 600px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  justify-content: center;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.category-icon {
+  flex: 0 0 auto;
+  width: 70px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  animation: zoomPulse 2s infinite;
+}
+
+.category-icon:nth-child(1) {
+  animation-delay: 0s;
+}
+.category-icon:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.category-icon:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.category-icon:nth-child(4) {
+  animation-delay: 0.9s;
+}
+.category-icon:nth-child(5) {
+  animation-delay: 1.2s;
+}
+
+.category-icon img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+@keyframes zoomPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes slideUp {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+
+  @keyframes shine {
+    from { background-position: 0%; }
+    to { background-position: 200%; }
+  }
+  @keyframes fallIn {
+  0% {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+.product.animate {
+  animation: fallIn 1.0s ease-out forwards;
+}
+
   </style>
 </head>
 <body>
 
-  <!-- 🔥 Intro Animation Section -->
-  <div class="intro">
-    <h1>The Eagle Fashion</h1>
-    <p>Cart & Checkout • Where Fashion Takes Flight</p>
+<!-- Order Summary Modal -->
+<div id="orderModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2>Order Summary</h2>
+    <div id="orderItems"></div>
+    <p><strong>Total:</strong> <span id="orderTotal">UGX 0</span></p>
+    <input type="text" id="customerName" placeholder="Your Name" required />
+    <input type="tel" id="customerPhone" placeholder="Phone Number" required />
+    <button onclick="submitOrder()">Confirm Order</button>
   </div>
+</div>
 
-  <!-- 🛒 Cart Items -->
-  <div id="cart-items"></div>
+  <nav class="navbar">
+    <div class="logo">Richie 256</div>
 
-  <!-- 💰 Total -->
-  <div class="total">
-    Total: UGX <span id="total-price">0</span>
-  </div>
 
-  <!-- 📝 Customer Form -->
-  <div class="form-section">
-    <form id="cart-form" action="https://formspree.io/f/xqapnljg" method="POST">
-      <input type="text" name="Customer Name" placeholder="Enter your name" required />
-      <input type="tel" name="Phone Number" placeholder="Enter your phone number" required />
-      <input type="hidden" name="Cart Summary" id="cartData" />
-      <button class="checkout-btn" type="submit" onclick="prepareSubmission(event)">Proceed to Checkout</button>
-    </form>
-  </div>
+    <div class="nav-links">
+      <a href="#products">Products</a>
+      <button class="cart-btn" onclick="location.href='mycart.html'">Cart</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Welcome to The Eagle Fashion</h1>
+    <p>Elevate your fashion game with premium styles</p>
+    <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()" />
+    <div class="floating-category-carousel">
+      <div class="carousel-track" id="categoryCarousel">
+        <div class="category-icon" data-category="shirt">
+          <img src="ri6.jpg" alt="Shirts">
+          <p>Shirts</p>
+        </div>
+        <div class="category-icon" data-category="hat">
+          <img src="ri8.jpg" alt="Hats">
+          <p>Hats</p>
+        </div>
+        <div class="category-icon" data-category="cape">
+          <img src="ri1.jpg" alt="Capes">
+          <p>Capes</p>
+        </div>
+        <div class="category-icon" data-category="hoodie">
+          <img src="ri2.jpg" alt="Hoodies">
+          <p>Hoodies</p>
+        </div>
+        <div class="category-icon" data-category="2pieces">
+          <img src="ri10.jpg" alt="2pieces">
+          <p>2-Piece</p>
+        </div>
+  </section>
+  <section id="products" class="products">
+    <h2 class="animated-text">Our Collections</h2>
+    <div class="product-list">
+      <div class="product fade-in">
+        <span class="ribbon">🔥 Hot sale</span>
+        <img src="ri6.jpg" alt="Shirt" />
+
+        <h3>Yellow Shirt</h3>
+        <p>UGX 35,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Yellow Shirt', 35000, this)">Add to Cart</button>
+      </div>
+      <div class="product fade-in" data-category="shirts">
+    
+        <span class="ribbon">🔥 Hot sale</span>
+        <img src="ri3.jpg" alt="Shirt" />
+        <h3>Black Shirt</h3>
+        <p>UGX 35,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Black Shirt', 35000, this)">Add to Cart</button>
+      </div>
+
+      <div class="product fade-in" data-category="capes">
+        <img src="ri1.jpg" alt="Cape" />
+        <h3>Royal Cape</h3>
+        <p>UGX 25,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Red Cape', 25000, this)">Add to Cart</button>
+      </div>
+
+      <div class="product fade-in" data-category="hats">
+        <img src="ri8.jpg" alt="Hat" />
+        <h3>Classic black Hat</h3>
+        <p>UGX 30,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Black Hat', 30000, this)">Add to Cart</button>
+      </div>
+      <div class="product fade-in" data-category="hats">
+        <img src="ri9.jpg" alt="Hat" />
+        <h3>Classic White Hat</h3>
+        <p>UGX 30,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('White Hat', 30000, this)">Add to Cart</button>
+      </div>
+      <div class="product fade-in" data-category="hats">
+        <img src="ri4.jpg" alt="Hat" />
+        <h3>Classic Orange Hat</h3>
+        <p>UGX 30,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Orange Hat', 30000, this)">Add to Cart</button>
+      </div>
+
+      <div class="product fade-in" data-category="hoodies">
+        <img src="ri2.jpg" alt="Hoodie" />
+        <h3>Comfy Green Hoodie</h3>
+        <p>UGX 50,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Green Hoodie', 50000, this)">Add to Cart</button>
+      </div>
+
+      <div class="product fade-in" data-category="2pieces">
+        <img src="ri10.jpg" alt="2piece" />
+        <h3>Red 2piece</h3>
+        <p>UGX 60,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Red 2piece', 60000, this)">Add to Cart</button>
+      </div>
+      <div class="product fade-in" data-category="2pieces">
+        <img src="ri11.jpg" alt="2piece" />
+        <h3>pink 2piece</h3>
+        <p>UGX 60,000</p>
+        <input type="number" value="1" min="1">
+        <button onclick="addToCart('Pink 2piece', 60000, this)">Add to Cart</button>
+      </div>
+      
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="about">
+    <img src="ri20.jpg" alt="Brand Logo">
+    <h2>About The Eagle</h2>
+    <p>The Eagle by Richie 256 is a Ugandan fashion brand delivering bold, elegant, and trendsetting styles for all occasions. Fly high in fashion.</p>
+  </section>
+
+  <section class="testimonials">
+    <h2>What People Say</h2>
+    <div class="testimonial">
+      <img src="swab.jpg" alt="Client">
+      <p>"The Eagle products are top-notch. I feel confident and stylish every time I wear their outfits!"</p>
+    </div>
+    <div class="testimonial">
+      <img src="hope.jpg" alt="Client">
+      <p>"The quality is unmatched. Great customer service and fast delivery!"</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 The Eagle by Richie 256. All rights reserved.
+  </footer>
 
   <script>
-    function formatPrice(value) {
-      return value.toLocaleString('en-UG', { minimumFractionDigits: 0 });
-    }
+    function openModal() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const orderItems = document.getElementById("orderItems");
+  const orderTotal = document.getElementById("orderTotal");
+  let total = 0;
 
-    function loadCart() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const cartContainer = document.getElementById('cart-items');
-      const totalPriceElement = document.getElementById('total-price');
+  orderItems.innerHTML = "";
 
-      cartContainer.innerHTML = '';
-      let totalPrice = 0;
+  cart.forEach(item => {
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
 
-      cart.forEach((item, index) => {
-        const itemTotal = item.price * item.quantity;
-        totalPrice += itemTotal;
+    const div = document.createElement("div");
+    div.innerHTML = `<p>${item.quantity} x ${item.name} - UGX ${itemTotal.toLocaleString()}</p>`;
+    orderItems.appendChild(div);
+  });
 
-        const cartItemDiv = document.createElement('div');
-        cartItemDiv.classList.add('cart-item');
-        cartItemDiv.innerHTML = `
-          <h3>${item.name}</h3>
-          <p>Price: UGX ${formatPrice(item.price)}</p>
-          <p>
-            Quantity: 
-            <input type="number" min="1" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)" />
-          </p>
-          <p>Total: UGX ${formatPrice(itemTotal)}</p>
-          <button onclick="removeFromCart('${item.name}')">Remove</button>
-        `;
-        cartContainer.appendChild(cartItemDiv);
-      });
+  orderTotal.textContent = "UGX " + total.toLocaleString();
+  document.getElementById("orderModal").style.display = "block";
+}
 
-      totalPriceElement.textContent = formatPrice(totalPrice);
-    }
+function closeModal() {
+  document.getElementById("orderModal").style.display = "none";
+}
 
-    function updateQuantity(index, newQty) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart[index].quantity = parseInt(newQty);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      loadCart();
-    }
+function submitOrder() {
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
 
-    function removeFromCart(productName) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart = cart.filter(item => item.name !== productName);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      loadCart();
-    }
+  if (!name || !phone) {
+    alert("Please enter your name and phone number.");
+    return;
+  }
 
-    function prepareSubmission(event) {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      if (cart.length === 0) {
-        alert("Your cart is empty!");
-        event.preventDefault();
+  alert(`Thanks ${name}, your order has been placed!`);
+  localStorage.removeItem("cart");
+  closeModal();
+  location.reload();
+}
+
+    function filterProducts() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  document.querySelectorAll(".product").forEach(p => {
+    const name = p.querySelector("h3").textContent.toLowerCase();
+    p.style.display = name.includes(input) ? "block" : "none";
+  });
+}
+
+    function addToCart(name, price, button) {
+      const qty = button.previousElementSibling;
+      const quantity = parseInt(qty.value);
+
+      if (quantity < 1) {
+        alert("Please select at least one.");
         return;
       }
 
-      let total = 0;
-      let cartText = `Customer Order Summary:\n\n`;
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let existing = cart.find(item => item.name === name);
 
-      cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
-        cartText += `Product: ${item.name}\nPrice: UGX ${formatPrice(item.price)}\nQuantity: ${item.quantity}\nItem Total: UGX ${formatPrice(itemTotal)}\n\n`;
-      });
+      if (existing) {
+        existing.quantity += quantity;
+      } else {
+        cart.push({ name, price, quantity });
+      }
 
-      cartText += `TOTAL: UGX ${formatPrice(total)}\n\nThank you for shopping with The Eagle by Richie 256!`;
-
-      document.getElementById("cartData").value = cartText;
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to cart.`);
     }
+     // Fade-in scroll animation
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, {
+    threshold: 0.8
+  });
 
-    window.onload = loadCart;
+  faders.forEach(el => observer.observe(el));
+  document.querySelectorAll('.category-icon').forEach(icon => {
+  icon.addEventListener('click', () => {
+    const category = icon.getAttribute('data-category');
+    document.querySelectorAll('.product').forEach(product => {
+      const name = product.querySelector('h3').textContent.toLowerCase();
+      product.style.display = name.includes(category) ? 'block' : 'none';
+    });
+  });
+});
+
+const categoryIcons = document.querySelectorAll('.category-icon');
+
+categoryIcons.forEach(icon => {
+  icon.addEventListener('click', () => {
+    const selectedCategory = icon.getAttribute('data-category');
+    filterProductsByCategory(selectedCategory); // Replace with your filtering function
+  });
+});
+
+
   </script>
-
 </body>
 </html>
