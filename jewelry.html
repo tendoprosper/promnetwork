@@ -226,9 +226,45 @@
   transform: translateY(-80px);
   transition: opacity 0.3s, transform 0.3s;
   }
-input{
+.search-bar-container {
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 500px;
+  padding: 10px 15px;
+  margin: 0 auto 20px auto; /* adds spacing below */
+  box-sizing: border-box;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background: #121212;
+  color: white;
+  
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#searchInput::placeholder {
+  color: #aaa;
+  font-size: 15px;
+}
+
+#searchInput:focus {
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
+  transform: scale(1.02);
+}
+
+
+@media (max-width: 400px) {
+  #searchInput {
+    padding: 10px 14px;
+    font-size: 15px;
+  }
 }
   .product::after {
     content: "";
