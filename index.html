@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prom Network</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <script defer src="script.js"></script>
     <style>
         * {
@@ -126,6 +128,50 @@
                 max-width: 200px;
             }
         }
+        .contact-card {
+  background: #000;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+.contact-card h3 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.icon {
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.icon:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.1);
+}
+
     </style>
 </head>
 <body>
@@ -194,12 +240,28 @@
     </section>
             
     
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form id="contactForm">
-            <p>+256 702 640109</p>
-            <p>+256 701 424396</p>
-            <p>tendoprosper28@gmail.com</p>
+    <!-- Font Awesome CDN (for social icons) -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+
+<div class="contact-card">
+  <h3>Find Us On</h3>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/prom_network?igsh=MTRmMmFqNnJwcnJ0aA==" target="_blank" class="icon instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://facebook.com/groups/2244279625969808/" target="_blank" class="icon facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    
+    <a href="https://wa.me/+256701424396" target="_blank" class="icon whatsapp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://www.tiktok.com/@promnetwork?_t=ZM-8vYt4h1xvKZ&_r=1 " target="_blank" class="icon tiktok">
+      <i class="fab fa-tiktok"></i>
+    </a>
+  </div>
+</div>
+
         </form>
     </section>
 </body>
