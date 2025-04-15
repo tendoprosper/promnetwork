@@ -4,8 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eagle Fashion by Richie 256</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     :root {
+      
       --text-color: #e5e5e5;
       --highlight-color: #62ff00;
       --accent-color: #d400ff;
@@ -21,6 +24,7 @@
     }
 
     .navbar {
+      
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -32,6 +36,7 @@
     }
 
     .logo {
+      
       color: var(--accent-color);
       font-size: 1.8em;
     }
@@ -458,6 +463,46 @@
 .product.animate {
   animation: fallIn 1.0s ease-out forwards;
 }
+.contact-card {
+  background: #000;
+  color: #fff;
+  padding: 30px 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.contact-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.icon {
+  color: #fff;
+  background-color: transparent;
+  font-size: 1.8em;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 12px;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.icon:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.1);
+}
+
 
   </style>
 </head>
@@ -599,6 +644,25 @@
       <img src="hope.jpg" alt="Client">
       <p>"The quality is unmatched. Great customer service and fast delivery!"</p>
     </div>
+    <div class="contact-card">
+      <h3>Find Us On</h3>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/rich_ie256/" target="_blank" class="icon instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/classybwoy" target="_blank" class="icon facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        </a>
+        <a href="https://wa.me/+256756965449" target="_blank" class="icon whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.tiktok.com/@rich_ie256" target="_blank" class="icon tiktok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+    
   </section>
 
   <footer>
