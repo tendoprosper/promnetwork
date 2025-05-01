@@ -1,191 +1,268 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prom Network Perfumes</title>
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prom Network Perfumes</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --card-bg: #1e1e1e;
+      --text: #ffffff;
+      --accent: #ff3cac;
+      --accent2: #784ba0;
+    }
 
-        body {
-            background: linear-gradient(135deg, #1c1c1c, #292929);
-            color: #ffffff;
-            text-align: center;
-            overflow-x: hidden;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
 
-        /* Navigation Bar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: rgba(0, 0, 0, 0.8);
-            position: sticky;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
+    .cart-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent2);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 15px var(--accent2);
+      transition: 0.3s;
+    }
 
-        .navbar a:hover {
-            color: #ff5722;
-        }
+    .cart-btn:hover {
+      background: var(--accent);
+      box-shadow: 0 0 20px var(--accent);
+    }
 
-        /* Hero Section */
-        .hero {
-            background: url('images/banner.jpg') no-repeat center center/cover;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            text-align: center;
-            padding: 20px;
-        }
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
 
-        .hero h1 {
-            font-size: 2.5em;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
+    .product {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(255, 60, 172, 0.2);
+      transition: transform 0.3s ease;
+      animation: fadeIn 1s ease;
+    }
 
-        .hero button {
-            background: #ff5722;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            margin-top: 10px;
-        }
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px var(--accent);
+    }
 
-        .hero button:hover {
-            background: #e64a19;
-        }
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
 
-        /* Gallery */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            padding: 20px;
-        }
+    .product h2 {
+      font-size: 1.3em;
+      color: var(--accent);
+    }
 
-        .photo {
-            background: #1e1e1e;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
+    .product p {
+      margin: 10px 0;
+      font-size: 1em;
+    }
 
-        .photo:hover {
-            transform: scale(1.05);
-        }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 8px;
+      margin-bottom: 12px;
+      border-radius: 5px;
+      border: none;
+      background: #333;
+      color: white;
+    }
 
-        .photo img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: var(--accent);
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-        .Buy {
-            display: block;
-            margin: 10px auto;
-            padding: 10px 15px;
-            background: #ff5722;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease-in-out;
-        }
+    button:hover {
+      background: var(--accent2);
+    }
 
-        .Buy:hover {
-            background: #e64a19;
-        }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
 
-        /* Footer */
-        .footer {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 5px;
-            text-align: center;
-            color: white;
-            margin-top: 10px;
-        }
-
-        /* Floating Contact Button */
-        .contact-btn {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #ff5722;
-            padding: 10px 15px;
-            border-radius: 50px;
-            color: white;
-            font-size: 14px;
-            text-decoration: none;
-            box-shadow: 0px 0px 10px rgba(255, 87, 34, 0.5);
-        }
-
-        .contact-btn:hover {
-            background: #e64a19;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .photo {
-            animation: fadeIn 1s ease-in-out;
-        }
-    </style>
+    @media (max-width: 600px) {
+      .products-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="#">Home</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
+  <a href="Prom Cart.html" class="cart-btn">🛒 My Cart</a>
+
+  <h1>Prom Network Perfume</h1>
+
+  <div class="products-container">
+    
+    <div class="product"data-name="Body Spray">
+      <img src="perfume3.jpg" alt="Body Spray">
+      <h2>Body Spray</h2>
+      <p>UGX 50,000</p>
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
     </div>
-
-    <div class="hero">
-        <h1>Discover Luxury Scents</h1>
-        <p>Pick the best for your ceremony</p>
-        <button>Explore Now</button>
+    
+    <div class="product" data-name="Perfume">
+      <img src="perfume2.jpg" alt="Gown">
+      <h2>Perfume</h2>
+      <p>UGX 50,000</p>
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
     </div>
-
-    <section class="gallery" id="gallery">
-        <div class="photo">
-            <img src="perfume3.jpg" alt="Perfume">
-            <h3>Body Spray</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX400,000</button></a> 
-        </div>
-        <div class="photo">
-            <img src="perfume2.jpg" alt="Perfume">
-            <h3>Perfume</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX400,000</button></a> 
-        </div>
-        <!-- Add more products here -->
-    </section>
-
-    <div class="footer" id="contact">
-        <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS Tech</p>
+    <div class="product" data-name="Perfume">
+      <img src="perfume1.jpg" alt="Gown">
+      <h2>Perfume</h2>
+      <p>UGX 50,000</p>
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
     </div>
+    <div class="product" data-name="Perfume">
+      <img src="perfume10.jpg" alt="Gown">
+      <h2>Perfume</h2>
+      <p>UGX 50,000</p>
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+    </div>
+    <div class="product" data-name="Perfume">
+      <img src="perfume11.jpg" alt="Gown">
+      <h2>Perfume</h2>
+      <p>UGX 50,000</p>
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+    </div>
+    <div class="product" data-name="Perfume">
+      <img src="perfume12.jpg" alt="Gown">
+      <h2>Perfume</h2>
+      <p>UGX 50,000</p>
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+    </div>
+    <div class="product" data-name="Perfume">
+      <img src="perfume13.jpg" alt="Gown">
+      <h2>Perfume</h2>
+      <p>UGX 50,000</p>
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+    </div>
+    <div class="product" data-name="Perfume">
+      <img src="perfume14.jpg" alt="Gown">
+      <h2>Perfume</h2>
+      <p>UGX 50,000</p>
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+    </div>
+    <div class="product" data-name="Perfume">
+      <img src="perfume15.jpg" alt="Gown">
+      <h2>Perfume</h2>
+      <p>UGX 50,000</p>
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+    </div>
+    <div class="product" data-name="Perfume">
+      <img src="perfume16.jpg" alt="Gown">
+      <h2>Perfume</h2>
+      <p>UGX 50,000</p>
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+    </div>
+    <div class="product" data-name="Perfume">
+      <img src="perfume17.jpg" alt="Gown">
+      <h2>Perfume</h2>
+      <p>UGX 50,000</p>
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+    </div>
+    <div class="product" data-name="Perfume">
+      <img src="perfume18.jpg" alt="Gown">
+      <h2>Perfume</h2>
+      <p>UGX 50,000</p>
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+    </div>
+    <div class="product" data-name="Perfume">
+      <img src="perfume19.jpg" alt="Gown">
+      <h2>Perfume</h2>
+      <p>UGX 50,000</p>
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+    </div>
+    <div class="product" data-name="Perfume">
+      <img src="perfume20.jpg" alt="Gown">
+      <h2>Perfume</h2>
+      <p>UGX 50,000</p>
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+    </div>
+    
+  <script>
+        
+    const cartButtons = document.querySelectorAll('.btn');
 
-    <a href="feedback.html" class="contact-btn">Contact Us</a>
+    cartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const product = button.closest('.product');
+        const name = product.dataset.name;
+        const price = parseInt(button.dataset.price);
+        const type = button.dataset.type;
+
+        const cartItem = {
+          name,
+          price,
+          type,
+          quantity: 1,
+        };
+
+        let cart = JSON.parse(localStorage.getItem('promCart')) || [];
+        const existingIndex = cart.findIndex(item => item.name === name && item.type === type);
+
+        if (existingIndex > -1) {
+          cart[existingIndex].quantity += 1;
+        } else {
+          cart.push(cartItem);
+        }
+
+        localStorage.setItem('promCart', JSON.stringify(cart));
+        alert(`${type} added to cart!`);
+      });
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+            const toggleButton = document.querySelector(".navbar-toggle");
+            const navLinks = document.querySelector(".nav-links");
+
+            toggleButton.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        });
+  </script>
+
 </body>
 </html>
+
+
+        
+   
+
+  
