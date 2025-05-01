@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prom Network Men Shoes </title>
+    <title>Prom Network Shoes </title>
     <style>
         /* General Reset */
         * {
@@ -83,7 +83,10 @@
             text-align: center;
             transition: transform 0.3s ease-in-out;
         }
-
+        .product:hover {
+    box-shadow: 5px 0 6px red;
+      color: #ffffff;
+    }
         .product img {
             width: 100%;
             height: auto;
@@ -195,6 +198,35 @@
         .Rent:hover {
             background: #d20505;
         }
+        .cart-btn {
+      background-color: #fb0606;
+      color: #000;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .cart-btn:hover {
+      background-color: orange;
+      color: #cc1f1f;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: red;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: rgb(248, 93, 36);
+    }
     </style>
 </head>
 
@@ -203,273 +235,190 @@
 
     <header class="hero">Prom Network Shoes</header>
 
+    <div class="navbar">
+        <a href="Prom Cart.html" class="cart-btn">🛒 View Cart</a>
+      </div>
+
     <section class="products">
-        <div class="product">
-            <img src="ss18.jpg" alt="Trendy Dress">
-            <p>No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX60,000</button></a>
-        </div>
-        <div class="product">
-            <img src="ss17.png" alt="Trendy Dress">
-            <p>No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX160,000</button></a>
-        </div>
-        <div class="product">
-            <img src="ss16.png" alt="Trendy Dress">
-            <p>No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX70,000</button></a>
-        </div>
-        <div class="product">
-            <img src="ss15.jpg" alt="Trendy Dress">
-            <p>No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX100,000</button></a>
-        </div>
-        <div class="product">
-            <img src="ss14.jpg" alt="Trendy Dress">
-            <p>No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX80,000</button></a>
-        </div>
-        <div class="product">
-            <img src="ss13.jpg" alt="Trendy Dress">
-    <p>No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX150,000</button></a>
-        </div>
-        <div class="product">
-            <img src="ss12.jpg" alt="Trendy Dress">
-            <p>No.SH011<p>
-            <a href="sold.html"><button class="Buy">Buy at UGX100,000</button></a>
-        </div>
-        <div class="product">
-            <img src="ss11.jpg" alt="Trendy Dress">
-            <p>Amiri No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX100,000</button></a>
-        </div>
-        <div class="product">
-            <img src="s10.jpg" alt="Trendy Dress">
-            <p>No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX140,000</button></a>
-        </div>
-        <div class="product">
-            <img src="ss9.jpg" alt="Trendy Dress">
-            <p>No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX200,000</button></a>
-        </div>
-<div class="product">
-            <img src="ss8.jpg" alt="Trendy Dress">
-            <p>Hummer-D No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX200,000</button></a>
-</div>
-        <div class="product">
-            <img src="ss7.jpg" alt="Shoes">
-            <p>No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX300,000</button></a>
-        </div>
-        <div class="product">
-            <img src="ss6.jpg" alt="Shoes">
-                <p>No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX100,000</button></a>
-        </div>
-<div class="product">
-            <img src="ss5.jpg" alt="shoe">
-            <p>No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX500,000</button></a>
-</div>
-        <div class="product">
-            <img src="ss4.jpg" alt="shoess">
-            <p>No.SH011<p>
-            <a href="sold.html"><button class="Buy">Buy at UGX500,000</button></a>
-        </div>
-        <div class="product">
-            <img src="ss3.jpg" alt="prom network
-            <p>No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX150,000</button></a>
-        </div>
-<div class="product">
-            <img src="ss2.jpg" alt="Trendy Dress">
-            <p>No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX250,000</button></a>
-</div>
-        <div class="product">
-            <img src="ss1.jpeg" alt="shoes">
-            <p>No.SH011<p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX100,000</button></a>
-        </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes41.jpg" alt="Trendy Dress">
-            <h3>Shoes by Isaac Gingale</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX150,000</button></a>
+            
+            
+      <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX150,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes2.jpg" alt="Elegant Suit">
-            <h3>Shoes by Isaac Gingale</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX100,000</button></a>
+            <h3>Shoes </h3>
+            
+      <button class="btn buy-btn" data-price="100000" data-type="Buy">Buy at UGX100,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes3.jpg" alt="Casual Wear">
-            <h3>Shoes by Isaac Gingaler</h3>
+            
             <p>Oxford</p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX110,000</button></a>
+            <button class="btn buy-btn" data-price="110000" data-type="Buy">Buy at UGX110,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes4.jpg" alt="Stylish Jacket">
-            <h3>Shoes by Isaac Gingale</h3>
+            
             <p>Oxford</p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX100,000</button></a>
+            <button class="btn buy-btn" data-price="100000" data-type="Buy">Buy at UGX100,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes5.jpg" alt="Classic Jeans">
-            <h3>Shoes by Isaac Gingale</h3>
-            <a href="messaging.html"><button class="Rent">Rent at UGX100,000</button></a>
+            
+            <button class="btn buy-btn" data-price="100000" data-type="Buy">Buy at UGX150,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes6.jpg" alt="Cool T-Shirt">
-            <h3>Shoes by Isaac Gingale</h3>
+            
             <p>Oxford</p>
-            <a href="messaging.html"><button class="Rent">Rent at UGX90,000</button></a>
+            <button class="btn buy-btn" data-price="100000" data-type="Buy">Buy at UGX100,000</button>
 
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoe.jpg" alt="Fashionable Shoes">
-            <h3>Shoes by Isaac Gingale</h3>
+            
             <p>Louis Voiton</p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX170,000</button></a>
+            <button class="btn buy-btn" data-price="100000" data-type="Buy">Buy at UGX100,000</button>
         </div>
 
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes28.jpg" alt="Stylish Hat">
-            <h3>Shoes by Isaac Gingale</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX180,000</button></a>
+            
+            <button class="btn buy-btn" data-price="180000" data-type="Buy">Buy at UGX180,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes29.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
+            
             <p>Timberland Brown</p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX180,000</button></a>
+            <button class="btn buy-btn" data-price="180000" data-type="Buy">Buy at UGX180,000</button>
         </div>
 
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes30.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
+            
             <p>Timberland</p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX170,000</button></a>
+            <button class="btn buy-btn" data-price="170000" data-type="Buy">Buy at UGX170,000</button>
            
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes31.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX170,000</button></a>
+            
+            <button class="btn buy-btn" data-price="170000" data-type="Buy">Buy at UGX170,000</button>
             <p>Timberland</p>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes32.jpg" alt="Elegant Scarf">
             <h3>Shoes by Isaac Gingale</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX210,000</button></a>
+            <button class="btn buy-btn" data-price="200000" data-type="Buy">Buy at UGX200,000</button>
             <p>Timberland</p>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes33.jpg" alt="Elegant Scarf">
-            <h3>EShoes by Isaac Gingale</h3>
+           
             <P>Timberland</P>
-            <a href="messaging.html"><button class="Buy">Buy at UGX200,000</button></a>
+            <button class="btn buy-btn" data-price="200000" data-type="Buy">Buy at UGX200,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes34.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
+            
             <p>Timberland Red</p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX200,000</button></a>
+            <button class="btn buy-btn" data-price="200000" data-type="Buy">Buy at UGX200,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes35.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX200,000</button></a>
+            
+            <button class="btn buy-btn" data-price="200000" data-type="Buy">Buy at UGX200,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes36.jpg" alt="Elegant Scarf">
             <h3>Shoes by Isaac Gingale</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX200,000</button></a>
+            <button class="btn buy-btn" data-price="200000" data-type="Buy">Buy at UGX200,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes37.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
+            
             <p>Timberland White</p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX200,000</button></a>
+            <button class="btn buy-btn" data-price="200000" data-type="Buy">Buy at UGX200,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes38.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
+            
             <p>Timberland Blue and White</p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX200,000</button></a>
+            <button class="btn buy-btn" data-price="200000" data-type="Buy">Buy at UGX200,000</button>
                 
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes39.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX170,000</button></a>
+            
+            <button class="btn buy-btn" data-price="200000" data-type="Buy">Buy at UGX200,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="shoes222.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
+            
             <p>Bottega Veneta</p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX125,000</button></a>
+            <button class="btn buy-btn" data-price="120000" data-type="Buy">Buy at UGX120,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="OG1.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
             
-            <a href="messaging.html"><button class="Buy">Buy at UGX100,000</button></a>
+            
+            <button class="btn buy-btn" data-price="100000" data-type="Buy">Buy at UGX100,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="OG2.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
-        
-            <a href="messaging.html"><button class="Buy">Buy at UGX100,000</button></a>
-        </div>
-        <div class="product">
-            <img src="OG3.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
-            <p>Bottega Veneta</p>
-            <a href="messaging.html"><button class="Buy">Buy at UGX100,000</button></a>
-        </div>
-        <div class="product">
-            <img src="OG4.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
             
-            <a href="messaging.html"><button class="Buy">Buy at UGX100,000</button></a>
+        
+            <button class="btn buy-btn" data-price="100000" data-type="Buy">Buy at UGX100,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
+            <img src="OG3.jpg" alt="Elegant Scarf">
+            
+            <p>Bottega Veneta</p>
+            <button class="btn buy-btn" data-price="100000" data-type="Buy">Buy at UGX100,000</button>
+        </div>
+        <div class="product" data-name="Shoes">
+            <img src="OG4.jpg" alt="Elegant Scarf">
+            
+            
+            <button class="btn buy-btn" data-price="100000" data-type="Buy">Buy at UGX100,000</button>
+        </div>
+        <div class="product" data-name="Shoes">
             <img src="OG5.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX100,000</button></a>
+           
+            <button class="btn buy-btn" data-price="100000" data-type="Buy">Buy at UGX100,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="Bata.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX150,000</button></a>
+           
+            <button class="btn buy-btn" data-price="100000" data-type="Buy">Buy at UGX100,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="bata2.jpg" alt="Elegant Scarf">
-            <h3>Shoes by Isaac Gingale</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX200,000</button></a>
+            
+            <button class="btn buy-btn" data-price="100000" data-type="Buy">Buy at UGX100,000</button>
         </div>
         <div class="product">
             <img src="j6black.jpg" alt="Elegant Scarf">
             <h3>J6</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX180,000</button></a>
+            <button class="btn buy-btn" data-price="180000" data-type="Buy">Buy at UGX180,000</button>
         </div>
-        <div class="product">
+        <div class="product" data-name="Shoes">
             <img src="j6brown.jpg" alt="Elegant Scarf">
             <h3>J6</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX180,000</button></a>
+            <button class="btn buy-btn" data-price="180000" data-type="Buy">Buy at UGX180,000</button>
         </div>
-        <div class="product">
+
+        <div class="product" data-name="Shoes">
             <img src="j6gray.jpg" alt="Elegant Scarf">
             <h3>J6</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX180,000</button></a>
+            <button class="btn buy-btn" data-price="180000" data-type="Buy">Buy at UGX180,000</button>
         </div>
         <div class="product">
             <img src="j4.jpg" alt="Elegant Scarf">
             <h3>Jordan 4</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX100,000</button></a>
+            <button class="btn buy-btn" data-price="100000" data-type="Buy">Buy at UGX100,000</button>
         </div>
 
         </div>
@@ -477,6 +426,38 @@
     </section>
 
     <script>
+        
+    const cartButtons = document.querySelectorAll('.btn');
+
+    cartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const product = button.closest('.product');
+        const name = product.dataset.name;
+        const price = parseInt(button.dataset.price);
+        const type = button.dataset.type;
+
+        const cartItem = {
+          name,
+          price,
+          type,
+          quantity: 1,
+        };
+
+        let cart = JSON.parse(localStorage.getItem('promCart')) || [];
+        const existingIndex = cart.findIndex(item => item.name === name && item.type === type);
+
+        if (existingIndex > -1) {
+          cart[existingIndex].quantity += 1;
+        } else {
+          cart.push(cartItem);
+        }
+
+        localStorage.setItem('promCart', JSON.stringify(cart));
+        alert(`${type} added to cart!`);
+      });
+    });
+  </script>
+
         document.addEventListener("DOMContentLoaded", () => {
             const toggleButton = document.querySelector(".navbar-toggle");
             const navLinks = document.querySelector(".nav-links");
@@ -485,6 +466,7 @@
                 navLinks.classList.toggle("active");
             });
         });
+        
     </script>
     <img src="logo.png" alt="Camera Sticker" class="camera-sticker">
     <div class="footer">
