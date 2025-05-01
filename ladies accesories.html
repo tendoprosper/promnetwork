@@ -1,268 +1,252 @@
+
+        
+
+   
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prom Network Ladies Accesories </title>
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prom Network Ladies accessories</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --card-bg: #1e1e1e;
+      --text: #ffffff;
+      --accent: #e907f9;
+      --accent2: #873987;
+    }
 
-        body {
-            background: linear-gradient(to right, rgb(28, 1, 1), rgb(164, 15, 145));
-            color: #ffffff;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
 
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background: #ed21e7;
-            color: white;
-        }
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
 
-        .navbar-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
+    .cart-btn {
+      position:absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--accent2);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 15px var(--accent2);
+      transition: 0.3s;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 15px;
-        }
+    .cart-btn:hover {
+      background: var(--accent);
+      box-shadow: 0 0 20px var(--accent);
+    }
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-        }
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
 
-        /* Hero Section */
-        .hero {
-            background: palevioletred;
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            font-size: 2em;
-            font-weight: bold;
-        }
+    .product {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(255, 60, 172, 0.2);
+      transition: transform 0.3s ease;
+      animation: fadeIn 1s ease;
+    }
 
-        p {
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: rgba(245, 136, 136, 0.584);
-            font-size: 2em;
-            font-weight: light;
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px var(--accent);
+    }
 
-        }
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
 
-        /* Product Grid */
-        .products {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            padding: 20px;
-        }
+    .product h2 {
+      font-size: 1.3em;
+      color: var(--accent);
+    }
 
-        .product {
-            background: #1e1e1e;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease-in-out;
-        }
+    .product p {
+      margin: 10px 0;
+      font-size: 1em;
+    }
 
-        .product img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            transition: transform 0.3s ease-in-out;
-        }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 8px;
+      margin-bottom: 12px;
+      border-radius: 5px;
+      border: none;
+      background: #333;
+      color: white;
+    }
 
-        .product:hover img {
-            transform: scale(1.);
-        }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: var(--accent);
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-        .footer {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 5px;
-            text-align: center;
-            color: white;
-            margin-top: 5px;
-        }
+    button:hover {
+      background: var(--accent2);
+    }
 
-        a {
-            text-decoration: none;
-        }
-        
-        .camera-sticker {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 140px;
-            animation: moveCamera 2s infinite alternate ease-in-out;
-        }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
 
-        @keyframes moveCamera {
-            from {
-                transform: translateY(0);
-            }
-
-            to {
-                transform: translateY(-20px);
-            }
-        }
-
-        .Rent {
-
-            display: block;
-            margin: 10px auto;
-            padding: 5px 5px;
-            background: #3f06eb;
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease-in-out;
-            font-weight: bolder;
-        }
-
-        .Rent:hover {
-            background: #d20505;
-        }
-
-        .Buy {
-            font-weight: bolder;
-            display: block;
-            margin: 10px auto;
-            padding: 5px 5px;
-            background: #97eb06;
-            color: rgb(0, 0, 0);
-
-            text-decoration: none;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease-in-out;
-
-
-        }
-
-        .Buy:hover {
-            background: #d20505;
-        }
-
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .navbar-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background: #333;
-            }
-
-            .nav-links a {
-                padding: 12px;
-                display: block;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .products {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+    @media (max-width: 600px) {
+      .products-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <a href="Prom Cart.html" class="cart-btn">🛒 My Cart</a>
+
+  <h1>Prom Network Ladies accessories</h1>
+
+  <div class="products-container">
+    <div class="product" data-name="Red Ice belt">
+        <img src="belt4.jpg" alt="Red Ice Belt">
+        <h3>Red Ice Belt</h3>
+        <p>UGX 80,000</p>
+        
+        <button class="btn buy-btn" data-price="100000" data-type="Buy">Buy at UGX100,000</button>
+      </div>
+
+      <div class="product" data-name="Silver Ice belt">
+        <img src="belt3.jpg" alt="Silver Ice Belt">
+        <h2>Silver Ice Belt</h2>
+        <p>UGX 20,000</p>
+        <button class="btn buy-btn" data-price="20000" data-type="Buy">Buy at UGX20,000</button>
+       
+      </div>
+
+      <div class="product"data-name="Pink Ice Belt">
+        <img src="belt2.jpg" alt="Pink Ice Belt">
+        <h2>Pink Ice Belt</h2>
+        <p>UGX 30,000</p>
+        <button class="btn buy-btn" data-price="30000" data-type="Buy">Buy at UGX30,000</button>
+             </div>
+
+      <div class="product" data-name="Belt">
+        <img src="belt1.jpg" alt="Ring">
+        <h2>Ice Belts</h2>
+        <p>30,000</p>
+        <button class="btn buy-btn" data-price="30000" data-type="Buy">Buy at UGX30,000</button>
+       
+      </div>
+      <div class="product" data-name="Red Gem Necklece">
+        <img src="r39.jpg" alt="Red Gem Necklece">
+        <h2>Red Gem Necklece</h2>
+        <p>UGX 150,000</p>
+        <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX150,000</button>
+           </div>
+
+      <div class="product">
+        <img src="r28.jpg" alt="Green Gem Necklece">
+        <h2>Green Gem Necklece</h2>
+        <p>UGX 150,000</p>
+        <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX150,000</button> 
+      </div>
+
+      <div class="product" data-name="Black Clay Bango">
+        <img src="r12.jpg" alt="Black Clay Bango">
+        <h2>Black Clay Bango</h2>
+        <p>UGX 40,000</p>
+        <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX40,000</button> 
+      </div> 
+
+       <div class="product">
+        <img src="r11.jpg" alt="Geme Rings">
+        <h2>Gem Rings</h2>
+        <p>UGX 50,000</p>
+        <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+       
+      </div> 
+
+      <div class="product">
+        <img src="r6.jpg" alt="Clay Bango">
+        <h2>Clay Bango</h2>
+        <p>UGX 80,000</p>
+        <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+      </div>
+
+      <div class="product"data-name="Silver Ring">
+        <img src="r5.jpg" alt="Silver Ring">
+        <h2>Silver Ring</h2>
+        <p>UGX 100,000</p>
+        <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+      </div>
+
+      <div class="product" data-name="Gold Ring">
+        <img src="r4.jpg" alt="Gold Ring">
+        <h2>Gold Ring</h2>
+        <p>UGX 90,000</p>
+        <button class="btn buy-btn" data-price="150000" data-type="Buy">Buy at UGX50,000</button> 
+      </div>
 
 
-    <header class="hero">Prom Network Ladies Accesories</header>
-    <p>Make a choice</p>
+  </div>
+  <script>
+        
+    const cartButtons = document.querySelectorAll('.btn');
 
-    <section class="products">
-        <div class="product">
-            <img src="r4.jpg" alt="Trendy Dress">
-            <h3>RING</h3>
-            <a href="messaging.html"><button class="Buy">Buy</button></a>
-        </div>
-        <div class="product">
-            <img src="r5.jpg" alt="Trendy Dress">
-            <h3>RING</h3>
-            <a href="messaging.html"><button class="Buy">Buy</button></a>
-        </div>
-        <div class="product">
-            <img src="r6.jpg" alt="Trendy Dress">
-            <a href="messaging.html"><button class="Buy">Buy</button></a>
-        </div>
-        <div class="product">
-            <img src="r11].jpg" alt="Trendy Dress">
-            <a href="messaging.html"><button class="Buy">Buy</button></a>
-        </div>
-        <div class="product">
-            <img src="r12.jpg" alt="Trendy Dress">
-            <a href="messaging.html"><button class="Buy">Buy</button></a>
-        </div>
-        <div class="product">
-            <img src="r28.jpg" alt="Trendy Dress">
-            <a href="messaging.html"><button class="Buy">Buy</button></a>
-        </div>
-        <div class="product">
-            <img src="r39.jpg" alt="Trendy Dress">
-            <a href="messaging.html"><button class="Buy">Buy</button></a>
-        </div>
-        <div class="product">
-            <img src="belt1.jpg" alt="Trendy Dress">
-            <a href="messaging.html"><button class="Buy">Buy</button></a>
-        </div>
-        <div class="product">
-            <img src="belt2.jpg" alt="Trendy Dress">
-            <a href="messaging.html"><button class="Buy">Buy</button></a>
-        </div>
-        <div class="product">
-            <img src="belt3.jpg" alt="Trendy Dress">
-            <a href="messaging.html"><button class="Buy">Buy</button></a>
-        </div>
-        <div class="product">
-            <img src="belt4.jpg" alt="Trendy Dress">
-            <a href="messaging.html"><button class="Buy">Buy</button></a>
+    cartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const product = button.closest('.product');
+        const name = product.dataset.name;
+        const price = parseInt(button.dataset.price);
+        const type = button.dataset.type;
 
-        </div>
+        const cartItem = {
+          name,
+          price,
+          type,
+          quantity: 1,
+        };
 
+        let cart = JSON.parse(localStorage.getItem('promCart')) || [];
+        const existingIndex = cart.findIndex(item => item.name === name && item.type === type);
 
-    </section>
+        if (existingIndex > -1) {
+          cart[existingIndex].quantity += 1;
+        } else {
+          cart.push(cartItem);
+        }
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
+        localStorage.setItem('promCart', JSON.stringify(cart));
+        alert(`${type} added to cart!`);
+      });
+    });
+    document.addEventListener("DOMContentLoaded", () => {
             const toggleButton = document.querySelector(".navbar-toggle");
             const navLinks = document.querySelector(".nav-links");
 
@@ -270,11 +254,8 @@
                 navLinks.classList.toggle("active");
             });
         });
-    </script>
-    <img src="logo.png" alt="Camera Sticker" class="camera-sticker">
-    <div class="footer">
-        <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS tech</p>
-    </div>
+  </script>
+        
 </body>
-
 </html>
+
