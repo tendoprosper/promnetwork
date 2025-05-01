@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prom Cart</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #f4e2d8;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: gold;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px gold;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: auto;
+      background: #1c1c1c;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+      padding: 15px 0;
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-details {
+      flex: 1;
+    }
+
+    .item-details p {
+      margin: 5px 0;
+    }
+
+    .quantity {
+      width: 60px;
+      padding: 5px;
+      text-align: center;
+      background: #222;
+      border: 1px solid #555;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .remove-btn {
+      background: #990000;
+      border: none;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .remove-btn:hover {
+      background: #cc0000;
+      transform: scale(1.05);
+    }
+
+    .total {
+      text-align: right;
+      font-size: 22px;
+      margin-top: 20px;
+      color: gold;
+      text-shadow: 0 0 5px gold;
+    }
+
+    .order-form {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .order-form input {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background: #222;
+      color: white;
+    }
+
+    .submit-btn {
+      background: gold;
+      color: #111;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: red;
+      color: white;
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 600px) {
+      .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .quantity {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🛍️ Prom Cart</h1>
+
+  <div class="cart-container" id="cart-items"></div>
+  <div class="total" id="total-price"></div>
+
+  <form class="order-form" onsubmit="submitOrder(event)">
+    <input type="text" id="customer-name" placeholder="Your Name" required />
+    <input type="tel" id="customer-phone" placeholder="Phone Number" required />
+    <button type="submit" class="submit-btn">Submit Order</button>
+  </form>
+
+  <script>
+    const cartContainer = document.getElementById("cart-items");
+    const totalDisplay = document.getElementById("total-price");
+
+    let cart = JSON.parse(localStorage.getItem("promCart")) || [];
+
+    function renderCart() {
+      cartContainer.innerHTML = "";
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+
+        const itemDiv = document.createElement("div");
+        itemDiv.classList.add("cart-item");
+
+        itemDiv.innerHTML = `
+          <div class="item-details">
+            <p><strong>${item.name}</strong></p>
+             <input class="size" type="number" min="10"  placeholder="Size" required>
+             <input class="size" type="Text" min="10"  placeholder="Color" required>
+            <p>UGX ${item.price.toLocaleString()}</p>
+          </div>
+          <input class="quantity" type="number" min="1" placeholder="Quantity"value="${item.quantity}" onchange="updateQuantity(${index}, this.value)" />
+          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+        `;
+
+        cartContainer.appendChild(itemDiv);
+      });
+
+      totalDisplay.innerText = `Total: UGX ${total.toLocaleString()}`;
+    }
+
+    function updateQuantity(index, newQty) {
+      cart[index].quantity = parseInt(newQty);
+      localStorage.setItem("promCart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("promCart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function submitOrder(event) {
+      event.preventDefault();
+      const name = document.getElementById("customer-name").value;
+      const phone = document.getElementById("customer-phone").value;
+
+      if (!name || !phone) {
+        alert("Please fill in your name and phone number.");
+        return;
+      }
+
+      const orderSummary = {
+        name,
+        phone,
+        cart
+      };
+
+      console.log("Order submitted:", orderSummary);
+      alert("Order submitted successfully!");
+
+      localStorage.removeItem("promCart");
+      location.reload();
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>
