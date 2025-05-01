@@ -1,347 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prom Network Gentals</title>
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prom Network Gentals</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
 
-        body {
-            background: linear-gradient(to right, rgb(28, 1, 1), rgb(1, 8, 71));
-            color: #ffffff;
-            text-align: center;
-        }
+    body {
+      background-color: #000;
+      color: #fff;
+      padding-bottom: 60px;
+    }
 
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.8);
-            width: 100%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #111;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+    }
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
+    .navbar h1 {
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
 
-        .navbar a:hover {
-            color: #ff5722;
-        }
-        a{ 
-            text-decoration:none;
-            color:black;
-        }
+    .cart-btn {
+      background-color: #fff;
+      color: #000;
+      padding: 8px 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
 
-        .navbar-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
-        }
+    .cart-btn:hover {
+      background-color: orange;
+      color: #000;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 15px;
-        }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      padding-top:  15px;
+    }
 
-        .hero {
-            background: url('fashion-banner.jpg') no-repeat center center/cover;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            font-weight: bold;
-        }
+    .product {
+    margin-bottom: 20px;
+      background: #000d15;
+      border: 1px solid #333;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+      animation: fadeIn 0.7s ease-in-out forwards;
+    }
 
-        /* Product Grid */
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            padding: 20px;
-        }
+    .product img {
+        box-shadow:0 0 15px rgb(21, 1, 1);
+      width: 200px;
+      height: 250px;
+      object-fit: cover;
+      border-bottom: 1px solid #222;
+      border-radius: 30px;
+      margin-top: 10px;
+    }
+    
+        
+    
 
-        .product {
-            background: #1e1e1e;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
+    .product h3 {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
 
-        .product img {
-            width: 100%;
-            border-radius: 8px;
-            transition: transform 0.3s ease-in-out;
-        }
+    .btn {
+      margin:5px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #000;
+    }
 
-        .product:hover {
-            transform: scale(1.05);
-        }
+    .buy-btn {
+      background-color: white;
+    }
 
-        /* Buttons */
-        .Buy, .Rent {
-            display: block;
-            margin: 10px auto;
-            padding: 8px 10px;
-            font-size: 14px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background 0.3s ease-in-out;
-        }
+    .rent-btn {
+      background-color: orange;
+    }
 
-        .Buy {
-            background: #97eb06;
-            color: white;
-        }
+    .btn:hover {
+        box-shadow: 0 2px 5px red ;
+      transform: scale(1.02);
+    }
 
-        .Rent {
-            background: #ff5722;
-            color: white;
-        }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
 
-        .Buy:hover {
-            background: #d20505;
-        }
-
-        .Rent:hover {
-            background: #e64a19;
-        }
-
-        /* Floating Contact Button */
-        .contact-btn {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #ff5722;
-            padding: 10px 15px;
-            border-radius: 50px;
-            color: white;
-            font-size: 14px;
-            text-decoration: none;
-            box-shadow: 0px 0px 10px rgba(255, 87, 34, 0.5);
-        }
-
-        .contact-btn:hover {
-            background: #e64a19;
-        }
-
-        /* Footer */
-        .footer {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 5px;
-            text-align: center;
-            color: white;
-            margin-top: 10px;
-        }
-
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .navbar-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background: #333;
-            }
-
-            .nav-links a {
-                padding: 12px;
-                display: block;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .products {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            }
-        }
-    </style>
+    footer {
+      text-align: center;
+      background-color: #111;
+      padding: 15px;
+      color: white;
+      position: relative;
+    }
+  </style>
 </head>
 <body>
 
-    <header class="hero">Prom Network Gentals</header>
+  <div class="navbar">
+    <h1>Prom Network Gentals</h1>
+    <a href="Prom Cart.html" class="cart-btn">🛒 View Cart</a>
+  </div>
 
-    <section class="products">
-         <div class="product">
-            <img src="mam1.jpg" alt="Trendy Dress">
-            <h3>Vintage White No.S026</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX40,000</button></a> 
-        </div>
-
-        <div class="product">
-            <img src="manwhite.jpg" alt="Trendy Dress">
-            <h3>Cotton Outfit No.S025</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX150,000</button></a> 
-        </div>
-
-        <div class="product">
-            <img src="black pant.jpg" alt="Trendy Dress">
-            <h3>Black Trouser No.S024</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX35,000</button></a> 
-        </div>
-
-        <div class="product">
-            <img src="mwp.jpg" alt="Trendy Dress">
-            <h3>Cotton No.S023</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX150,000</button></a> 
-        </div>
-        
-        <div class="product">
-            <img src="suit2.jpg" alt="Trendy Dress">
-            <h3>White Single Breast No.S019</h3>
-            <a href="messaging.html"><button class="Rent">Rent at UGX150,000</button></a> 
-            <a href="messaging.html"><button class="Buy">Buy at UGX2,900,000</button></a> 
-        </div>
-
-        <div class="product">
-            <img src="suitx.jpg" alt="Elegant Suit">
-            <h3>Red Double Breast No.S016</h3>
-            <a href="messaging.html"><button class="Rent">Rent at UGX160,000</button></a> 
-            <a href="messaging.html"><button class="Buy">Buy at UGX450,000</button></a> 
-        </div>
-    <div class="product">
-            <img src="suita.jpg" alt="Trendy Dress">
-            <h3>Gray Single Breast</h3>
-            <a href="messaging.html"><button class="Rent">Rent at UGX160,000</button></a> 
-            <a href="messaging.html"><button class="Buy">Buy at UGX400,000</button></a> 
-        </div>
-        <div class="product">
-            <img src="suitx.jpg" alt="Elegant Suit">
-            <h3>Black Single Breast</h3>
-            <a href="messaging.html"><button class="Rent">Rent at UGX160,000</button></a> 
-            <a href="messaging.html"><button class="Buy">Buy at UGX450,000</button></a> 
-        </div>
-        <div class="product">
-            <img src="s2.jpg" alt="Casual Wear">
-            <h3>Blue Single Breast</h3>
-            <a href="messaging.html"><button class="Rent">Rent at UGX150,000</button></a> 
-            <a href="messaging.html"><button class="Buy">Buy at UGX300,000</button></a> 
-        </div>
-       
-        </div>
-        <div class="product">
-            <img src="s4.jpg" alt="Classic Jeans">
-            <h3>Navy Double Breast</h3>
-            <a href="messaging.html"><button class="Rent">Rent at UGX18,000</button></a> 
-            <a href="messaging.html"><button class="Buy">Buy at UGX450,000</button></a> 
-        </div>
-        <div class="product">
-            <img src="s6.jpg" alt="Cool T-Shirt">
-            <h3>Green Double Breast</h3>
-            <a href="messaging.html"><button class="Rent">Rent at UGX180,000</button></a> 
-            <a href="messaging.html"><button class="Buy">Buy at UGX500,000</button></a> 
-        </div>
-        <div class="product">
-            <img src="s7.jpg" alt="Fashionable Shoes">
-            <h3>Pink Single Breast</h3>
-            <a href="messaging.html"><button class="Rent">Rent at UGX150,000</button></a> 
-            <a href="messaging.html"><button class="Buy">Buy at UGX300,000</button></a> 
-        </div>
-        <div class="product">
-            <img src="s8.jpg" alt="Comfy Hoodie">
-            <h3>gray single Button</h3>
-            <a href="messaging.html"><button class="Rent">Rent at UGX150,000</button></a> 
-            <a href="messaging.html"><button class="Buy">Buy at UGX300,000</button></a> 
-        </div>
-        <div class="product">
-            <img src="s9.jpg" alt="Stylish Hat">
-            <h3>White Single Button</h3>
-            <a href="messaging.html"><button class="Rent">Rent at UGX150,000</button></a> 
-            <a href="messaging.html"><button class="Buy">Buy at UGX300,000</button></a> 
-        </div>
-        <div class="product">
-            <img src="suitc.jpg" alt="Elegant Scarf">
-            <h3>Lime Single Button</h3>
-            <a href="messaging.html"><button class="Rent">Rent at UGX155,000</button></a> 
-            <a href="messaging.html"><button class="Buy">Buy at UGX300,000</button></a> 
-        </div>
-        <div class="product">
-            <img src="p1.jpg" alt="Elegant Scarf">
-            <h3>Black Gental pant</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX60,500</button></a> 
-        </div>
-        <div class="product">
-            <img src="p2.jpg" alt="Elegant Scarf">
-            <h3> White Gental pant</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX60,500</button></a> 
-        </div>
-        <div class="product">
-            <img src="p3.jpg" alt="Elegant Scarf">
-            <h3>Maroon Gental pant</h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX60,500</button></a> 
-        </div>
-        <div class="product">
-            <img src="p4.jpg" alt="Elegant Scarf">
-            <h3>Black Gental pant</h3> 
-            <a href="messaging.html"><button class="Buy">Buy at UGX60,500</button></a> 
-        </div>
-        <div class="product">
-            <img src="p5.jpg" alt="Elegant Scarf">
-            <h3>Any color you want </h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX50,000</button></a> 
-        </div>
-        <div class="product">
-            <img src="suitd.jpg" alt="Elegant Scarf">
-            <h3>Classic Suit </h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX700,000</button></a> 
-        </div>
-        <div class="product">
-            <img src="suity.jpg" alt="Elegant Scarf">
-            <h3>Double button burggy Suit </h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX55,000</button></a> 
-        </div>
-        <div class="product">
-            <img src="suitz.jpg" alt="Elegant Scarf">
-            <h3>Pink double button Suit </h3>
-            <a href="messaging.html"><button class="Buy">Buy at UGX500,000</button></a> 
-        </div>
-    </section>
-
-    <a href="feedback.html" class="contact-btn">Contact Us</a>
-
-    <div class="footer">
-        <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS Tech</p>
+  <section class="products" id="product-list">
+    <div class="product" data-name="Gray Single Breast">
+      <img src="isaac1.jpg" alt="Green Suit By Isaac">
+      <h3>Green Suit</h3>
+      <button class="btn rent-btn" data-price="160000" data-type="Rent">Rent at UGX160,000</button>
+      <button class="btn buy-btn" data-price="500000" data-type="Buy">Buy at UGX500,000</button>
+    </div>
+    <div class="product" data-name="Gray Single Breast">
+      <img src="suita.jpg" alt="Gray Single Breast">
+      <h3>Gray Single Breast</h3>
+      <button class="btn rent-btn" data-price="160000" data-type="Rent">Rent at UGX160,000</button>
+      <button class="btn buy-btn" data-price="400000" data-type="Buy">Buy at UGX400,000</button>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const toggleButton = document.querySelector(".navbar-toggle");
-            const navLinks = document.querySelector(".nav-links");
+    <div class="product" data-name="Black Single Breast">
+      <img src="suitx.jpg" alt="Black Single Breast">
+      <h3>Black Single Breast</h3>
+      <button class="btn rent-btn" data-price="160000" data-type="Rent">Rent at UGX160,000</button>
+      <button class="btn buy-btn" data-price="450000" data-type="Buy">Buy at UGX450,000</button>
+    </div>
 
-            toggleButton.addEventListener("click", () => {
-                navLinks.classList.toggle("active");
-            });
-        });
-    </script>
+    <div class="product" data-name="Blue Single Breast">
+      <img src="s2.jpg" alt="Blue Single Breast">
+      <h3>Blue Single Breast</h3>
+      <button class="btn rent-btn" data-price="150000" data-type="Rent">Rent at UGX150,000</button>
+      <button class="btn buy-btn" data-price="300000" data-type="Buy">Buy at UGX300,000</button>
+    </div>
+    <div class="product" data-name="Vintage White">
+      <img src="mam1.jpg" alt="Blue Single Breast">
+      <h3>Vintage White </h3>
+      <button class="btn rent-btn" data-price="400000" data-type="Rent">Rent at UGX150,000</button>
+      <button class="btn buy-btn" data-price="400000" data-type="Buy">Buy at UGX400,000</button>
+    </div>
+
+    <div class="product" data-name="Cotton Outfit">
+      <img src="manwhite.jpg" alt="Cotton Outfit">
+      <h3>Cotton Outfit</h3>
+      <button class="btn buy-btn" data-price="300000" data-type="Buy">Buy at UGX150,000</button>
+    </div>
+
+    <div class="product" data-name="Blue Single Breast">
+      <img src="black pant.jpg" alt="Blue Single Breast">
+      <h3>Black Trouser</h3>
+      
+      <button class="btn buy-btn" data-price="350000" data-type="Buy">Buy at UGX35,000</button>
+    </div>
+
+    <div class="product" data-name="Blue Single Breast">
+      <img src="mwp.jpg" alt="Blue Single Breast">
+      <h3>Blue Single Breast</h3>
+      <button class="btn rent-btn" data-price="150000" data-type="Rent">Rent at UGX150,000</button>
+      <button class="btn buy-btn" data-price="300000" data-type="Buy">Buy at UGX300,000</button>
+    </div>
+
+    <div class="product" data-name="White Single Breast">
+      <img src="suit2.jpg" alt="Blue Single Breast">
+      <h3>White Single Breast</h3>
+      <button class="btn rent-btn" data-price="290000" data-type="Rent">Rent at UGX150,000</button>
+      <button class="btn buy-btn" data-price="290000" data-type="Buy">Buy at UGX290,000</button>
+    </div>
+
+    <div class="product" data-name="Black Single Breast">
+      <img src="suitx.jpg" alt="Gray Single Breast">
+      <h3>Black Single Breast</h3>
+      <button class="btn rent-btn" data-price="160000" data-type="Rent">Rent at UGX160,000</button>
+      <button class="btn buy-btn" data-price="450000" data-type="Buy">Buy at UGX450,000</button>
+    </div>
+
+    <div class="product" data-name="Blue Single Breast Suit">
+      <img src="s4.jpg" alt="Navy Double Breast">
+      <h3>Navy Double Breast </h3>
+      <button class="btn rent-btn" data-price="160000" data-type="Rent">Rent at UGX160,000</button>
+      <button class="btn buy-btn" data-price="400000" data-type="Buy">Buy at UGX400,000</button>
+    </div>
+    <div class="product" data-name="Gray Single Breast">
+      <img src="s7.jpg" alt="Pink Double Breast">
+      <h3>Pink double Breast</h3>
+      <button class="btn rent-btn" data-price="160000" data-type="Rent">Rent at UGX150,000</button>
+      <button class="btn buy-btn" data-price="400000" data-type="Buy">Buy at UGX300,000</button>
+    </div>
+    <div class="product" data-name="White Single Breast">
+      <img src="s8.jpg" alt="White Single Breast">
+      <h3>White Single Breast</h3>
+      <button class="btn rent-btn" data-price="160000" data-type="Rent">Rent at UGX150,000</button>
+      <button class="btn buy-btn" data-price="400000" data-type="Buy">Buy at UGX300,000</button>
+    </div>
+    <div class="product" data-name="Lime Single Breast">
+      <img src="suitc.jpg" alt="Lime Single Breast">
+      <h3>Lime Single Breast</h3>
+      <button class="btn rent-btn" data-price="155000" data-type="Rent">Rent at UGX150,000</button>
+      <button class="btn buy-btn" data-price="300000" data-type="Buy">Buy at UGX300,000</button>
+    </div>
+    <div class="product" data-name="GBlack gental Pant">
+      <img src="p2.jpg" alt="Black gental Pant">
+      <h3>Black  Pant</h3>
+      <button class="btn buy-btn" data-price="60000" data-type="Buy">Buy at UGX60,000</button>
+    </div>
+    <div class="product" data-name="White Gental Pant">
+      <img src="p2.jpg" alt="White Gental Pant">
+      <h3>White Gental pant</h3>
+      <button class="btn rent-btn" data-price="60000" data-type="Rent">Rent at UGX60,000</button>
+      <button class="btn buy-btn" data-price="60000" data-type="Buy">Buy at UGX60,000</button>
+    </div>
+    <div class="product" data-name="Maroon Gental Pant">
+      <img src="p3.jpg" alt="maroon Gental Pant">
+      <h3>Maroon Gental pant</h3>
+      <button class="btn rent-btn" data-price="60000" data-type="Rent">Rent at UGX60,000</button>
+      <button class="btn buy-btn" data-price="60000" data-type="Buy">Buy at UGX60,000</button>
+    </div>
+
+    <div class="product" data-name="Classic suit">
+      <img src="suitd.jpg" alt="Classic Suit">
+      <h3>Classic Suit</h3>
+      <button class="btn rent-btn" data-price="60000" data-type="Rent">Rent at UGX170,000</button>
+      <button class="btn buy-btn" data-price="60000" data-type="Buy">Buy at UGX500,000</button>
+    </div>
+
+    <div class="product" data-name="Double Brest Suit Burgy">
+      <img src="p2.jpg" alt="Double Brest Suit Burgy">
+      <h3>Double Brest Suit Burgy</h3>
+      <button class="btn rent-btn" data-price="60000" data-type="Rent">Rent at UGX160,000</button>
+      <button class="btn buy-btn" data-price="60000" data-type="Buy">Buy at UGX400,000</button>
+    </div>
+    <div class="product" data-name="Double Brest Suit Burgy">
+      <img src="p2.jpg" alt="Double Brest Suit Burgy">
+      <h3>Double Brest Suit Burgy</h3>
+      <button class="btn rent-btn" data-price="60000" data-type="Rent">Rent at UGX160,000</button>
+      <button class="btn buy-btn" data-price="60000" data-type="Buy">Buy at UGX400,000</button>
+    </div>
+    
+  </section>
+
+  <footer>
+    <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS Tech</p>
+  </footer>
+
+  <script>
+    const cartButtons = document.querySelectorAll('.btn');
+
+    cartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const product = button.closest('.product');
+        const name = product.dataset.name;
+        const price = parseInt(button.dataset.price);
+        const type = button.dataset.type;
+
+        const cartItem = {
+          name,
+          price,
+          type,
+          quantity: 1,
+        };
+
+        let cart = JSON.parse(localStorage.getItem('promCart')) || [];
+        const existingIndex = cart.findIndex(item => item.name === name && item.type === type);
+
+        if (existingIndex > -1) {
+          cart[existingIndex].quantity += 1;
+        } else {
+          cart.push(cartItem);
+        }
+
+        localStorage.setItem('promCart', JSON.stringify(cart));
+        alert(`${type} added to cart!`);
+      });
+    });
+  </script>
 
 </body>
 </html>
