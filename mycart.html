@@ -3,248 +3,217 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Eagle Fashion by Richie 256 - Cart</title>
+  <title>Prom Cart</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #121212;
-      color: #f0f0f0;
+      background-color: #111;
+      color: #f4e2d8;
       margin: 0;
-      padding: 0;
+      padding: 20px;
     }
 
-    .intro {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 20px 40px;
-      animation: fadeSlideIn 2s ease-in-out forwards;
-      background: linear-gradient(145deg, #1f1f1f, #0c0c0c);
-      border-bottom: 2px solid #62ff00;
+    h1 {
+      text-align: center;
+      color: gold;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px gold;
     }
 
-    .intro h1 {
-      font-size: 2.8em;
-      color: #62ff00;
-      margin: 0;
-      animation: slideUp 1s ease-out;
-    }
-
-    .intro p {
-      margin-top: 15px;
-      font-size: 1.1em;
-      color: #d400ff;
-      animation: slideUp 1.5s ease-out;
-    }
-
-    @keyframes fadeSlideIn {
-      0% {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes slideUp {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .cart-container {
+      max-width: 800px;
+      margin: auto;
+      background: #1c1c1c;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
     }
 
     .cart-item {
-      background: #1f1f1f;
-      padding: 15px;
-      border-radius: 10px;
-      margin: 20px;
-      box-shadow: 0 0 10px #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+      padding: 15px 0;
     }
 
-    .cart-item h3 {
-      margin: 0 0 10px;
-      color: #d400ff;
+    .cart-item:last-child {
+      border-bottom: none;
     }
 
-    .cart-item p {
+    .item-details {
+      flex: 1;
+    }
+
+    .item-details p {
       margin: 5px 0;
     }
 
-    .cart-item input[type="number"] {
+    .quantity {
       width: 60px;
       padding: 5px;
-      border-radius: 5px;
-      border: none;
-    }
-
-    .cart-item button {
-      background-color: crimson;
+      text-align: center;
+      background: #222;
+      border: 1px solid #555;
       color: white;
-      border: none;
-      padding: 6px 12px;
-      cursor: pointer;
       border-radius: 5px;
-      margin-top: 10px;
     }
 
-    .form-section {
-      background: #1f1f1f;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 30px 20px;
-      box-shadow: 0 0 10px #000;
-    }
-
-    .form-section input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 8px;
+    .remove-btn {
+      background: #990000;
       border: none;
-      background: #2b2b2b;
-      color: #ffffff;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
     }
 
-    .form-section input::placeholder {
-      color: #bbb;
+    .remove-btn:hover {
+      padding: 10px;
+      background: #cc0000;
+      transform: scale(1.05);
     }
 
     .total {
-      font-size: 1.5em;
-      margin: 20px;
       text-align: right;
-      color: #0bff03;
+      font-size: 22px;
+      margin-top: 20px;
+      color: gold;
+      text-shadow: 0 0 5px gold;
     }
 
-    .checkout-btn {
-      display: block;
-      margin: 20px auto;
-      padding: 12px 30px;
-      background-color: #0bff03;
-      color: #000;
-      font-size: 1.2em;
-      font-weight: bold;
+    .order-form {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .input {
+      padding: 10px;
+      border-radius: 5px;
       border: none;
-      border-radius: 10px;
+      background: #222;
+      color: rgb(255, 251, 0);
+    }
+
+    .submit-btn {
+      margin-top:15px;
+      background: gold;
+      color: #111;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: 0.3s ease;
     }
 
-    .checkout-btn:hover {
-      background-color: #62ff00;
+    .submit-btn:hover {
+      background: red;
+      color: white;
+      transform: scale(1.03);
     }
 
-    .hidden {
-      display: none;
+    @media (max-width: 600px) {
+      .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .quantity {
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- 🔥 Intro Animation Section -->
-  <div class="intro">
-    <h1>The Eagle Fashion </h1>
-    <p>Cart & Checkout • Where Fashion Takes Flight</p>
-  </div>
+  <h1>🛍️ Prom Cart</h1>
 
-  <!-- 🛒 Cart Items -->
-  <div id="cart-items"></div>
+  <div class="cart-container" id="cart-items"></div>
+  <div class="total" id="total-price"></div>
 
-  <!-- 💰 Total -->
-  <div class="total">
-    Total: UGX <span id="total-price">0</span>
-  </div>
-
-  <!-- 📝 Customer Form -->
   <div class="form-section">
     <form id="cart-form" action="https://formspree.io/f/xqapnljg" method="POST">
-      <input type="text" name="Customer Name" placeholder="Enter your name" required />
-      <input type="tel" name="Phone Number" placeholder="Enter your phone number" required />
-      <input type="hidden" name="Cart Summary" id="cartData" />
-      <button class="checkout-btn" type="submit" onclick="prepareSubmission(event)">Proceed to Checkout</button>
-    </form>
+    <input type="text" id="customer-name" placeholder="Your Name" required />
+    <input type="tel" id="customer-phone" placeholder="Phone Number" required />
+    <button type="submit" class="submit-btn">Submit Order</button>
+  </form>
+</div>
+  
   </div>
-
   <script>
-    function formatPrice(value) {
-      return value.toLocaleString('en-UG', { minimumFractionDigits: 0 });
-    }
+    const cartContainer = document.getElementById("cart-items");
+    const totalDisplay = document.getElementById("total-price");
 
-    function loadCart() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const cartContainer = document.getElementById('cart-items');
-      const totalPriceElement = document.getElementById('total-price');
+    let cart = JSON.parse(localStorage.getItem("promCart")) || [];
 
-      cartContainer.innerHTML = '';
-      let totalPrice = 0;
+    function renderCart() {
+      cartContainer.innerHTML = "";
+      let total = 0;
 
       cart.forEach((item, index) => {
-        const itemTotal = item.price * item.quantity;
-        totalPrice += itemTotal;
+        total += item.price * item.quantity;
 
-        const cartItemDiv = document.createElement('div');
-        cartItemDiv.classList.add('cart-item');
-        cartItemDiv.innerHTML = `
-          <h3>${item.name}</h3>
-          <p>Price: UGX ${formatPrice(item.price)}</p>
-          <p>
-            Quantity: 
-            <input type="number" min="1" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)" />
-          </p>
-          <p>Total: UGX ${formatPrice(itemTotal)}</p>
-          <button onclick="removeFromCart('${item.name}')">Remove</button>
+        const itemDiv = document.createElement("div");
+        itemDiv.classList.add("cart-item");
+
+        itemDiv.innerHTML = `
+          <div class="item-details">
+            <p><strong>${item.name}</strong></p>
+             <input class="size" type="number" min="10"  placeholder="Size" required/>
+             <input class="size" type="Text" min="10"  placeholder="Color" required/>
+            <p>UGX ${item.price.toLocaleString()}</p>
+          </div>
+          <input class="quantity" type="number" min="1" placeholder="Quantity"value="${item.quantity}" onchange="updateQuantity(${index}, this.value)" />
+          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
         `;
-        cartContainer.appendChild(cartItemDiv);
+
+        cartContainer.appendChild(itemDiv);
       });
 
-      totalPriceElement.textContent = formatPrice(totalPrice);
+      totalDisplay.innerText = `Total: UGX ${total.toLocaleString()}`;
     }
 
     function updateQuantity(index, newQty) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
       cart[index].quantity = parseInt(newQty);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      loadCart();
+      localStorage.setItem("promCart", JSON.stringify(cart));
+      renderCart();
     }
 
-    function removeFromCart(productName) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart = cart.filter(item => item.name !== productName);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      loadCart();
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("promCart", JSON.stringify(cart));
+      renderCart();
     }
 
-    function prepareSubmission(event) {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      if (cart.length === 0) {
-        alert("Your cart is empty!");
-        event.preventDefault();
+    function submitOrder(event) {
+      event.preventDefault();
+      const name = document.getElementById("customer-name").value;
+      const phone = document.getElementById("customer-phone").value;
+
+      if (!name || !phone) {
+        alert("Please fill in your name and phone number.");
         return;
       }
 
-      let total = 0;
-      let cartText = `Customer Order Summary:\n\n`;
+      const orderSummary = {
+        name,
+        phone,
+        cart
+      };
 
-      cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
-        cartText += `Product: ${item.name}\nPrice: UGX ${formatPrice(item.price)}\nQuantity: ${item.quantity}\nItem Total: UGX ${formatPrice(itemTotal)}\n\n`;
-      });
+      console.log("Order submitted:", orderSummary);
+      alert("Order submitted successfully!");
 
-      cartText += `TOTAL: UGX ${formatPrice(total)}\n\nThank you for shopping with The Eagle by Richie 256!`;
-
-      document.getElementById("cartData").value = cartText;
+      localStorage.removeItem("promCart");
+      location.reload();
     }
 
-    window.onload = loadCart;
+    renderCart();
   </script>
-
 </body>
 </html>
