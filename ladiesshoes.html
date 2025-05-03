@@ -1,363 +1,312 @@
+
+        
+
+   
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prom Network Ladies Shoes </title>
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prom Network - Products</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --card-bg: #1e1e1e;
+      --text: #ffffff;
+      --accent: #e907f9;
+      --accent2: #784ba0;
+    }
 
-        body {
-            background: linear-gradient(to right, rgb(28, 1, 1), rgb(164, 15, 145));
-            color: #ffffff;
-        }
-        
-        .camera-sticker {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 140px;
-            animation: moveCamera 2s infinite alternate ease-in-out;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
 
-        @keyframes moveCamera {
-            from {
-                transform: translateY(0);
-            }
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
 
-            to {
-                transform: translateY(-20px);
-            }
-        }
+    .cart-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent2);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 15px var(--accent2);
+      transition: 0.3s;
+    }
 
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background: #ed21e7;
-            color: white;
-        }
+    .cart-btn:hover {
+      background: var(--accent);
+      box-shadow: 0 0 20px var(--accent);
+    }
 
-        .navbar-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 15px;
-        }
+    .product {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(255, 60, 172, 0.2);
+      transition: transform 0.3s ease;
+      animation: fadeIn 1s ease;
+    }
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-        }
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px var(--accent);
+    }
 
-        /* Hero Section */
-        .hero {
-            background: palevioletred;
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            font-size: 2em;
-            font-weight: bold;
-        }
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
 
-        p {
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: rgba(245, 136, 136, 0.584);
-            font-size: 2em;
-            font-weight: light;
-        }
+    .product h2 {
+      font-size: 1.3em;
+      color: var(--accent);
+    }
 
-        /* Product Grid */
-        .products {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            padding: 20px;
-        }
+    .product p {
+      margin: 10px 0;
+      font-size: 1em;
+    }
 
-        .product {
-            background: #1e1e1e;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease-in-out;
-        }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 8px;
+      margin-bottom: 12px;
+      border-radius: 5px;
+      border: none;
+      background: #333;
+      color: white;
+    }
 
-        .product img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            transition: transform 0.3s ease-in-out;
-        }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: var(--accent);
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-        .product:hover img {
-            transform: scale(1.);
-        }
+    button:hover {
+      background: var(--accent2);
+    }
 
-        .footer {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 5px;
-            text-align: center;
-            color: white;
-            margin-top: 5px;
-        }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
 
-        a {
-            text-decoration: none;
-        }
-
-        .Rent {
-            
-            display: block;
-            margin: 10px auto;
-            padding: 5px 5px;
-            background: #3f06eb;
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease-in-out;
-            font-weight: bolder;
-        }
-
-        .Rent:hover {
-            background: #d20505;
-        }
-
-        .Buy {
-            font-weight: bolder;
-            display: block;
-            margin: 10px auto;
-            padding: 5px 5px;
-            background: #97eb06;
-            color: rgb(0, 0, 0);
-
-            text-decoration: none;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease-in-out;
-
-
-        }
-
-        .Buy:hover {
-            background: #d20505;
-        }
-
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .navbar-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background: #333;
-            }
-
-            .nav-links a {
-                padding: 12px;
-                display: block;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .products {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-    </style>
+    @media (max-width: 600px) {
+      .products-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <a href="Prom Cart.html" class="cart-btn">🛒 My Cart</a>
+
+  <h1>Prom Network - Ladies Shoes</h1>
+
+  <div class="products-container">
+    <!-- Product 1 -->
+   
+
+    <!-- Product 2 -->
+    <div class="product">
+      <img src="l17.jpg" alt="Blue High Hill">
+      <h2>Blue High Hill</h2>
+      <p>UGX 80,000</p>
+      <input type="text" placeholder="Enter Size" id="size2">
+
+      <button onclick="addToCart('Blue High Hill', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="l16.jpg" alt="Silver High Hill">
+        <h2>Silver High Hill</h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+
+        <button onclick="addToCart('Silver High Hill', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="l17.jpg" alt="">
+        <h2>Blue High Hill</h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+
+        <button onclick="addToCart('Blue High Hill', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="l15.jpg" alt="Pink High Hill">
+        <h2>Pink HIgh Hill </h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+        <button onclick="addToCart('Pink High Hill', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="l14.jpg" alt="Sky Blue lese">
+        <h2>Sky Blue lese</h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+
+        <button onclick="addToCart('Sky Blue lese', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="l12.jpg" alt="Black LV">
+        <h2>Black LV</h2>
+        <p>UGX 80,000</p>
+        <button onclick="addToCart('Black LV Hills', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="l13.jpg" alt="Silver and black hill">
+        <h2>Silver and black hill</h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+        <button onclick="addToCart('Silver and black hill', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <img src="l10.jpg" alt="Black LV hills">
+        <h2>Black LV hills</h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+
+        <button onclick="addToCart('Black LV hills', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <img src="l11.jpg" alt="Silver Tom Ford hills">
+        <h2>Silver Tom Ford hills</h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+
+        <button onclick="addToCart('Silver Tom Ford hills', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <img src="l4.jpg" alt="Brown Hills">
+        <h2>Brown Hills</h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+
+        <button onclick="addToCart('Brown Hills', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="l8.jpg" alt="Silver Tom Ford hills">
+        <h2>Silver Tom Ford hills</h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+
+        <button onclick="addToCart('Silver Tom Ford hills', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <img src="l3.jpg" alt="Black LV hills">
+        <h2>Black LV hills</h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+
+        <button onclick="addToCart('Black LV hills', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div>
+
+      <!-- <div class="product">
+        <img src="l5.jpg" alt="Gown">
+        <h2>Gown</h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+
+        <button onclick="addToCart('Gown', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div> -->
+
+      <!-- <div class="product">
+        <img src="l4.jpg" alt="not x">
+        <h2>Not Available</h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+
+        <button onclick="addToCart('Gown', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div> -->
+
+      <div class="product">
+        <img src="l7.jpg" alt="Gold hills">
+        <h2>Gold hills</h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+
+        <button onclick="addToCart('Gold hills', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <img src="l2.jpg" alt="Black hills">
+        <h2>Black hills</h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+
+        <button onclick="addToCart('Black hills', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <img src="l1.jpg" alt="Brown">
+        <h2>Brown</h2>
+        <p>UGX 80,000</p>
+        <input type="text" placeholder="Enter Size" id="size2">
+        <button onclick="addToCart('Brown', 80000, 'size2', 'color2', 'quantity2')">Add to Cart</button>
+      </div>
 
 
-    <header class="hero">Prom Network Ladies Shoes </header>
-    <p>Make a choice</p>
+  </div>
 
-    <section class="products">
-        <div class="product">
-            <img src="ss1.jpg" alt="Trendy Dress">
-            <p>No.H023</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx130,000</button></a>
-        </div>
-        <div class="product">
-            <img src="1.jpg" alt="Trendy Dress">
-            <p>No.H022</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx110,000</button></a>
-        </div>
-        
-<div class="product">
-            <img src="2.jpg" alt="Trendy Dress">
-            <p>No.H021</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx50,000</button></a>
-        </div>
-        
-        <div class="product">
-            <img src="ss16.jpg" alt="Trendy Dress">
-            <p>No.H020</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx100,000</button></a>
-        </div>
-        
-         <div class="product">
-            <img src="ss16.jpg" alt="Trendy Dress">
-            <p>No.H019</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx100,000</button></a>
-        </div>
-         <div class="product">
-            <img src="ss13.jpg" alt="Trendy Dress">
-            <p>No.H018</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx250,000</button></a>
-        </div>
-         <div class="product">
-            <img src="ss11.jpg" alt="Trendy Dress">
-            <p>No.H017</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx150,000</button></a>
-        </div>
-        <div class="product">
-            <img src="l1.jpg" alt="Trendy Dress">
-            <p>No.H016</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx95,000</button></a>
-        </div>
-        <div class="product">
-            <img src="l2.jpg" alt="Trendy Dress">
-            <h3>No,H015</h3>
-            <a href="messaging.html"><button class="Buy">Buy ugx45,000</button></a>
-        </div>
-        <div class="product">
-            <img src="l3.jpg" alt="Trendy Dress">
-            <p>No.H014</p>
-            <a href="messaging.html"><button class="Buy">Buy ugx250,000</button></a>
-        </div>
-        
-        <div class="product">
-            <img src="l4.jpg" alt="Trendy Dress">
-            <p>No.H013</p>
-            <a href="messaging.html"><button class="Buy">Bu at ugx100,000</button></a>
-        </div>
-        
-        <div class="product">
-            <img src="l5.jpg" alt="Trendy Dress">
-            <p>No.H012</p>
-            <a href="messaging.html"><button class="Buy">Buy</button></a>
-        </div>
-        
-        <div class="product">
-            <img src="l6.jpg" alt="Trendy Dress">
-            <a href="messaging.html"><button class="Buy">Buy at 45,000</button></a>
-        </div>
-        <div class="product">
-            <img src="l7.jpg" alt="Trendy Dress">
-            <p>No.H011</p>
-            <a href="sold.html"><button class="Buy">Buy</button></a>
-        </div>
-        <div class="product">
-            <img src="l8.jpg" alt="Trendy Dress">
-            <p>No.H010</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx50,000</button></a>
-            
-        </div>   <div class="product">
-            <img src="l9.jpg" alt="Trendy Dress">
-            <p>No.H009</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx130,000</button></a>
-            
-        </div>   <div class="product">
-            <img src="l10.jpg" alt="Trendy Dress">
-            <p>No.H008</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx250,000</button></a>
-            
-        </div>   <div class="product">
-            <img src="l11.jpg" alt="Trendy Dress">
-            <p>No.H008</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx50,000</button></a>
-            
-        </div>   <div class="product">
-            <img src="l12.jpg" alt="Trendy Dress">
-            <p>No.H007</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx250,000</button></a>
-        </div>
-        <div class="product">
-            <img src="l13.jpg" alt="Trendy Dress">
-            <p>No.H006</p>
-            <a href="messaging.html"><button class="Buy">Buy at 150,000</button></a>
-        </div>
-        <div class="product">
-            <img src="l14.jpg" alt="Trendy Dress">
-            <p>No.H005</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx100,000</button></a>
-        </div>
-        <div class="product">
-            <img src="l15.jpg" alt="Trendy Dress">
-            <p>No.H004</p>
-            <a href="messaging.html"><button class="Buy">Buy 70,000</button></a>
-        </div>
-        <div class="product">
-            <img src="l16.jpg" alt="Trendy Dress">
-            <p>No.H003</p>
-            <a href="messaging.html"><button class="Buy">Buy at ugx80,000</button></a>
-        </div>
-        <div class="product">
-            <img src="l17.jpg" alt="Trendy Dress">
-            <p>No.H002</p>
-            <a href="messaging.html"><button class="Buy">Buy at Ugx60,000</button></a>
-        </div>
-        <div class="product">
-            <img src="lllllladies.jpg" alt="Trendy Dress">
-            <p>No.H001</p>
-            <a href="messaging.html"><button class="Buy">Buy</button></a>
-        </div>
-        
+  <script>
+    function addToCart(name, price, sizeId, colorId, quantityId) {
+      const size = document.getElementById(sizeId).value;
+      const color = document.getElementById(colorId).value;
+      const quantity = parseInt(document.getElementById(quantityId).value);
+
+      const item = {
+        name: name,
+        price: price,
+        size: size,
+        color: color,
+        quantity: quantity
+      };
+
+      let cart = JSON.parse(localStorage.getItem("promCart")) || [];
+      cart.push(item);
+      localStorage.setItem("promCart", JSON.stringify(cart));
+      alert(`${name} added to cart!`);
+    }
+  </script>
+</body>
+</html>
+
+
+
 
     </section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const toggleButton = document.querySelector(".navbar-toggle");
-            const navLinks = document.querySelector(".nav-links");
-
-            toggleButton.addEventListener("click", () => {
-                navLinks.classList.toggle("active");
-            });
-        });
-    </script>
-    <img src="logo.png" alt="Camera Sticker" class="camera-sticker">
-    <div class="footer">
-        <p>Contact us: tendoprosper28@gmail.com | Made by TENDOS tech</p>
-    </div>
-</body>
-
-</html>
+  
