@@ -70,6 +70,7 @@
     }
 
     .remove-btn:hover {
+      padding: 10px;
       background: #cc0000;
       transform: scale(1.05);
     }
@@ -89,19 +90,20 @@
       gap: 15px;
     }
 
-    .order-form input {
+    .input {
       padding: 10px;
       border-radius: 5px;
       border: none;
       background: #222;
-      color: white;
+      color: rgb(255, 251, 0);
     }
 
     .submit-btn {
+      margin-top:15px;
       background: gold;
       color: #111;
       border: none;
-      padding: 12px;
+      padding: 10px;
       font-size: 16px;
       font-weight: bold;
       border-radius: 5px;
@@ -134,12 +136,15 @@
   <div class="cart-container" id="cart-items"></div>
   <div class="total" id="total-price"></div>
 
-  <form class="order-form" onsubmit="submitOrder(event)">
+  <div class="form-section">
+    <form id="cart-form" action="https://formspree.io/f/xqapnljg" method="POST">
     <input type="text" id="customer-name" placeholder="Your Name" required />
     <input type="tel" id="customer-phone" placeholder="Phone Number" required />
     <button type="submit" class="submit-btn">Submit Order</button>
   </form>
-
+</div>
+  
+  </div>
   <script>
     const cartContainer = document.getElementById("cart-items");
     const totalDisplay = document.getElementById("total-price");
@@ -159,8 +164,8 @@
         itemDiv.innerHTML = `
           <div class="item-details">
             <p><strong>${item.name}</strong></p>
-             <input class="size" type="number" min="10"  placeholder="Size" required>
-             <input class="size" type="Text" min="10"  placeholder="Color" required>
+             <input class="size" type="number" min="10"  placeholder="Size" required/>
+             <input class="size" type="Text" min="10"  placeholder="Color" required/>
             <p>UGX ${item.price.toLocaleString()}</p>
           </div>
           <input class="quantity" type="number" min="1" placeholder="Quantity"value="${item.quantity}" onchange="updateQuantity(${index}, this.value)" />
