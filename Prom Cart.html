@@ -83,11 +83,13 @@
       text-shadow: 0 0 5px gold;
     }
 
-    .order-form {
+    .form-section {
       margin-top: 30px;
       display: flex;
       flex-direction: column;
       gap: 15px;
+      max-width: 800px;
+      margin-inline: auto;
     }
 
     .input {
@@ -117,6 +119,14 @@
       transform: scale(1.03);
     }
 
+    #form-status {
+      color: lightgreen;
+      margin-top: 10px;
+      font-weight: bold;
+      text-align: center;
+      display: none;
+    }
+
     @media (max-width: 600px) {
       .cart-item {
         flex-direction: column;
@@ -138,13 +148,17 @@
 
   <div class="form-section">
     <form id="cart-form" action="https://formspree.io/f/xqapnljg" method="POST">
-    <input type="text" id="customer-name" placeholder="Your Name" required />
-    <input type="tel" id="customer-phone" placeholder="Phone Number" required />
-    <button type="submit" class="submit-btn">Submit Order</button>
-  </form>
-</div>
-  
+      <input type="text" id="customer-name" name="Name" class="input" placeholder="Your Name" required />
+      <input type="tel" id="customer-phone" name="Phone" class="input" placeholder="Phone Number" required />
+
+      <!-- Hidden input to include cart summary -->
+      <input type="hidden" id="cart-data" name="Cart Items" />
+
+      <button type="submit" class="submit-btn">Submit Order</button>
+      <p id="form-status">Order submitted successfully!</p>
+    </form>
   </div>
+
   <script>
     const cartContainer = document.getElementById("cart-items");
     const totalDisplay = document.getElementById("total-price");
@@ -164,11 +178,9 @@
         itemDiv.innerHTML = `
           <div class="item-details">
             <p><strong>${item.name}</strong></p>
-             <input class="size" type="number" min="10"  placeholder="Size" required/>
-             <input class="size" type="Text" min="10"  placeholder="Color" required/>
-            <p>UGX ${item.price.toLocaleString()}</p>
+            <p>Price: UGX ${item.price.toLocaleString()}</p>
           </div>
-          <input class="quantity" type="number" min="1" placeholder="Quantity"value="${item.quantity}" onchange="updateQuantity(${index}, this.value)" />
+          <input class="quantity" type="number" min="1" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)" />
           <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
         `;
 
@@ -190,28 +202,32 @@
       renderCart();
     }
 
-    function submitOrder(event) {
-      event.preventDefault();
+    document.getElementById("cart-form").addEventListener("submit", function (e) {
       const name = document.getElementById("customer-name").value;
       const phone = document.getElementById("customer-phone").value;
 
       if (!name || !phone) {
         alert("Please fill in your name and phone number.");
+        e.preventDefault();
         return;
       }
 
-      const orderSummary = {
-        name,
-        phone,
-        cart
-      };
+      // Create readable cart summary
+      const cartSummary = cart.map(item => {
+        return `Product: ${item.name}, Price: UGX ${item.price}, Quantity: ${item.quantity}`;
+      }).join('\n');
 
-      console.log("Order submitted:", orderSummary);
-      alert("Order submitted successfully!");
+      document.getElementById("cart-data").value = cartSummary;
 
-      localStorage.removeItem("promCart");
-      location.reload();
-    }
+      // Allow submission to Formspree
+      // After a short timeout, clear localStorage and UI
+      setTimeout(() => {
+        localStorage.removeItem("promCart");
+        cartContainer.innerHTML = "";
+        totalDisplay.innerText = "";
+        document.getElementById("form-status").style.display = "block";
+      }, 500);
+    });
 
     renderCart();
   </script>
