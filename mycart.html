@@ -1,219 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Prom Cart</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #111;
-      color: #f4e2d8;
-      margin: 0;
-      padding: 20px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prom Cart</title>
 
-    h1 {
-      text-align: center;
-      color: gold;
-      margin-bottom: 30px;
-      text-shadow: 0 0 10px gold;
-    }
+<style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #111;
+  color: #f4e2d8;
+  margin: 0;
+  padding: 20px;
+}
 
-    .cart-container {
-      max-width: 800px;
-      margin: auto;
-      background: #1c1c1c;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
-    }
+h1 {
+  text-align: center;
+  color: gold;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px gold;
+}
 
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #333;
-      padding: 15px 0;
-    }
+.cart-container {
+  max-width: 800px;
+  margin: auto;
+  background: #1c1c1c;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+}
 
-    .cart-item:last-child {
-      border-bottom: none;
-    }
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding: 15px 0;
+}
 
-    .item-details {
-      flex: 1;
-    }
+.cart-item:last-child {
+  border-bottom: none;
+}
 
-    .item-details p {
-      margin: 5px 0;
-    }
+.item-details p {
+  margin: 5px 0;
+}
 
-    .quantity {
-      width: 60px;
-      padding: 5px;
-      text-align: center;
-      background: #222;
-      border: 1px solid #555;
-      color: white;
-      border-radius: 5px;
-    }
+.quantity, .size, .color {
+  width: 80px;
+  padding: 6px;
+  margin-top: 6px;
+  background: #222;
+  border: 1px solid #555;
+  color: gold;
+  border-radius: 5px;
+}
 
-    .remove-btn {
-      background: #990000;
-      border: none;
-      color: white;
-      padding: 6px 14px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
+.remove-btn {
+  background: #990000;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-    .remove-btn:hover {
-      padding: 10px;
-      background: #cc0000;
-      transform: scale(1.05);
-    }
+.total {
+  text-align: right;
+  font-size: 22px;
+  margin-top: 20px;
+  color: gold;
+}
 
-    .total {
-      text-align: right;
-      font-size: 22px;
-      margin-top: 20px;
-      color: gold;
-      text-shadow: 0 0 5px gold;
-    }
+form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-    .order-form {
-      margin-top: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background: #222;
+  color: gold;
+}
 
-    .input {
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-      background: #222;
-      color: rgb(255, 251, 0);
-    }
+.submit-btn {
+  background: gold;
+  color: #111;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-    .submit-btn {
-      margin-top:15px;
-      background: gold;
-      color: #111;
-      border: none;
-      padding: 10px;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
+.submit-btn:hover {
+  background: red;
+  color: white;
+}
 
-    .submit-btn:hover {
-      background: red;
-      color: white;
-      transform: scale(1.03);
-    }
-
-    @media (max-width: 600px) {
-      .cart-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .quantity {
-        margin-top: 10px;
-      }
-    }
-  </style>
+@media (max-width: 600px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <h1>🛍️ Prom Cart</h1>
+<h1>🛍️ Prom Cart</h1>
 
-  <div class="cart-container" id="cart-items"></div>
-  <div class="total" id="total-price"></div>
+<div class="cart-container" id="cart-items"></div>
+<div class="total" id="total-price"></div>
 
-  <div class="form-section">
-    <form id="cart-form" action="https://formspree.io/f/xqapnljg" method="POST">
-    <input type="text" id="customer-name" placeholder="Your Name" required />
-    <input type="tel" id="customer-phone" placeholder="Phone Number" required />
-    <button type="submit" class="submit-btn">Submit Order</button>
-  </form>
-</div>
-  
-  </div>
-  <script>
-    const cartContainer = document.getElementById("cart-items");
-    const totalDisplay = document.getElementById("total-price");
+<!-- FORM -->
+<form id="cart-form"
+  action="https://formsubmit.co/tendoprosper28@gmail.com"
+  method="POST">
 
-    let cart = JSON.parse(localStorage.getItem("promCart")) || [];
+  <input type="text" name="Customer Name" id="customer-name" placeholder="Your Name" required>
+  <input type="tel" name="Phone Number" id="customer-phone" placeholder="Phone Number" required>
 
-    function renderCart() {
-      cartContainer.innerHTML = "";
-      let total = 0;
+  <input type="hidden" name="Order Details" id="order-details">
+  <input type="hidden" name="Total Price" id="order-total">
 
-      cart.forEach((item, index) => {
-        total += item.price * item.quantity;
+  <input type="hidden" name="_subject" value="🛍️ New Prom Order">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
 
-        const itemDiv = document.createElement("div");
-        itemDiv.classList.add("cart-item");
+  <button type="submit" class="submit-btn">Submit Order</button>
+</form>
 
-        itemDiv.innerHTML = `
-          <div class="item-details">
-            <p><strong>${item.name}</strong></p>
-             <input class="size" type="number" min="10"  placeholder="Size" required/>
-             <input class="size" type="Text" min="10"  placeholder="Color" required/>
-            <p>UGX ${item.price.toLocaleString()}</p>
-          </div>
-          <input class="quantity" type="number" min="1" placeholder="Quantity"value="${item.quantity}" onchange="updateQuantity(${index}, this.value)" />
-          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
-        `;
+<script>
+const cartContainer = document.getElementById("cart-items");
+const totalDisplay = document.getElementById("total-price");
 
-        cartContainer.appendChild(itemDiv);
-      });
+let cart = JSON.parse(localStorage.getItem("promCart")) || [];
 
-      totalDisplay.innerText = `Total: UGX ${total.toLocaleString()}`;
-    }
+function renderCart() {
+  cartContainer.innerHTML = "";
+  let total = 0;
 
-    function updateQuantity(index, newQty) {
-      cart[index].quantity = parseInt(newQty);
-      localStorage.setItem("promCart", JSON.stringify(cart));
-      renderCart();
-    }
+  if (cart.length === 0) {
+    cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+    totalDisplay.textContent = "";
+    return;
+  }
 
-    function removeItem(index) {
-      cart.splice(index, 1);
-      localStorage.setItem("promCart", JSON.stringify(cart));
-      renderCart();
-    }
+  cart.forEach((item, index) => {
+    total += item.price * item.quantity;
 
-    function submitOrder(event) {
-      event.preventDefault();
-      const name = document.getElementById("customer-name").value;
-      const phone = document.getElementById("customer-phone").value;
+    const div = document.createElement("div");
+    div.className = "cart-item";
 
-      if (!name || !phone) {
-        alert("Please fill in your name and phone number.");
-        return;
-      }
+    div.innerHTML = `
+      <div class="item-details">
+        <p><strong>${item.name}</strong></p>
+        <input class="size" placeholder="Size">
+        <input class="color" placeholder="Color">
+        <p>UGX ${item.price.toLocaleString()}</p>
+      </div>
+      <input class="quantity" type="number" min="1" value="${item.quantity}"
+        onchange="updateQty(${index}, this.value)">
+      <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+    `;
 
-      const orderSummary = {
-        name,
-        phone,
-        cart
-      };
+    cartContainer.appendChild(div);
+  });
 
-      console.log("Order submitted:", orderSummary);
-      alert("Order submitted successfully!");
+  totalDisplay.textContent = `Total: UGX ${total.toLocaleString()}`;
+}
 
-      localStorage.removeItem("promCart");
-      location.reload();
-    }
+function updateQty(index, qty) {
+  cart[index].quantity = parseInt(qty);
+  localStorage.setItem("promCart", JSON.stringify(cart));
+  renderCart();
+}
 
-    renderCart();
-  </script>
+function removeItem(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("promCart", JSON.stringify(cart));
+  renderCart();
+}
+
+document.getElementById("cart-form").addEventListener("submit", function () {
+  let summary = "";
+  let total = 0;
+
+  document.querySelectorAll(".cart-item").forEach((itemDiv, i) => {
+    const size = itemDiv.querySelector(".size").value || "N/A";
+    const color = itemDiv.querySelector(".color").value || "N/A";
+
+    const item = cart[i];
+    total += item.price * item.quantity;
+
+    summary += `${item.name}
+Price: UGX ${item.price.toLocaleString()}
+Qty: ${item.quantity}
+Size: ${size}
+Color: ${color}
+
+`;
+  });
+
+  document.getElementById("order-details").value = summary;
+  document.getElementById("order-total").value =
+    "UGX " + total.toLocaleString();
+
+  localStorage.removeItem("promCart");
+});
+
+renderCart();
+</script>
+
 </body>
 </html>
+
+
