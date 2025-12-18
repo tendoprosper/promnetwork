@@ -77,6 +77,30 @@ form {
   cursor: pointer;
 }
 .submit-btn:hover { background: red; color: white; }
+
+/* Success modal */
+#successModal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: #1c1c1c;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px gold;
+  color: gold;
+  font-size: 18px;
+  text-align: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+#successModal.show {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
 @media (max-width: 600px) {
   .cart-item {
     flex-direction: column;
@@ -109,11 +133,15 @@ form {
   <button type="submit" class="submit-btn">Submit Order</button>
 </form>
 
+<!-- Success Modal -->
+<div id="successModal">✅ Your order has been submitted successfully!</div>
+
 <script>
 let cart = JSON.parse(localStorage.getItem("promCart")) || [];
 const cartDiv = document.getElementById("cart");
 const totalDiv = document.getElementById("total");
 const form = document.getElementById("orderForm");
+const successModal = document.getElementById("successModal");
 
 // Render the cart items
 function renderCart(){
@@ -165,6 +193,14 @@ function saveCart(){
   renderCart();
 }
 
+// Show success modal
+function showSuccessModal(){
+  successModal.classList.add("show");
+  setTimeout(()=>{
+    successModal.classList.remove("show");
+  }, 3000);
+}
+
 // Form submission
 form.addEventListener("submit", function(e){
   e.preventDefault();
@@ -197,7 +233,7 @@ Color: ${color}
   document.getElementById("orderDetails").value = details;
   document.getElementById("totalPrice").value = "UGX "+total.toLocaleString();
 
-  // Open WhatsApp automatically to your number 0702640109
+  // Open WhatsApp automatically to your number
   const name = document.getElementById("name").value;
   const phone = document.getElementById("phone").value;
   const whatsappMsg = encodeURIComponent(
@@ -210,11 +246,17 @@ Total: UGX ${total.toLocaleString()}`
   );
   window.open("https://wa.me/256702640109?text="+whatsappMsg, "_blank");
 
+  // Show success modal
+  showSuccessModal();
+
   // Clear cart
   localStorage.removeItem("promCart");
+  renderCart();
 
-  // Submit form to FormSubmit
-  form.submit();
+  // Submit form to FormSubmit after modal shows
+  setTimeout(()=>{
+    form.submit();
+  }, 500); // small delay to allow modal to appear
 });
 
 // Initial render
