@@ -4,65 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prom Cart</title>
-
 <style>
 body {
   font-family: 'Segoe UI', sans-serif;
-  background:#111;
-  color:#f4e2d8;
-  padding:20px;
+  background: #111;
+  color: #f4e2d8;
+  padding: 20px;
 }
 h1 {
-  text-align:center;
-  color:gold;
+  text-align: center;
+  color: gold;
+  text-shadow: 0 0 10px gold;
 }
 .cart-container {
-  max-width:800px;
-  margin:auto;
-  background:#1c1c1c;
-  padding:20px;
-  border-radius:15px;
+  max-width: 800px;
+  margin: auto;
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 15px;
 }
 .cart-item {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #333;
-  padding:15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding: 15px 0;
 }
-.cart-item:last-child {border:none;}
+.cart-item:last-child { border-bottom: none; }
+.item-details p {
+  margin: 5px 0;
+}
 input {
-  background:#222;
-  border:none;
-  padding:8px;
-  border-radius:5px;
-  color:gold;
+  background: #222;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  color: gold;
 }
-.quantity {width:60px;}
+.quantity, .size, .color {
+  width: 80px;
+  margin-top: 5px;
+}
 button {
-  background:gold;
-  border:none;
-  padding:10px;
-  font-weight:bold;
-  border-radius:5px;
-  cursor:pointer;
+  background: gold;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.remove-btn {background:#900;color:#fff;}
+.remove-btn { background: #900; color: #fff; }
 .total {
-  text-align:right;
-  color:gold;
-  margin-top:15px;
-  font-size:20px;
+  text-align: right;
+  color: gold;
+  margin-top: 15px;
+  font-size: 20px;
 }
 form {
-  margin-top:25px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.submit-btn {
+  background: gold;
+  color: #111;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.submit-btn:hover { background: red; color: white; }
+@media (max-width: 600px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 </style>
 </head>
-
 <body>
 
 <h1>🛍️ Prom Cart</h1>
@@ -84,7 +106,7 @@ form {
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="table">
 
-  <button type="submit">Submit Order</button>
+  <button type="submit" class="submit-btn">Submit Order</button>
 </form>
 
 <script>
@@ -93,49 +115,64 @@ const cartDiv = document.getElementById("cart");
 const totalDiv = document.getElementById("total");
 const form = document.getElementById("orderForm");
 
+// Render the cart items
 function renderCart(){
   cartDiv.innerHTML="";
   let total=0;
 
   if(cart.length===0){
-    cartDiv.innerHTML="<p>Cart is empty</p>";
+    cartDiv.innerHTML="<p>Your cart is empty</p>";
     totalDiv.textContent="";
     return;
   }
 
   cart.forEach((item,i)=>{
-    total+=item.price*item.quantity;
-    cartDiv.innerHTML+=`
-      <div class="cart-item">
-        <div>
-          <b>${item.name}</b><br>
-          UGX ${item.price.toLocaleString()}<br>
-          <input placeholder="Size" class="size"><br>
-          <input placeholder="Color" class="color">
-        </div>
-        <input class="quantity" type="number" min="1"
-          value="${item.quantity}"
-          onchange="cart[${i}].quantity=this.value;save()">
-        <button type="button" class="remove-btn" onclick="removeItem(${i})">X</button>
+    total += item.price * item.quantity;
+
+    const div = document.createElement("div");
+    div.className = "cart-item";
+    div.innerHTML = `
+      <div class="item-details">
+        <p><strong>${item.name}</strong></p>
+        <p>UGX ${item.price.toLocaleString()}</p>
+        <input class="size" placeholder="Size">
+        <input class="color" placeholder="Color">
       </div>
+      <input class="quantity" type="number" min="1" value="${item.quantity}" onchange="updateQty(${i}, this.value)">
+      <button type="button" class="remove-btn" onclick="removeItem(${i})">Remove</button>
     `;
+    cartDiv.appendChild(div);
   });
 
-  totalDiv.textContent=`Total: UGX ${total.toLocaleString()}`;
+  totalDiv.textContent = `Total: UGX ${total.toLocaleString()}`;
 }
 
-function save(){
-  localStorage.setItem("promCart",JSON.stringify(cart));
+// Update quantity
+function updateQty(index, value){
+  cart[index].quantity = parseInt(value);
+  saveCart();
+}
+
+// Remove item
+function removeItem(index){
+  cart.splice(index,1);
+  saveCart();
+}
+
+// Save cart to localStorage
+function saveCart(){
+  localStorage.setItem("promCart", JSON.stringify(cart));
   renderCart();
 }
 
-function removeItem(i){
-  cart.splice(i,1);
-  save();
-}
-
+// Form submission
 form.addEventListener("submit", function(e){
   e.preventDefault();
+
+  if(cart.length===0){
+    alert("Your cart is empty!");
+    return;
+  }
 
   let details="";
   let total=0;
@@ -158,12 +195,11 @@ Color: ${color}
   });
 
   document.getElementById("orderDetails").value = details;
-  document.getElementById("totalPrice").value = "UGX " + total.toLocaleString();
+  document.getElementById("totalPrice").value = "UGX "+total.toLocaleString();
 
-  // WhatsApp auto-open (user still clicks Send)
+  // Open WhatsApp automatically to your number 0702640109
   const name = document.getElementById("name").value;
   const phone = document.getElementById("phone").value;
-
   const whatsappMsg = encodeURIComponent(
 `NEW PROM ORDER
 Name: ${name}
@@ -172,17 +208,16 @@ Phone: ${phone}
 ${details}
 Total: UGX ${total.toLocaleString()}`
   );
+  window.open("https://wa.me/256702640109?text="+whatsappMsg, "_blank");
 
-  window.open(
-    "https://wa.me/256702640109?text=" + whatsappMsg,
-    "_blank"
-  );
-
+  // Clear cart
   localStorage.removeItem("promCart");
 
-  form.submit(); // ✅ FINAL: sends to FormSubmit
+  // Submit form to FormSubmit
+  form.submit();
 });
 
+// Initial render
 renderCart();
 </script>
 
