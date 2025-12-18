@@ -71,11 +71,11 @@ form {
 <div class="total" id="total"></div>
 
 <form id="orderForm"
- action="https://formsubmit.co/tendoprosper28@gmail.com"
- method="POST">
+      action="https://formsubmit.co/tendoprosper28@gmail.com"
+      method="POST">
 
-  <input type="text" id="name" name="Customer Name" placeholder="Your Name" required>
-  <input type="tel" id="phone" name="Phone Number" placeholder="Phone Number" required>
+  <input type="text" name="Customer Name" id="name" placeholder="Your Name" required>
+  <input type="tel" name="Phone Number" id="phone" placeholder="Phone Number" required>
 
   <input type="hidden" name="Order Details" id="orderDetails">
   <input type="hidden" name="Total Price" id="totalPrice">
@@ -91,6 +91,7 @@ form {
 let cart = JSON.parse(localStorage.getItem("promCart")) || [];
 const cartDiv = document.getElementById("cart");
 const totalDiv = document.getElementById("total");
+const form = document.getElementById("orderForm");
 
 function renderCart(){
   cartDiv.innerHTML="";
@@ -115,7 +116,7 @@ function renderCart(){
         <input class="quantity" type="number" min="1"
           value="${item.quantity}"
           onchange="cart[${i}].quantity=this.value;save()">
-        <button class="remove-btn" onclick="remove(${i})">X</button>
+        <button type="button" class="remove-btn" onclick="removeItem(${i})">X</button>
       </div>
     `;
   });
@@ -127,25 +128,26 @@ function save(){
   localStorage.setItem("promCart",JSON.stringify(cart));
   renderCart();
 }
-function remove(i){
+
+function removeItem(i){
   cart.splice(i,1);
   save();
 }
 
-document.getElementById("orderForm").addEventListener("submit",function(e){
+form.addEventListener("submit", function(e){
   e.preventDefault();
 
   let details="";
   let total=0;
 
   document.querySelectorAll(".cart-item").forEach((row,i)=>{
-    const size=row.querySelector(".size").value||"N/A";
-    const color=row.querySelector(".color").value||"N/A";
-    const item=cart[i];
+    const size = row.querySelector(".size").value || "N/A";
+    const color = row.querySelector(".color").value || "N/A";
+    const item = cart[i];
 
-    total+=item.price*item.quantity;
+    total += item.price * item.quantity;
 
-    details+=`
+    details += `
 ${item.name}
 Price: UGX ${item.price}
 Qty: ${item.quantity}
@@ -155,14 +157,14 @@ Color: ${color}
 `;
   });
 
-  document.getElementById("orderDetails").value=details;
-  document.getElementById("totalPrice").value="UGX "+total.toLocaleString();
+  document.getElementById("orderDetails").value = details;
+  document.getElementById("totalPrice").value = "UGX " + total.toLocaleString();
 
-  // ✅ AUTO WHATSAPP SEND
-  const name=document.getElementById("name").value;
-  const phone=document.getElementById("phone").value;
+  // WhatsApp auto-open (user still clicks Send)
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
 
-  const whatsappMsg=encodeURIComponent(
+  const whatsappMsg = encodeURIComponent(
 `NEW PROM ORDER
 Name: ${name}
 Phone: ${phone}
@@ -171,12 +173,14 @@ ${details}
 Total: UGX ${total.toLocaleString()}`
   );
 
-  window.open(`https://wa.me/256702640109?text=${whatsappMsg}`,"_blank");
-  // ⬆️ replace 256XXXXXXXXX with YOUR WhatsApp number
+  window.open(
+    "https://wa.me/256702640109?text=" + whatsappMsg,
+    "_blank"
+  );
 
   localStorage.removeItem("promCart");
 
-  this.submit(); // now send email
+  form.submit(); // ✅ FINAL: sends to FormSubmit
 });
 
 renderCart();
